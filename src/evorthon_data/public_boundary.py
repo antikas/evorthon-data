@@ -50,6 +50,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+from collections.abc import Iterable
 from dataclasses import dataclass
 from pathlib import Path, PurePosixPath
 
@@ -94,7 +95,14 @@ NUL = b"\x00"
 # candidate, and neither was ever written by a projection. Below the top of a
 # tree the same name is a private path like the others named here.
 GIT_ENTRY = ".git"
-PRIVATE_PARTS = {GIT_ENTRY, ".ergon", "plans", "release", "artifacts", "__pycache__"}
+# The name an interpreter gives the directory it writes bytecode into, beside
+# the code it imported. Nothing a projection wrote is ever under it, and the
+# check that reads a candidate runs inside the tree it reads, so a run of it
+# can create one. It is left out of the files of a candidate for that reason. A
+# committed one is a tracked path the export classifies like any other, and an
+# unclassified path stops the export, so nothing reaches a candidate this way.
+BYTECODE_CACHE = "__pycache__"
+PRIVATE_PARTS = {GIT_ENTRY, ".ergon", "plans", "release", "artifacts", BYTECODE_CACHE}
 # The name this scan reports each declared shape under. These are the words the
 # published evidence has always carried, so a finding reads as it did before.
 REPORTED_AS = {
@@ -193,6 +201,27 @@ def policy_hashes(policy_path: Path) -> set[str]:
     return set(hashes)
 
 
+def _is_bytecode_cache(path: Path, root: Path) -> bool:
+    """Whether this path sits under a bytecode cache directory below the root."""
+    return BYTECODE_CACHE in path.relative_to(root).parts
+
+
+def bytecode_paths(paths: Iterable[str]) -> list[str]:
+    """The paths among these that are compiled bytecode or sit in a cache.
+
+    The export asks this over the paths a commit projects, so a cache or a
+    compiled file that was committed never reaches a candidate: the check that
+    reads a candidate leaves caches out of its walk, and a candidate is only
+    ever free of them because the export refused to write one.
+    """
+    found = []
+    for path in paths:
+        parts = path.split("/")
+        if BYTECODE_CACHE in parts or parts[-1].endswith(".pyc"):
+            found.append(path)
+    return found
+
+
 def candidate_files(root: Path) -> list[Path]:
     """Every file one candidate root holds, sorted, its own git entry aside.
 
@@ -206,10 +235,20 @@ def candidate_files(root: Path) -> list[Path]:
     no projection ever wrote. That entry is left out here, whether it is the
     directory a clone holds or the file a linked worktree holds in its place.
 
+    A bytecode cache directory anywhere under the root is left out too. An
+    interpreter writes one beside the code it imports, and the check that reads
+    a candidate imports this module from inside the tree it is reading, so a
+    run of that check can create one where no projection ever wrote anything. A
+    cache that was committed would be a tracked path, and the export refuses to
+    project a cache or a compiled file at all, so leaving caches out here never
+    lets one into a candidate.
+
     Nothing else is left out. A git entry below the top of the root is a file
     of the tree like any other, so it is still named wherever a private or
-    undeclared path is named. A root nothing holds yields nothing, which is the
-    answer a walk of a directory that is not there has always given.
+    undeclared path is named. Compiled bytecode outside a cache directory is a
+    file of the tree like any other too. A root nothing holds yields nothing,
+    which is the answer a walk of a directory that is not there has always
+    given.
     """
     root = Path(root)
     if not root.is_dir():
@@ -221,7 +260,9 @@ def candidate_files(root: Path) -> list[Path]:
         if entry.is_file():
             found.append(entry)
             continue
-        found.extend(path for path in entry.rglob("*") if path.is_file())
+        found.extend(
+            path for path in entry.rglob("*") if path.is_file() and not _is_bytecode_cache(path, root)
+        )
     return sorted(found)
 
 

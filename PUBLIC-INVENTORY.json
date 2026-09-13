@@ -518,7 +518,7 @@
     },
     {
       "path": "scripts/check_public_candidate.py",
-      "sha256": "85eda9632aeac3a0e129c7021cf3ef7f2c9f0eb6dc1cd27d3097276b2c6575f7"
+      "sha256": "877f66517f2f3aef5771183fd8f2b5e9e480700c2397692ac7464bf1588c081f"
     },
     {
       "path": "scripts/check_readme_claim_registry.py",
@@ -618,7 +618,7 @@
     },
     {
       "path": "src/evorthon_data/public_boundary.py",
-      "sha256": "0d182977fa2758b275c112c14081d387291fda42e917024834fac286a3806247"
+      "sha256": "4241242bb268f8e91bdf095242d117c37f7ee725fd945f26e63fe83d7c91ce53"
     },
     {
       "path": "src/evorthon_data/pytest_reporter.py",
@@ -1324,6 +1324,6 @@
   "inventory_self_exclusion": "The inventory is listed but excluded from its own file digest and tree digest.",
   "provisional": false,
   "schema": "evorthon.public-inventory.v2",
-  "source_commit": "63be3a1e6d07dbec3db38928d4840f1e89a24858",
-  "tree_digest": "a86f0d45df8012cb76d154579e159f5cff4e7ea5ceefc372cba5db8fc1af4519"
+  "source_commit": "582dcaa0207ba3b0770caa9b99c2c5d6600bbb6a",
+  "tree_digest": "bacb5cdbdac88f897ad55fd64d0c36a62df914df4a1b9293d3bf7c71e706a72e"
 }

@@ -13,6 +13,9 @@ import sys
 import tempfile
 import zipfile
 
+# The check must leave the tree it checks as it found it, so nothing imported below writes bytecode.
+sys.dont_write_bytecode = True
+
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 from evorthon_data.public_boundary import (
