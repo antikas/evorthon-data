@@ -206,6 +206,25 @@ def _is_bytecode_cache(path: Path, root: Path) -> bool:
     return BYTECODE_CACHE in path.relative_to(root).parts
 
 
+PRIVATE_CLASSIFIER_PREFIX = "Private ::"
+
+
+def private_classifiers(project_text: str) -> list[str]:
+    """The classifiers in a project file that mark a build as not for the index.
+
+    The private build carries "Private :: Do Not Upload" so that an accidental
+    upload of the private tree is refused by the index itself. The projection
+    is the tree that is uploaded, so its project file must carry none; the
+    export drops them and the candidate check refuses any that survive.
+    """
+    found = []
+    for line in project_text.splitlines():
+        stripped = line.strip().strip(",").strip()
+        if stripped.startswith('"') and stripped.endswith('"') and stripped[1:-1].startswith(PRIVATE_CLASSIFIER_PREFIX):
+            found.append(stripped[1:-1])
+    return found
+
+
 def bytecode_paths(paths: Iterable[str]) -> list[str]:
     """The paths among these that are compiled bytecode or sit in a cache.
 

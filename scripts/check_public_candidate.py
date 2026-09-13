@@ -19,6 +19,7 @@ sys.dont_write_bytecode = True
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 from evorthon_data.public_boundary import (
+    private_classifiers,
     FIXTURE_TREE,
     candidate_files,
     checkout_rewrite_findings,
@@ -49,6 +50,9 @@ def main() -> int:
         raise SystemExit("public candidate missing: " + ", ".join(missing))
     if not (ROOT / "LICENSE").read_text(encoding="utf-8").startswith("MIT License"):
         raise SystemExit("public candidate license is not MIT")
+    marked = private_classifiers((ROOT / "pyproject.toml").read_text(encoding="utf-8"))
+    if marked:
+        raise SystemExit("public candidate carries a private classifier:\n" + "\n".join(marked))
     adapter_failures = validate_runtime_adapters(ROOT)
     if adapter_failures:
         raise SystemExit("broken runtime adapter:\n" + "\n".join(adapter_failures))

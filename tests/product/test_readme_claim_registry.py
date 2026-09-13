@@ -14,6 +14,7 @@ import pytest
 
 import evorthon_data
 from evorthon_data import cli
+from evorthon_data.public_boundary import private_classifiers
 from evorthon_data.public_boundary import write_inventory
 
 
@@ -326,7 +327,16 @@ def scratch_candidate(tmp_path: Path) -> Path:
     (candidate / "scripts").mkdir(parents=True)
     shutil.copy(ROOT / "scripts/check_public_candidate.py", candidate / "scripts/check_public_candidate.py")
     shutil.copy(ROOT / "README.md", candidate / "README.md")
-    shutil.copy(ROOT / "pyproject.toml", candidate / "pyproject.toml")
+    # The project file a candidate carries is the projected one: the private
+    # build's do-not-upload classifier never reaches a candidate, and the check
+    # refuses a project file that still carries it.
+    project_text = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
+    marked = set(private_classifiers(project_text))
+    projected = "".join(
+        line for line in project_text.splitlines(keepends=True)
+        if line.strip().strip(",").strip().strip('"') not in marked
+    )
+    (candidate / "pyproject.toml").write_text(projected, encoding="utf-8", newline=chr(10))
     (candidate / "LICENSE").write_text(candidate_licence_text(), encoding="utf-8")
     (candidate / "PUBLIC-LEAKAGE-POLICY.json").write_text(
         json.dumps({"forbidden_token_hashes": []}, indent=2) + chr(10), encoding="utf-8"
