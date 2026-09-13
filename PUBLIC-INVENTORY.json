@@ -514,7 +514,7 @@
     },
     {
       "path": "pyproject.toml",
-      "sha256": "2fca19a0d381acb5a0741b88e52f7741d5a639316eba85a6d02a3d81f5b49f72"
+      "sha256": "b1dfa9259a54d4c6a86ddee6b990b2963994c8bad4a6874e9ffa0f2a5ed4cdfd"
     },
     {
       "path": "scripts/check_public_candidate.py",
@@ -538,7 +538,7 @@
     },
     {
       "path": "src/evorthon_data/__init__.py",
-      "sha256": "15e631fa515753e239ad55ec8e520b9d2d81c8ef94c180e8c41259bd3d4672ea"
+      "sha256": "3f61a232a95ad1ea138580649be1637e009c177145798399810f6612e4193996"
     },
     {
       "path": "src/evorthon_data/boundary_patterns.py",
@@ -1318,12 +1318,12 @@
     },
     {
       "path": "uv.lock",
-      "sha256": "09c7b3993578fb4f1f995437e608155739e25dec334f3966afa1ab1f36708be4"
+      "sha256": "04f3c1108eaa8f104332d76d8bff4e8a88135ecd36a53365c8135d223f36f3f9"
     }
   ],
   "inventory_self_exclusion": "The inventory is listed but excluded from its own file digest and tree digest.",
   "provisional": false,
   "schema": "evorthon.public-inventory.v2",
-  "source_commit": "582dcaa0207ba3b0770caa9b99c2c5d6600bbb6a",
-  "tree_digest": "bacb5cdbdac88f897ad55fd64d0c36a62df914df4a1b9293d3bf7c71e706a72e"
+  "source_commit": "1d34d5aa44f16f812d8df45672871b8de9e64219",
+  "tree_digest": "8522425b63cabd4b687d813eadd3ba653944c152de6eb3b15877d361f96480db"
 }
