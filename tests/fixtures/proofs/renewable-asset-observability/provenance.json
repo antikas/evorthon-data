@@ -1,0 +1,132 @@
+{
+  "classification": "public",
+  "content": "Hand authored declarations and invented rows for one greenfield proof. No real, personal or confidential data, no row taken from any system, and no real organisation, person or system named.",
+  "encoding": "ascii",
+  "expected_output_provenance": "Every approved golden view is authored from the approved specification by the named author above and carries the approval evidence the example records. None of it is taken from a run of an earlier system.",
+  "files": {
+    "declared/adviser/scripted-replies.json": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this proof. Inert text a scripted adviser returns; no model produced any of it."
+    },
+    "declared/candidate/corrected.json": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this proof as the corrected candidate that reproduces both approved views and answers every declared clause."
+    },
+    "declared/candidate/interface.json": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this proof from the approved golden views, with one deliberate defect."
+    },
+    "declared/candidate/invariant.json": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this proof from the approved golden views, with one deliberate defect."
+    },
+    "declared/candidate/operational.json": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this proof from the approved golden views, with one deliberate defect."
+    },
+    "declared/candidate/reference.json": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this proof from the approved golden views, with one deliberate defect."
+    },
+    "declared/candidate/transformation.json": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this proof from the approved golden views, with one deliberate defect."
+    },
+    "declared/contract/clause-requirements.json": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this proof as the declared requirements of the interface, invariant, operational and delivery-integrity families."
+    },
+    "declared/expected/performance-view-day-one.json": {
+      "approval": "EVD-GRN-005@v1#digest-evd-grn-005",
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this proof as the approved golden asset performance view of the first reporting day, derived from the approved specification and never from any run of any system."
+    },
+    "declared/expected/performance-view-day-two.json": {
+      "approval": "EVD-GRN-005@v1#digest-evd-grn-005",
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this proof as the approved golden asset performance view of the second reporting day, derived from the approved specification and never from any run of any system."
+    },
+    "declared/generation/asset-telemetry-seed.csv": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this proof as the fixture seed the segment generation stage is given for the declared telemetry extract."
+    },
+    "declared/inputs/asset-telemetry-extract.json": {
+      "author": "evorthon-data maintainer",
+      "generator": "evorthon_data.synthetic.generator",
+      "generator_version": "1.0.0",
+      "licence": "MIT",
+      "projection": "declared",
+      "seed": "asset-telemetry-extract-2026-09",
+      "source": "Constraints written by hand for this proof. The frozen input dataset is produced from them by the shipped seeded generator at the declared seed and generator version."
+    },
+    "declared/lineage/asset-performance-lineage.json": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this proof as the declared lineage of the asset performance view."
+    },
+    "declared/reference/asset-register-reference.json": {
+      "author": "evorthon-data maintainer",
+      "generator": "evorthon_data.synthetic.generator",
+      "generator_version": "1.0.0",
+      "licence": "MIT",
+      "projection": "declared",
+      "seed": "asset-register-reference-2026-09",
+      "source": "Constraints written by hand for this proof. The frozen reference dataset is produced from them by the shipped seeded generator at the declared seed and generator version."
+    },
+    "declared/reference/turbine-technology-lookup.json": {
+      "author": "evorthon-data maintainer",
+      "generator": "evorthon_data.synthetic.generator",
+      "generator_version": "1.0.0",
+      "licence": "MIT",
+      "projection": "declared",
+      "seed": "turbine-technology-lookup-2026-09",
+      "source": "Constraints written by hand for this proof. The frozen enrichment dataset is produced from them by the shipped seeded generator at the declared seed and generator version."
+    },
+    "declared/remediation/human-selection.json": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this proof as what a named human decided about the recorded advice."
+    },
+    "withheld/confidential-asset-register-export.txt": {
+      "classification": "confidential",
+      "licence": "unresolved",
+      "projection": "withheld",
+      "provenance": "unresolved",
+      "reason": "A confidential-class sample whose provenance cannot be resolved. It is the declared negative sample: the boundary scan reports it, no proof reads it as data, and it reaches no projection.",
+      "source": "unresolved"
+    }
+  },
+  "form": "evorthon.fixture.provenance.v1",
+  "licence": "MIT",
+  "line_endings": "lf",
+  "purpose": "The frozen material one executable greenfield proof runs the shared delivery lifecycle over: the declared input, reference and enrichment constraints, the two approved golden views, the declared requirements of the contract families, the declared lineage, the fixture seed the generation stage is given, the candidate outputs carrying one deliberate defect each, the corrected candidate, the scripted adviser reply and the named human selection.",
+  "re_emitted_material": "none",
+  "read_by": "tests/product/test_proof_renewable_asset.py",
+  "shared_material": {
+    "tests/fixtures/intake": "The artefacts the scripted intake round reads are the shipped intake artefacts and are declared at their own root."
+  }
+}

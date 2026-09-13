@@ -1,0 +1,26 @@
+# Adopting Evorthon Data
+<!-- evorthon-implements: EVD-README-032 -->
+
+Start with a real consumer outcome, a clear platform boundary, named authorities, and evidence that can support the next decision. Do not begin with a tool or a target architecture.
+
+For a modernisation engagement, create an outcome brief, a current-estate map, platform design, implementation plan, delivery contract, and verification record. For greenfield, replace the current-estate map with an independently reviewed capability-discovery record; do not simply skip discovery. The resulting records establish required capabilities, constraints, architecture, increments, the delivery contract, and contract-conformance evidence without inventing a legacy-parity claim.
+
+Koine is the specialist co-worker. Its prompts generate a stage record; its paired prompts challenge it before the next stage. Pinax holds operational work state. Ergasterion may generate declared artefacts. AutoBuild may execute only eligible, approved work. None owns another mechanism's role.
+
+## What crosses to a model
+
+Every model call travels through one authorization gateway. An external call is refused unless it is presented with a current, unrevoked authorization issued in your environment and bound to the case, purpose, route, destination, exact fields, data class, retention policy and evidence policy. An ambient credential never authorises a send on its own.
+
+A use-case intake round calls a model twice, and the two calls carry different things. The generator call carries the use-case identity, the engagement mode, each admitted artefact's identity, version, digest, handling classification and logical locator, the intake sections still open, the answers a named human confirmed, and a bounded sample of the text of each artefact the authorization lets cross. The sample is cut to a declared number of rows and characters, so no artefact crosses whole however large it is, and an artefact whose handling classification is above the level the authorization's field scope names crosses no text at all. The round then proceeds on that artefact's digest and the record, and reports for every artefact how much crossed or the closed reason nothing did. The independent review call carries the recorded facts with their provenance and the artefact identities and digests, and no artefact text at any classification.
+
+The diagnostic adviser is the third route that calls a model. It carries only the declared text fields of a fault packet the privacy gate has already passed, together with the two lists of evidence identities that packet cites, so no row, key, field value or approved case text reaches it. Its reply comes back as an inert advice record: it is recorded as text for a person to read, and nothing in the product executes, applies or forwards it.
+
+Raw rows beyond the sample, credentials and machine paths never cross. A locator is logical, which means it names the artefact and the position inside that artefact and nothing else, and the record refuses it before it is written if it carries an address under any scheme, a path from the root of a machine, a lettered volume, a share host, a written home directory, a climb out of where it starts, or a path written with a machine path's separator. The same shapes are refused in a fault packet and in a tracker note. A locator that reads like a dotted server name followed by a path or a port, or like a connection string, is admitted and the round reports a warning on it, because a dotted name cannot be told from an ordinary written name. Connection details belong in your environment's configuration and not in a record, and a locator that reads like one is admitted with a warning rather than refused, because a server name typed into a locator is a naming matter for your team. A credential-shaped pattern is refused before an artefact is admitted, so it cannot reach a call at all. Your environment owns the authorization, the provider account, retention and any evidence store.
+
+## Reaching your own material
+
+This product never reaches into your environment. Candidate artefacts and stored evidence arrive through two small read contracts that you implement, and the code that implements them is yours. Reference adapters ship with the product for both contracts, one pair answering from values held in memory and one pair answering from material laid out in a directory you name, so a team can run the product end to end before wiring anything of its own.
+
+An adapter declares what it can do and what its answers are worth, and a conformance suite reads those claims against what the contract actually showed. It refuses a capability the port never showed, an assurance above the plainest level with no named input behind it, and any value or refusal carrying a machine route or a written credential. Locations, credentials, capture, signing, retention and certificate claims stay on your side of the boundary and have no field in any contract. See the [environment-adapter contract](docs/verification/environment-adapters.md).
+
+The shipped examples are synthetic teaching material. They are not a delivery template for a particular organisation. Any live evidence, credentials, local paths, review records, and operational state remain in the adopting environment.

@@ -1,0 +1,13 @@
+{
+  "adapters": {
+    "declared-candidate": {
+      "directory": "environment-owned-material",
+      "family": "fixture"
+    },
+    "held-evidence": {
+      "directory": "environment-owned-material",
+      "family": "fixture"
+    }
+  },
+  "form": "evorthon.verification.adapters.v1"
+}

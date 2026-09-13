@@ -1,0 +1,20 @@
+{
+  "author": "evorthon-data maintainer",
+  "classification": "public",
+  "content": "Hand authored artefacts with invented names, columns and values. No real, personal or confidential data, and no row taken from any system.",
+  "encoding": "ascii",
+  "files": {
+    "exported-job-credential.txt": "A refusal sample carrying an invented, generic secret-shaped assignment. It is not any supplier's key format and it opens nothing.",
+    "order-data-dictionary.md": "A data dictionary describing the invented extract, its reference data and the target output.",
+    "orders-extract.csv": "Five invented order rows, read with the standard delimited reader.",
+    "settled-orders.sql": "A script naming the step between the extract and the report."
+  },
+  "form": "evorthon.fixture.provenance.v1",
+  "licence": "MIT",
+  "line_endings": "lf",
+  "produced_by": "hand authored",
+  "purpose": "The artefacts one scripted intake round reads, so artefact intake, the credential refusal and the round itself run with no environment and no model provider.",
+  "re_emitted_material": "none",
+  "read_by": "tests/product/test_koine_session.py",
+  "source": "Artefacts written by hand for one scripted intake round, with invented names, columns and values and no row taken from any system."
+}

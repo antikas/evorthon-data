@@ -1,0 +1,12 @@
+{
+  "case_digest": "blake2b-256:81f2d2807325aa26fd0c265c0413c4f3f8f0f3142519bda20592d0d968814d85",
+  "outputs": [
+    {
+      "content_digest": "blake2b-256:1dfc93a9ec5b8ceeaafed29c035121d695b02239a0951aee82693a00d2e863ff",
+      "format_digest": "blake2b-256:eb349ae75ec38044369d692dfccd9a5705b08ec92814ce6f9333154e1ddbeb53",
+      "output_id": "daily-output",
+      "row_count": 3,
+      "version": "v1"
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "classification": "public",
+  "content": "Hand authored declarations and invented rows for one verification case an installed distribution is driven through. No real, personal or confidential data, no row taken from any system, and no real organisation, person or system named.",
+  "encoding": "ascii",
+  "files": {
+    "declared/eng-installed-verification/adapters.json": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this fixture as the document an environment writes to name the one shipped adapter family and the directory it holds its material under."
+    },
+    "declared/eng-installed-verification/case.json": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this fixture as one approved case document, in the canonical form the shipped writer emits, declaring one parity clause over synthetic material."
+    },
+    "declared/eng-installed-verification/material.json": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this fixture as the approved and observed rows one run is compared over. The two sets agree, so the run completes with every declared clause passing."
+    },
+    "declared/environment-owned-material/candidate.json": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this fixture as the candidate declaration the fixture adapter reads."
+    },
+    "declared/environment-owned-material/declared-outputs/conformance-case/v1.json": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this fixture as the outputs a candidate declares for one case, laid out by the shipped writer in the one layout the fixture adapters read."
+    },
+    "declared/environment-owned-material/declared-outputs/reconciliation-case/v1.json": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this fixture as the outputs a candidate declares for one case, laid out by the shipped writer in the one layout the fixture adapters read."
+    },
+    "declared/environment-owned-material/evidence/conformance-checkpoint-note/v1.content": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this fixture as one inert evidence body. It names no real organisation, person or system and carries no row of any estate."
+    },
+    "declared/environment-owned-material/evidence/conformance-checkpoint-note/v1.record.json": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this fixture as the record held beside one evidence body, laid out by the shipped writer with the digest of the bytes it answers for."
+    },
+    "declared/environment-owned-material/evidence/conformance-lineage-note/v1.content": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this fixture as one inert evidence body. It names no real organisation, person or system and carries no row of any estate."
+    },
+    "declared/environment-owned-material/evidence/conformance-lineage-note/v1.record.json": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this fixture as the record held beside one evidence body, laid out by the shipped writer with the digest of the bytes it answers for."
+    },
+    "declared/environment-owned-material/evidence/parity-evidence/v1.content": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this fixture as one inert evidence body. It names no real organisation, person or system and carries no row of any estate."
+    },
+    "declared/environment-owned-material/evidence/parity-evidence/v1.record.json": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this fixture as the record held beside one evidence body, laid out by the shipped writer with the digest of the bytes it answers for."
+    }
+  },
+  "form": "evorthon.fixture.provenance.v1",
+  "licence": "MIT",
+  "line_endings": "lf",
+  "purpose": "The frozen material one clean installation of the product is driven through: an approved case document, the adapter configuration that names the one shipped family and the directory it reads, the material one run is compared over, and the held evidence, candidate and declared outputs that directory carries. The whole tree is the contents of a records root, so a caller copies it into a working directory and drives the installed command over it without reading anything from a source checkout.",
+  "re_emitted_material": "none",
+  "read_by": "tests/product/test_deep_harness.py"
+}

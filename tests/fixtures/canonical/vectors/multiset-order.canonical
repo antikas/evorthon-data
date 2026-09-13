@@ -1,0 +1,4 @@
+721:{"canonicalisation":{"canonicalisation_id":"canonical-json-v1","decimal_scale":null,"non_finite_number_policy":"reject","null_representation":"json-null","signed_zero_representation":"positive-zero","timestamp_precision":null,"timezone":null,"unicode_normalisation":"NFC","version":"v1"},"grain":{"duplicate_keys_permitted":true,"grain_id":"multiset-grain","key_fields":["label"],"version":"v1"},"ordering":null,"row_count":3,"schema":{"fields":[{"field_id":"label","nullable":false,"precision":null,"scale":null,"value_type":"string"},{"field_id":"quantity","nullable":false,"precision":null,"scale":null,"value_type":"integer"}],"schema_id":"multiset-schema","version":"v1"},"stream":"evorthon.canonical.row-stream.v1"}
+30:{"label":"alpha","quantity":1}
+29:{"label":"beta","quantity":2}
+29:{"label":"beta","quantity":2}

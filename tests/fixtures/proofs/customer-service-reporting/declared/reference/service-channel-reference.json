@@ -1,0 +1,48 @@
+{
+  "schema": {
+    "schema_id": "service-channel-reference",
+    "version": "v1",
+    "format_name": "csv-rfc4180",
+    "fields": [
+      {"field_id": "service-channel", "value_type": "string", "nullable": false, "semantic_role": "business-key", "precision": null, "scale": null},
+      {"field_id": "channel-name", "value_type": "string", "nullable": false, "semantic_role": "label", "precision": null, "scale": null},
+      {"field_id": "active-from", "value_type": "date", "nullable": false, "semantic_role": "effective-date", "precision": null, "scale": null}
+    ]
+  },
+  "grain": {
+    "grain_id": "one-row-per-service-channel",
+    "version": "v1",
+    "key_fields": ["service-channel"],
+    "population_description": "one row per service channel in the reference list",
+    "duplicate_keys_permitted": false
+  },
+  "keys": [
+    {
+      "key_list_id": "service-channel-keys",
+      "source": {
+        "identifier": "service-channel-list",
+        "version": "v1",
+        "digest": "blake2b-256:3f1c8a5d6e2b47908cfa1d3b5e7092461ac8d35f0b9e2746d8130fac5be97204"
+      },
+      "values": ["voice", "chat", "email", "callback"]
+    }
+  ],
+  "constraints": {
+    "constraints_id": "service-channel-reference-summaries",
+    "version": "v1",
+    "dataset_id": "service-channel-reference",
+    "role": "reference",
+    "row_count": 4,
+    "approved_summary": "Four invented service channels drawn one to one from the declared channel list.",
+    "fields": [
+      {"field_id": "service-channel", "rule": "foreign-key", "lower": null, "upper": null, "categories": [], "key_list_id": "service-channel-keys", "cardinality": "one-to-one", "null_rate": 0.0, "null_rate_tolerance": 0.0},
+      {"field_id": "channel-name", "rule": "categories", "lower": null, "upper": null, "categories": [
+        {"value": "Voice line", "weight": 1},
+        {"value": "Chat desk", "weight": 1},
+        {"value": "Email desk", "weight": 1},
+        {"value": "Callback queue", "weight": 1}
+      ], "key_list_id": null, "cardinality": null, "null_rate": 0.0, "null_rate_tolerance": 0.0},
+      {"field_id": "active-from", "rule": "range", "lower": "2024-01-01", "upper": "2024-06-30", "categories": [], "key_list_id": null, "cardinality": null, "null_rate": 0.0, "null_rate_tolerance": 0.0}
+    ]
+  }
+}

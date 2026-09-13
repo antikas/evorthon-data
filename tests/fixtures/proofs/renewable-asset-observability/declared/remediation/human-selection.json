@@ -1,0 +1,18 @@
+{
+  "decided_by": {
+    "identity": "asset-view-acceptance-authority",
+    "kind": "human",
+    "version": "v1"
+  },
+  "disposition": "accepted",
+  "iteration": {
+    "iteration_id": "first-consumer-view-loop",
+    "summary": "build and verify the asset performance view for the reported reporting day"
+  },
+  "rationale": {
+    "identifier": "asset-view-remedy-rationale",
+    "summary": "the named authority read the gated packet and approved the remedy it names"
+  },
+  "remedy_summary": "correct the declared publication of the reported reporting day",
+  "summary": "What the named human decided about the recorded advice, and the work that decision approves."
+}

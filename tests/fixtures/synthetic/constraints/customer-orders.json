@@ -1,0 +1,59 @@
+{
+  "schema": {
+    "schema_id": "customer-orders",
+    "version": "v1",
+    "format_name": "csv-rfc4180",
+    "fields": [
+      {"field_id": "order_id", "value_type": "string", "nullable": false, "semantic_role": "key", "precision": null, "scale": null},
+      {"field_id": "customer_id", "value_type": "string", "nullable": false, "semantic_role": "foreign key", "precision": null, "scale": null},
+      {"field_id": "region", "value_type": "string", "nullable": true, "semantic_role": "attribute", "precision": null, "scale": null},
+      {"field_id": "order_date", "value_type": "date", "nullable": false, "semantic_role": "effective date", "precision": null, "scale": null},
+      {"field_id": "order_amount", "value_type": "decimal", "nullable": false, "semantic_role": "measure", "precision": 12, "scale": 2},
+      {"field_id": "is_priority", "value_type": "boolean", "nullable": true, "semantic_role": "flag", "precision": null, "scale": null},
+      {"field_id": "recorded_at", "value_type": "timestamp", "nullable": false, "semantic_role": "record time", "precision": null, "scale": null}
+    ]
+  },
+  "grain": {
+    "grain_id": "one-row-per-order",
+    "version": "v1",
+    "key_fields": ["order_id"],
+    "population_description": "one row per accepted order in the declared period",
+    "duplicate_keys_permitted": false
+  },
+  "keys": [
+    {
+      "key_list_id": "customer-keys",
+      "source": {
+        "identifier": "customer-master-extract",
+        "version": "v3",
+        "digest": "blake2b-256:3f1c9a24b7d05e6810c4af73920d5e1b8a6c2f409d7e3b15ca80f42d6b9713ce"
+      },
+      "values": ["CUST-0001", "CUST-0002", "CUST-0003", "CUST-0004", "CUST-0005", "CUST-0006", "CUST-0007", "CUST-0008"]
+    }
+  ],
+  "constraints": {
+    "constraints_id": "customer-orders-summaries",
+    "version": "v1",
+    "dataset_id": "customer-orders-synthetic",
+    "role": "input",
+    "row_count": 40,
+    "approved_summary": "Forty synthetic orders across eight known customer keys, four regions and one quarter.",
+    "fields": [
+      {"field_id": "order_id", "rule": "sequence", "lower": "ORD-", "upper": null, "categories": [], "key_list_id": null, "cardinality": null, "null_rate": 0.0, "null_rate_tolerance": 0.0},
+      {"field_id": "customer_id", "rule": "foreign-key", "lower": null, "upper": null, "categories": [], "key_list_id": "customer-keys", "cardinality": "many-to-one", "null_rate": 0.0, "null_rate_tolerance": 0.0},
+      {"field_id": "region", "rule": "categories", "lower": null, "upper": null, "categories": [
+        {"value": "north", "weight": 4},
+        {"value": "south", "weight": 3},
+        {"value": "east, west", "weight": 2},
+        {"value": "the \"central\" belt", "weight": 1}
+      ], "key_list_id": null, "cardinality": null, "null_rate": 0.1, "null_rate_tolerance": 0.05},
+      {"field_id": "order_date", "rule": "range", "lower": "2026-01-01", "upper": "2026-03-31", "categories": [], "key_list_id": null, "cardinality": null, "null_rate": 0.0, "null_rate_tolerance": 0.0},
+      {"field_id": "order_amount", "rule": "range", "lower": "10.00", "upper": "9999.99", "categories": [], "key_list_id": null, "cardinality": null, "null_rate": 0.0, "null_rate_tolerance": 0.0},
+      {"field_id": "is_priority", "rule": "categories", "lower": null, "upper": null, "categories": [
+        {"value": true, "weight": 1},
+        {"value": false, "weight": 4}
+      ], "key_list_id": null, "cardinality": null, "null_rate": 0.05, "null_rate_tolerance": 0.05},
+      {"field_id": "recorded_at", "rule": "range", "lower": "2026-01-01T00:00:00Z", "upper": "2026-03-31T23:59:59Z", "categories": [], "key_list_id": null, "cardinality": null, "null_rate": 0.0, "null_rate_tolerance": 0.0}
+    ]
+  }
+}

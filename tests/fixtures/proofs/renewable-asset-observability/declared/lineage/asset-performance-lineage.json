@@ -1,0 +1,35 @@
+{
+  "lineage_id": "asset-performance-lineage",
+  "version": "v1",
+  "summary": "The declared lineage of the asset performance view: one validation checkpoint and one checkpoint per published reporting day.",
+  "checkpoints": [
+    {
+      "checkpoint_id": "validated-asset-observations",
+      "parents": [],
+      "transformation": "validate-asset-observations",
+      "expected_state": "validated-asset-observations-state",
+      "provenance": "asset-telemetry-extract-run",
+      "evidence": "checkpoint-validated-asset-observations"
+    },
+    {
+      "checkpoint_id": "published-asset-performance-view-day-one",
+      "parents": ["validated-asset-observations"],
+      "transformation": "publish-asset-performance-view",
+      "expected_state": "published-asset-performance-view-day-one-state",
+      "provenance": "asset-performance-publication-run",
+      "evidence": "checkpoint-published-asset-performance-view-day-one"
+    },
+    {
+      "checkpoint_id": "published-asset-performance-view-day-two",
+      "parents": ["validated-asset-observations"],
+      "transformation": "publish-asset-performance-view",
+      "expected_state": "published-asset-performance-view-day-two-state",
+      "provenance": "asset-performance-publication-run",
+      "evidence": "checkpoint-published-asset-performance-view-day-two"
+    }
+  ],
+  "bindings": [
+    {"output": "asset-performance-view-2026-09-01", "checkpoint": "published-asset-performance-view-day-one"},
+    {"output": "asset-performance-view-2026-09-02", "checkpoint": "published-asset-performance-view-day-two"}
+  ]
+}

@@ -1,0 +1,3 @@
+# Frame a platform outcome
+
+Write a consumer outcome, measurable signals, scope boundary, authorities, constraints, and decision-ready questions. Explicitly elicit the verification case intent, check families, lineage/checkpoint expectations with a named evidence owner for every checkpoint, and acceptance rules. Map every success signal to one structured executable criterion: an immutable versioned validator-specification reference, one or more immutable approved evidence references, the required result `pass`, and a declared acceptance rule. Reject blank, placeholder, unapproved, or unversioned owners, validators, and evidence. Do not infer legacy parity for a greenfield engagement. Explain terms from a standing start.

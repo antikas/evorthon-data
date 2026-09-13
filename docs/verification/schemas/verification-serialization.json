@@ -1,0 +1,801 @@
+{
+  "domain_schema_version": "evorthon.verification.domain.v2",
+  "enum_types": [
+    {
+      "name": "VerificationMode",
+      "schema_version": "evorthon.verification.domain.v2",
+      "values": [
+        "modernisation",
+        "greenfield"
+      ]
+    },
+    {
+      "name": "DatasetRole",
+      "schema_version": "evorthon.verification.domain.v2",
+      "values": [
+        "input",
+        "reference",
+        "enrichment",
+        "prior-state"
+      ]
+    },
+    {
+      "name": "DatasetProvenance",
+      "schema_version": "evorthon.verification.domain.v2",
+      "values": [
+        "real",
+        "synthetic",
+        "derived"
+      ]
+    },
+    {
+      "name": "EvidenceProvenance",
+      "schema_version": "evorthon.verification.domain.v2",
+      "values": [
+        "real",
+        "mixed",
+        "synthetic"
+      ]
+    },
+    {
+      "name": "ExpectedOutputOrigin",
+      "schema_version": "evorthon.verification.domain.v2",
+      "values": [
+        "modernisation-capture",
+        "greenfield-specification",
+        "reference-implementation",
+        "synthetic-derivation"
+      ]
+    },
+    {
+      "name": "ClauseFamily",
+      "schema_version": "evorthon.verification.domain.v2",
+      "values": [
+        "parity",
+        "conformance",
+        "invariant",
+        "operational-evidence",
+        "delivery-integrity"
+      ]
+    },
+    {
+      "name": "VerificationStatus",
+      "schema_version": "evorthon.verification.domain.v2",
+      "values": [
+        "pass",
+        "fail",
+        "insufficient-evidence"
+      ]
+    },
+    {
+      "name": "DiagnosticStrength",
+      "schema_version": "evorthon.verification.domain.v2",
+      "values": [
+        "output-only",
+        "checkpointed",
+        "replayable"
+      ]
+    },
+    {
+      "name": "AssuranceLevel",
+      "schema_version": "evorthon.verification.domain.v2",
+      "values": [
+        "declared",
+        "owner-presented",
+        "environment-certified"
+      ]
+    },
+    {
+      "name": "RemediationDisposition",
+      "schema_version": "evorthon.verification.domain.v2",
+      "values": [
+        "proposed",
+        "accepted",
+        "rejected",
+        "modified",
+        "request-more-evidence"
+      ]
+    },
+    {
+      "name": "ReceiptSubject",
+      "schema_version": "evorthon.verification.domain.v2",
+      "values": [
+        "input",
+        "reference",
+        "enrichment",
+        "prior-state",
+        "context"
+      ]
+    },
+    {
+      "name": "FaultClass",
+      "schema_version": "evorthon.verification.domain.v2",
+      "values": [
+        "input-identity",
+        "reference-identity",
+        "schema-coercion",
+        "missing-population",
+        "additional-population",
+        "duplicate-join-cardinality",
+        "filter-window-boundary",
+        "temporal-effective-date",
+        "default-null",
+        "calculation-precision-rounding",
+        "nondeterministic-ordering",
+        "state-replay",
+        "output-formatting",
+        "runtime-configuration-drift",
+        "unknown"
+      ]
+    },
+    {
+      "name": "DisclosureDecision",
+      "schema_version": "evorthon.verification.domain.v2",
+      "values": [
+        "disclose",
+        "withhold-small-cell",
+        "withhold-policy",
+        "withhold-unknown"
+      ]
+    },
+    {
+      "name": "AdviserConfidence",
+      "schema_version": "evorthon.verification.domain.v2",
+      "values": [
+        "unknown",
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    {
+      "name": "SchemaValueType",
+      "schema_version": "evorthon.verification.domain.v2",
+      "values": [
+        "string",
+        "integer",
+        "decimal",
+        "boolean",
+        "date",
+        "timestamp",
+        "binary"
+      ]
+    },
+    {
+      "name": "ComparisonDimension",
+      "schema_version": "evorthon.verification.domain.v2",
+      "values": [
+        "schema",
+        "population",
+        "key",
+        "value",
+        "join-cardinality",
+        "effective-time",
+        "calculation",
+        "aggregate",
+        "ordering",
+        "output-format",
+        "replay-metadata"
+      ]
+    },
+    {
+      "name": "RuleOperator",
+      "schema_version": "evorthon.verification.domain.v2",
+      "values": [
+        "equals",
+        "not-equals",
+        "present",
+        "absent",
+        "at-least",
+        "at-most",
+        "matches"
+      ]
+    },
+    {
+      "name": "SortDirection",
+      "schema_version": "evorthon.verification.domain.v2",
+      "values": [
+        "ascending",
+        "descending"
+      ]
+    },
+    {
+      "name": "NullPlacement",
+      "schema_version": "evorthon.verification.domain.v2",
+      "values": [
+        "first",
+        "last"
+      ]
+    },
+    {
+      "name": "LocalisationStatus",
+      "schema_version": "evorthon.verification.domain.v2",
+      "values": [
+        "confirmed",
+        "inferred",
+        "unknown"
+      ]
+    },
+    {
+      "name": "UncoveredPathReason",
+      "schema_version": "evorthon.verification.domain.v2",
+      "values": [
+        "output-only",
+        "missing-checkpoint-evidence",
+        "ambiguous-branch",
+        "replay-not-declared"
+      ]
+    }
+  ],
+  "record_types": [
+    {
+      "fields": [
+        "identifier",
+        "version",
+        "digest"
+      ],
+      "name": "Identity",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "evidence_id",
+        "version",
+        "digest",
+        "summary"
+      ],
+      "name": "EvidenceReference",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "field_id",
+        "value_type",
+        "nullable",
+        "semantic_role",
+        "precision",
+        "scale"
+      ],
+      "name": "SchemaField",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "schema_id",
+        "version",
+        "fields",
+        "format_name"
+      ],
+      "name": "SchemaDeclaration",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "grain_id",
+        "version",
+        "key_fields",
+        "population_description",
+        "duplicate_keys_permitted"
+      ],
+      "name": "GrainDeclaration",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "canonicalisation_id",
+        "version",
+        "unicode_normalisation",
+        "null_representation",
+        "decimal_scale",
+        "timestamp_precision",
+        "timezone",
+        "signed_zero_representation",
+        "non_finite_number_policy"
+      ],
+      "name": "CanonicalisationDeclaration",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "generator_id",
+        "generator_version",
+        "seed",
+        "constraints_digest",
+        "constrained_by"
+      ],
+      "name": "SyntheticProvenance",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "dataset_id",
+        "version",
+        "role",
+        "provenance",
+        "synthetic_provenance",
+        "content_digest",
+        "schema",
+        "grain",
+        "canonicalisation",
+        "row_count",
+        "approved_summary"
+      ],
+      "name": "FrozenDataset",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "output_id",
+        "version",
+        "origin",
+        "provenance",
+        "content_digest",
+        "schema",
+        "grain",
+        "canonicalisation",
+        "row_count",
+        "format_digest",
+        "approved_summary"
+      ],
+      "name": "ExpectedOutput",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "candidate_id",
+        "version",
+        "artifact_digest"
+      ],
+      "name": "CandidateIdentity",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "context_id",
+        "version",
+        "digest",
+        "logical_run_time",
+        "cutoff_time",
+        "timezone"
+      ],
+      "name": "ContextIdentity",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "receipt_id",
+        "version",
+        "subject",
+        "subject_identity",
+        "observed_digest",
+        "derived_by",
+        "evidence"
+      ],
+      "name": "IndependentlyDerivedReceipt",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "repeat_run_id",
+        "version",
+        "digest"
+      ],
+      "name": "RepeatRunIdentity",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "field_id",
+        "operator",
+        "expected_value"
+      ],
+      "name": "RuleConstraint",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "rule_id",
+        "version",
+        "constraints"
+      ],
+      "name": "RuleDeclaration",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "aggregate_id",
+        "version",
+        "operation",
+        "input_field_id",
+        "output_field_id",
+        "group_by_fields",
+        "null_handling",
+        "rounding_mode"
+      ],
+      "name": "AggregateControl",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "field_id",
+        "direction",
+        "null_placement"
+      ],
+      "name": "OrderingField",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "ordering_id",
+        "version",
+        "fields",
+        "tie_breaker_fields"
+      ],
+      "name": "OrderingDeclaration",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "dataset_id",
+        "role",
+        "required"
+      ],
+      "name": "ReplayInput",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "replay_id",
+        "version",
+        "checkpoint_id",
+        "inputs",
+        "context",
+        "transformation",
+        "output_schema",
+        "output_grain",
+        "canonicalisation"
+      ],
+      "name": "ReplaySpecification",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "comparison_id",
+        "version",
+        "dimensions",
+        "schema",
+        "grain",
+        "canonicalisation",
+        "aggregates",
+        "ordering",
+        "replay"
+      ],
+      "name": "ComparisonDeclaration",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "tolerance_id",
+        "version",
+        "clause_ids",
+        "dimensions",
+        "field_ids",
+        "measurement",
+        "lower_bound",
+        "upper_bound",
+        "unit",
+        "rounding_mode"
+      ],
+      "name": "ToleranceDeclaration",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "exclusion_id",
+        "version",
+        "clause_ids",
+        "dimensions",
+        "selector",
+        "rationale"
+      ],
+      "name": "ExclusionDeclaration",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "warning_id",
+        "version",
+        "clause_ids",
+        "dimensions",
+        "field_ids",
+        "measurement",
+        "lower_bound",
+        "upper_bound",
+        "unit"
+      ],
+      "name": "WarningBandDeclaration",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "clause_id",
+        "version",
+        "expected_output_id",
+        "comparison",
+        "required_evidence"
+      ],
+      "name": "ParityClause",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "clause_id",
+        "version",
+        "contract",
+        "requirement",
+        "required_evidence"
+      ],
+      "name": "ConformanceClause",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "clause_id",
+        "version",
+        "invariant",
+        "requirement",
+        "required_evidence"
+      ],
+      "name": "InvariantClause",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "clause_id",
+        "version",
+        "operational_signal",
+        "requirement",
+        "required_evidence"
+      ],
+      "name": "OperationalEvidenceClause",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "clause_id",
+        "version",
+        "delivery_artifact",
+        "requirement",
+        "required_evidence"
+      ],
+      "name": "DeliveryIntegrityClause",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "policy_id",
+        "version",
+        "digest",
+        "clauses",
+        "tolerances",
+        "exclusions",
+        "warning_bands"
+      ],
+      "name": "ComparisonPolicy",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "checkpoint_id",
+        "version",
+        "parent_ids",
+        "expected_state",
+        "schema",
+        "grain",
+        "canonicalisation",
+        "transformation",
+        "provenance",
+        "diagnostic_evidence",
+        "replay"
+      ],
+      "name": "Checkpoint",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "expected_output_id",
+        "terminal_checkpoint_id"
+      ],
+      "name": "OutputLineageBinding",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "lineage_id",
+        "version",
+        "checkpoints",
+        "output_bindings"
+      ],
+      "name": "LineageDefinition",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "evidence_id",
+        "version",
+        "digest",
+        "presented_by",
+        "approval_evidence"
+      ],
+      "name": "OwnerPresentedEvidence",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "claim_id",
+        "version",
+        "certificate_digest",
+        "issued_by",
+        "assurance_level"
+      ],
+      "name": "EnvironmentCertificateClaim",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "assurance_id",
+        "version",
+        "declared_level",
+        "owner_presented_evidence",
+        "environment_certificate_claims"
+      ],
+      "name": "AssuranceDeclaration",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "case_id",
+        "version",
+        "mode",
+        "frozen_datasets",
+        "expected_outputs",
+        "context",
+        "comparison_policy",
+        "lineage",
+        "assurance",
+        "diagnostic_strength"
+      ],
+      "name": "VerificationCase",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "output_id",
+        "version",
+        "content_digest",
+        "schema",
+        "grain",
+        "canonicalisation",
+        "row_count",
+        "format_digest",
+        "approved_summary"
+      ],
+      "name": "ActualOutput",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "outcome_id",
+        "version",
+        "clause",
+        "family",
+        "status",
+        "compared_dimensions",
+        "expected_evidence",
+        "observed_evidence"
+      ],
+      "name": "ClauseOutcome",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "checkpoint_id",
+        "evidence"
+      ],
+      "name": "LineageFrontier",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "path_id",
+        "checkpoint_ids",
+        "reason",
+        "evidence"
+      ],
+      "name": "UncoveredPath",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "localisation_id",
+        "version",
+        "status",
+        "lower_frontier",
+        "upper_frontier",
+        "uncovered_paths",
+        "supporting_evidence"
+      ],
+      "name": "DiagnosticLocalisation",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "result_id",
+        "version",
+        "case",
+        "candidate",
+        "context",
+        "independent_receipts",
+        "actual_outputs",
+        "clause_outcomes",
+        "status",
+        "evidence",
+        "diagnostic_strength",
+        "repeat_run_identity"
+      ],
+      "name": "VerificationResult",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "fault_id",
+        "version",
+        "result",
+        "affected_clause_outcome_ids",
+        "fault_class",
+        "localisation",
+        "diagnostic_scope",
+        "disclosure_decision",
+        "supporting_evidence",
+        "contradicting_evidence",
+        "correction_surface"
+      ],
+      "name": "FaultRecord",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "advice_id",
+        "version",
+        "fault",
+        "hypotheses",
+        "proposed_fixes",
+        "discriminating_tests",
+        "supporting_evidence",
+        "contradicting_evidence",
+        "assumptions",
+        "required_authority",
+        "confidence"
+      ],
+      "name": "RemediationAdvice",
+      "schema_version": "evorthon.verification.domain.v2"
+    },
+    {
+      "fields": [
+        "remediation_id",
+        "version",
+        "advice",
+        "disposition",
+        "decided_by",
+        "rationale",
+        "approved_work"
+      ],
+      "name": "RemediationDecision",
+      "schema_version": "evorthon.verification.domain.v2"
+    }
+  ],
+  "schema": "evorthon.verification.serialization-projection.v1",
+  "semantic_source": "evorthon_data.verification.domain.contracts",
+  "unknown_field_policy": "reject",
+  "unknown_version_policy": "reject"
+}

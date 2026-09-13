@@ -1,0 +1,5 @@
+883:{"canonicalisation":{"canonicalisation_id":"canonical-json-non-finite","decimal_scale":2,"non_finite_number_policy":"canonical-token","null_representation":"json-null","signed_zero_representation":"positive-zero","timestamp_precision":null,"timezone":null,"unicode_normalisation":"NFC","version":"v1"},"grain":{"duplicate_keys_permitted":false,"grain_id":"non-finite-grain","key_fields":["label"],"version":"v1"},"ordering":{"fields":[{"direction":"ascending","field_id":"label","null_placement":"last"}],"ordering_id":"non-finite-order","tie_breaker_fields":[],"version":"v1"},"row_count":4,"schema":{"fields":[{"field_id":"label","nullable":false,"precision":null,"scale":null,"value_type":"string"},{"field_id":"measure","nullable":false,"precision":18,"scale":2,"value_type":"decimal"}],"schema_id":"non-finite-schema","version":"v1"},"stream":"evorthon.canonical.row-stream.v1"}
+34:{"label":"finite","measure":42.00}
+51:{"label":"negative-infinity","measure":"-Infinity"}
+40:{"label":"not-a-number","measure":"NaN"}
+50:{"label":"positive-infinity","measure":"Infinity"}

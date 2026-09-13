@@ -1,0 +1,5 @@
+875:{"canonicalisation":{"canonicalisation_id":"canonical-json-v1","decimal_scale":null,"non_finite_number_policy":"reject","null_representation":"json-null","signed_zero_representation":"positive-zero","timestamp_precision":null,"timezone":null,"unicode_normalisation":"NFC","version":"v1"},"grain":{"duplicate_keys_permitted":false,"grain_id":"label-grain","key_fields":["label"],"version":"v1"},"ordering":{"fields":[{"direction":"descending","field_id":"rank","null_placement":"first"}],"ordering_id":"descending-nulls-first","tie_breaker_fields":[],"version":"v1"},"row_count":4,"schema":{"fields":[{"field_id":"label","nullable":false,"precision":null,"scale":null,"value_type":"string"},{"field_id":"rank","nullable":true,"precision":null,"scale":null,"value_type":"integer"}],"schema_id":"ranked-output-schema","version":"v1"},"stream":"evorthon.canonical.row-stream.v1"}
+32:{"label":"unranked","rank":null}
+26:{"label":"third","rank":3}
+27:{"label":"second","rank":2}
+26:{"label":"first","rank":1}

@@ -1,0 +1,89 @@
+name: Publish the reviewed distributions
+
+# This workflow uploads the distributions a person has already reviewed and
+# attached to a tagged publication. It builds nothing of its own, and it stops
+# before uploading anything whose digest disagrees with the digests published
+# beside it.
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: The tag whose attached distributions are published, in the form vX.Y.Z
+        required: true
+        type: string
+
+concurrency:
+  group: pypi-publish
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    name: Publish to the package index
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/project/evorthon-data/
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Download the distributions the tag carries
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.release_tag }}
+          REPOSITORY: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ ! "$RELEASE_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "release_tag must use the form vX.Y.Z" >&2
+            exit 1
+          fi
+
+          mkdir -p assets
+          gh api "repos/$REPOSITORY/releases/tags/$RELEASE_TAG" --jq '.assets[] | [.name, .url] | @tsv' > catalogue.tsv
+          while IFS=$'\t' read -r name address; do
+            case "$name" in
+              evorthon_data-*.whl|evorthon_data-*.tar.gz|SHA256SUMS)
+                gh api -H "Accept: application/octet-stream" "$address" > "assets/$name"
+                ;;
+            esac
+          done < catalogue.tsv
+
+      - name: Verify the downloaded distributions against the published digests
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          cd assets
+          shopt -s nullglob
+
+          test -f SHA256SUMS
+          wheels=(evorthon_data-*.whl)
+          sdists=(evorthon_data-*.tar.gz)
+          test "${#wheels[@]}" -eq 1
+          test "${#sdists[@]}" -eq 1
+          packages=("${wheels[0]}" "${sdists[0]}")
+
+          listed=$(awk '{ name = $2; sub(/^[*]/, "", name); print name }' SHA256SUMS | sort)
+          expected=$({ echo "${wheels[0]}"; echo "${sdists[0]}"; } | sort)
+          test "$(wc -l < SHA256SUMS)" -eq 2
+          test "$listed" = "$expected"
+          sha256sum --check --strict SHA256SUMS
+
+          cp -- "${packages[@]}" "$GITHUB_WORKSPACE/dist/"
+
+      # The published v1 line of the trusted-publishing action, pinned by commit.
+      - name: Publish the verified distributions
+        uses: pypa/gh-action-pypi-publish@dc37677b2e1c63e2034f94d8a5b11f265b73ba33
+        with:
+          packages-dir: dist
+          verify-metadata: true
+          skip-existing: false
+          attestations: true
+          print-hash: true

@@ -1,0 +1,2983 @@
+{
+  "$defs": {
+    "ActualOutput": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_summary": {
+          "type": "string"
+        },
+        "canonicalisation": {
+          "$ref": "#/$defs/CanonicalisationDeclaration"
+        },
+        "content_digest": {
+          "type": "string"
+        },
+        "format_digest": {
+          "type": "string"
+        },
+        "grain": {
+          "$ref": "#/$defs/GrainDeclaration"
+        },
+        "output_id": {
+          "type": "string"
+        },
+        "row_count": {
+          "type": "integer"
+        },
+        "schema": {
+          "$ref": "#/$defs/SchemaDeclaration"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "output_id",
+        "version",
+        "content_digest",
+        "schema",
+        "grain",
+        "canonicalisation",
+        "row_count",
+        "format_digest",
+        "approved_summary"
+      ],
+      "type": "object"
+    },
+    "AggregateControl": {
+      "additionalProperties": false,
+      "properties": {
+        "aggregate_id": {
+          "type": "string"
+        },
+        "group_by_fields": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "input_field_id": {
+          "type": "string"
+        },
+        "null_handling": {
+          "type": "string"
+        },
+        "operation": {
+          "type": "string"
+        },
+        "output_field_id": {
+          "type": "string"
+        },
+        "rounding_mode": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "aggregate_id",
+        "version",
+        "operation",
+        "input_field_id",
+        "output_field_id",
+        "group_by_fields",
+        "null_handling",
+        "rounding_mode"
+      ],
+      "type": "object"
+    },
+    "AssuranceDeclaration": {
+      "additionalProperties": false,
+      "properties": {
+        "assurance_id": {
+          "type": "string"
+        },
+        "declared_level": {
+          "enum": [
+            "declared",
+            "owner-presented",
+            "environment-certified"
+          ],
+          "type": "string"
+        },
+        "environment_certificate_claims": {
+          "items": {
+            "$ref": "#/$defs/EnvironmentCertificateClaim"
+          },
+          "type": "array"
+        },
+        "owner_presented_evidence": {
+          "items": {
+            "$ref": "#/$defs/OwnerPresentedEvidence"
+          },
+          "type": "array"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "assurance_id",
+        "version",
+        "declared_level",
+        "owner_presented_evidence",
+        "environment_certificate_claims"
+      ],
+      "type": "object"
+    },
+    "CandidateIdentity": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_digest": {
+          "type": "string"
+        },
+        "candidate_id": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "version",
+        "artifact_digest"
+      ],
+      "type": "object"
+    },
+    "CanonicalisationDeclaration": {
+      "additionalProperties": false,
+      "properties": {
+        "canonicalisation_id": {
+          "type": "string"
+        },
+        "decimal_scale": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "non_finite_number_policy": {
+          "type": "string"
+        },
+        "null_representation": {
+          "type": "string"
+        },
+        "signed_zero_representation": {
+          "type": "string"
+        },
+        "timestamp_precision": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "timezone": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "unicode_normalisation": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "canonicalisation_id",
+        "version",
+        "unicode_normalisation",
+        "null_representation",
+        "decimal_scale",
+        "timestamp_precision",
+        "timezone",
+        "signed_zero_representation",
+        "non_finite_number_policy"
+      ],
+      "type": "object"
+    },
+    "Checkpoint": {
+      "additionalProperties": false,
+      "properties": {
+        "canonicalisation": {
+          "$ref": "#/$defs/CanonicalisationDeclaration"
+        },
+        "checkpoint_id": {
+          "type": "string"
+        },
+        "diagnostic_evidence": {
+          "items": {
+            "$ref": "#/$defs/EvidenceReference"
+          },
+          "type": "array"
+        },
+        "expected_state": {
+          "$ref": "#/$defs/Identity"
+        },
+        "grain": {
+          "$ref": "#/$defs/GrainDeclaration"
+        },
+        "parent_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "provenance": {
+          "$ref": "#/$defs/Identity"
+        },
+        "replay": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ReplaySpecification"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "schema": {
+          "$ref": "#/$defs/SchemaDeclaration"
+        },
+        "transformation": {
+          "$ref": "#/$defs/Identity"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "checkpoint_id",
+        "version",
+        "parent_ids",
+        "expected_state",
+        "schema",
+        "grain",
+        "canonicalisation",
+        "transformation",
+        "provenance",
+        "diagnostic_evidence",
+        "replay"
+      ],
+      "type": "object"
+    },
+    "ClauseOutcome": {
+      "additionalProperties": false,
+      "properties": {
+        "clause": {
+          "$ref": "#/$defs/Identity"
+        },
+        "compared_dimensions": {
+          "items": {
+            "enum": [
+              "schema",
+              "population",
+              "key",
+              "value",
+              "join-cardinality",
+              "effective-time",
+              "calculation",
+              "aggregate",
+              "ordering",
+              "output-format",
+              "replay-metadata"
+            ],
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "expected_evidence": {
+          "items": {
+            "$ref": "#/$defs/EvidenceReference"
+          },
+          "type": "array"
+        },
+        "family": {
+          "enum": [
+            "parity",
+            "conformance",
+            "invariant",
+            "operational-evidence",
+            "delivery-integrity"
+          ],
+          "type": "string"
+        },
+        "observed_evidence": {
+          "items": {
+            "$ref": "#/$defs/EvidenceReference"
+          },
+          "type": "array"
+        },
+        "outcome_id": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "pass",
+            "fail",
+            "insufficient-evidence"
+          ],
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "outcome_id",
+        "version",
+        "clause",
+        "family",
+        "status",
+        "compared_dimensions",
+        "expected_evidence",
+        "observed_evidence"
+      ],
+      "type": "object"
+    },
+    "ComparisonDeclaration": {
+      "additionalProperties": false,
+      "properties": {
+        "aggregates": {
+          "items": {
+            "$ref": "#/$defs/AggregateControl"
+          },
+          "type": "array"
+        },
+        "canonicalisation": {
+          "$ref": "#/$defs/CanonicalisationDeclaration"
+        },
+        "comparison_id": {
+          "type": "string"
+        },
+        "dimensions": {
+          "items": {
+            "enum": [
+              "schema",
+              "population",
+              "key",
+              "value",
+              "join-cardinality",
+              "effective-time",
+              "calculation",
+              "aggregate",
+              "ordering",
+              "output-format",
+              "replay-metadata"
+            ],
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "grain": {
+          "$ref": "#/$defs/GrainDeclaration"
+        },
+        "ordering": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/OrderingDeclaration"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "replay": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ReplaySpecification"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "schema": {
+          "$ref": "#/$defs/SchemaDeclaration"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "comparison_id",
+        "version",
+        "dimensions",
+        "schema",
+        "grain",
+        "canonicalisation",
+        "aggregates",
+        "ordering",
+        "replay"
+      ],
+      "type": "object"
+    },
+    "ComparisonPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "clauses": {
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/ParityClause"
+              },
+              {
+                "$ref": "#/$defs/ConformanceClause"
+              },
+              {
+                "$ref": "#/$defs/InvariantClause"
+              },
+              {
+                "$ref": "#/$defs/OperationalEvidenceClause"
+              },
+              {
+                "$ref": "#/$defs/DeliveryIntegrityClause"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "digest": {
+          "type": "string"
+        },
+        "exclusions": {
+          "items": {
+            "$ref": "#/$defs/ExclusionDeclaration"
+          },
+          "type": "array"
+        },
+        "policy_id": {
+          "type": "string"
+        },
+        "tolerances": {
+          "items": {
+            "$ref": "#/$defs/ToleranceDeclaration"
+          },
+          "type": "array"
+        },
+        "version": {
+          "type": "string"
+        },
+        "warning_bands": {
+          "items": {
+            "$ref": "#/$defs/WarningBandDeclaration"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "policy_id",
+        "version",
+        "digest",
+        "clauses",
+        "tolerances",
+        "exclusions",
+        "warning_bands"
+      ],
+      "type": "object"
+    },
+    "ConformanceClause": {
+      "additionalProperties": false,
+      "properties": {
+        "clause_id": {
+          "type": "string"
+        },
+        "contract": {
+          "$ref": "#/$defs/Identity"
+        },
+        "required_evidence": {
+          "items": {
+            "$ref": "#/$defs/EvidenceReference"
+          },
+          "type": "array"
+        },
+        "requirement": {
+          "$ref": "#/$defs/RuleDeclaration"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "clause_id",
+        "version",
+        "contract",
+        "requirement",
+        "required_evidence"
+      ],
+      "type": "object"
+    },
+    "ContextIdentity": {
+      "additionalProperties": false,
+      "properties": {
+        "context_id": {
+          "type": "string"
+        },
+        "cutoff_time": {
+          "type": "string"
+        },
+        "digest": {
+          "type": "string"
+        },
+        "logical_run_time": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "context_id",
+        "version",
+        "digest",
+        "logical_run_time",
+        "cutoff_time",
+        "timezone"
+      ],
+      "type": "object"
+    },
+    "DeliveryIntegrityClause": {
+      "additionalProperties": false,
+      "properties": {
+        "clause_id": {
+          "type": "string"
+        },
+        "delivery_artifact": {
+          "$ref": "#/$defs/Identity"
+        },
+        "required_evidence": {
+          "items": {
+            "$ref": "#/$defs/EvidenceReference"
+          },
+          "type": "array"
+        },
+        "requirement": {
+          "$ref": "#/$defs/RuleDeclaration"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "clause_id",
+        "version",
+        "delivery_artifact",
+        "requirement",
+        "required_evidence"
+      ],
+      "type": "object"
+    },
+    "DiagnosticLocalisation": {
+      "additionalProperties": false,
+      "properties": {
+        "localisation_id": {
+          "type": "string"
+        },
+        "lower_frontier": {
+          "items": {
+            "$ref": "#/$defs/LineageFrontier"
+          },
+          "type": "array"
+        },
+        "status": {
+          "enum": [
+            "confirmed",
+            "inferred",
+            "unknown"
+          ],
+          "type": "string"
+        },
+        "supporting_evidence": {
+          "items": {
+            "$ref": "#/$defs/EvidenceReference"
+          },
+          "type": "array"
+        },
+        "uncovered_paths": {
+          "items": {
+            "$ref": "#/$defs/UncoveredPath"
+          },
+          "type": "array"
+        },
+        "upper_frontier": {
+          "items": {
+            "$ref": "#/$defs/LineageFrontier"
+          },
+          "type": "array"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "localisation_id",
+        "version",
+        "status",
+        "lower_frontier",
+        "upper_frontier",
+        "uncovered_paths",
+        "supporting_evidence"
+      ],
+      "type": "object"
+    },
+    "EnvironmentCertificateClaim": {
+      "additionalProperties": false,
+      "properties": {
+        "assurance_level": {
+          "enum": [
+            "declared",
+            "owner-presented",
+            "environment-certified"
+          ],
+          "type": "string"
+        },
+        "certificate_digest": {
+          "type": "string"
+        },
+        "claim_id": {
+          "type": "string"
+        },
+        "issued_by": {
+          "$ref": "#/$defs/Identity"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "claim_id",
+        "version",
+        "certificate_digest",
+        "issued_by",
+        "assurance_level"
+      ],
+      "type": "object"
+    },
+    "EvidenceReference": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "type": "string"
+        },
+        "evidence_id": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "version",
+        "digest",
+        "summary"
+      ],
+      "type": "object"
+    },
+    "ExclusionDeclaration": {
+      "additionalProperties": false,
+      "properties": {
+        "clause_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "dimensions": {
+          "items": {
+            "enum": [
+              "schema",
+              "population",
+              "key",
+              "value",
+              "join-cardinality",
+              "effective-time",
+              "calculation",
+              "aggregate",
+              "ordering",
+              "output-format",
+              "replay-metadata"
+            ],
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "exclusion_id": {
+          "type": "string"
+        },
+        "rationale": {
+          "type": "string"
+        },
+        "selector": {
+          "items": {
+            "$ref": "#/$defs/RuleConstraint"
+          },
+          "type": "array"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "exclusion_id",
+        "version",
+        "clause_ids",
+        "dimensions",
+        "selector",
+        "rationale"
+      ],
+      "type": "object"
+    },
+    "ExpectedOutput": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_summary": {
+          "type": "string"
+        },
+        "canonicalisation": {
+          "$ref": "#/$defs/CanonicalisationDeclaration"
+        },
+        "content_digest": {
+          "type": "string"
+        },
+        "format_digest": {
+          "type": "string"
+        },
+        "grain": {
+          "$ref": "#/$defs/GrainDeclaration"
+        },
+        "origin": {
+          "enum": [
+            "modernisation-capture",
+            "greenfield-specification",
+            "reference-implementation",
+            "synthetic-derivation"
+          ],
+          "type": "string"
+        },
+        "output_id": {
+          "type": "string"
+        },
+        "provenance": {
+          "enum": [
+            "real",
+            "synthetic",
+            "derived"
+          ],
+          "type": "string"
+        },
+        "row_count": {
+          "type": "integer"
+        },
+        "schema": {
+          "$ref": "#/$defs/SchemaDeclaration"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "output_id",
+        "version",
+        "origin",
+        "provenance",
+        "content_digest",
+        "schema",
+        "grain",
+        "canonicalisation",
+        "row_count",
+        "format_digest",
+        "approved_summary"
+      ],
+      "type": "object"
+    },
+    "FaultRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "affected_clause_outcome_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "contradicting_evidence": {
+          "items": {
+            "$ref": "#/$defs/EvidenceReference"
+          },
+          "type": "array"
+        },
+        "correction_surface": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Identity"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "diagnostic_scope": {
+          "type": "string"
+        },
+        "disclosure_decision": {
+          "enum": [
+            "disclose",
+            "withhold-small-cell",
+            "withhold-policy",
+            "withhold-unknown"
+          ],
+          "type": "string"
+        },
+        "fault_class": {
+          "enum": [
+            "input-identity",
+            "reference-identity",
+            "schema-coercion",
+            "missing-population",
+            "additional-population",
+            "duplicate-join-cardinality",
+            "filter-window-boundary",
+            "temporal-effective-date",
+            "default-null",
+            "calculation-precision-rounding",
+            "nondeterministic-ordering",
+            "state-replay",
+            "output-formatting",
+            "runtime-configuration-drift",
+            "unknown"
+          ],
+          "type": "string"
+        },
+        "fault_id": {
+          "type": "string"
+        },
+        "localisation": {
+          "$ref": "#/$defs/DiagnosticLocalisation"
+        },
+        "result": {
+          "$ref": "#/$defs/Identity"
+        },
+        "supporting_evidence": {
+          "items": {
+            "$ref": "#/$defs/EvidenceReference"
+          },
+          "type": "array"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "fault_id",
+        "version",
+        "result",
+        "affected_clause_outcome_ids",
+        "fault_class",
+        "localisation",
+        "diagnostic_scope",
+        "disclosure_decision",
+        "supporting_evidence",
+        "contradicting_evidence",
+        "correction_surface"
+      ],
+      "type": "object"
+    },
+    "FrozenDataset": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_summary": {
+          "type": "string"
+        },
+        "canonicalisation": {
+          "$ref": "#/$defs/CanonicalisationDeclaration"
+        },
+        "content_digest": {
+          "type": "string"
+        },
+        "dataset_id": {
+          "type": "string"
+        },
+        "grain": {
+          "$ref": "#/$defs/GrainDeclaration"
+        },
+        "provenance": {
+          "enum": [
+            "real",
+            "synthetic",
+            "derived"
+          ],
+          "type": "string"
+        },
+        "role": {
+          "enum": [
+            "input",
+            "reference",
+            "enrichment",
+            "prior-state"
+          ],
+          "type": "string"
+        },
+        "row_count": {
+          "type": "integer"
+        },
+        "schema": {
+          "$ref": "#/$defs/SchemaDeclaration"
+        },
+        "synthetic_provenance": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/SyntheticProvenance"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "dataset_id",
+        "version",
+        "role",
+        "provenance",
+        "synthetic_provenance",
+        "content_digest",
+        "schema",
+        "grain",
+        "canonicalisation",
+        "row_count",
+        "approved_summary"
+      ],
+      "type": "object"
+    },
+    "GrainDeclaration": {
+      "additionalProperties": false,
+      "properties": {
+        "duplicate_keys_permitted": {
+          "type": "boolean"
+        },
+        "grain_id": {
+          "type": "string"
+        },
+        "key_fields": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "population_description": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "grain_id",
+        "version",
+        "key_fields",
+        "population_description",
+        "duplicate_keys_permitted"
+      ],
+      "type": "object"
+    },
+    "Identity": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "type": "string"
+        },
+        "identifier": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "identifier",
+        "version",
+        "digest"
+      ],
+      "type": "object"
+    },
+    "IndependentlyDerivedReceipt": {
+      "additionalProperties": false,
+      "properties": {
+        "derived_by": {
+          "$ref": "#/$defs/Identity"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/EvidenceReference"
+          },
+          "type": "array"
+        },
+        "observed_digest": {
+          "type": "string"
+        },
+        "receipt_id": {
+          "type": "string"
+        },
+        "subject": {
+          "enum": [
+            "input",
+            "reference",
+            "enrichment",
+            "prior-state",
+            "context"
+          ],
+          "type": "string"
+        },
+        "subject_identity": {
+          "$ref": "#/$defs/Identity"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "receipt_id",
+        "version",
+        "subject",
+        "subject_identity",
+        "observed_digest",
+        "derived_by",
+        "evidence"
+      ],
+      "type": "object"
+    },
+    "InvariantClause": {
+      "additionalProperties": false,
+      "properties": {
+        "clause_id": {
+          "type": "string"
+        },
+        "invariant": {
+          "$ref": "#/$defs/Identity"
+        },
+        "required_evidence": {
+          "items": {
+            "$ref": "#/$defs/EvidenceReference"
+          },
+          "type": "array"
+        },
+        "requirement": {
+          "$ref": "#/$defs/RuleDeclaration"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "clause_id",
+        "version",
+        "invariant",
+        "requirement",
+        "required_evidence"
+      ],
+      "type": "object"
+    },
+    "LineageDefinition": {
+      "additionalProperties": false,
+      "properties": {
+        "checkpoints": {
+          "items": {
+            "$ref": "#/$defs/Checkpoint"
+          },
+          "type": "array"
+        },
+        "lineage_id": {
+          "type": "string"
+        },
+        "output_bindings": {
+          "items": {
+            "$ref": "#/$defs/OutputLineageBinding"
+          },
+          "type": "array"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "lineage_id",
+        "version",
+        "checkpoints",
+        "output_bindings"
+      ],
+      "type": "object"
+    },
+    "LineageFrontier": {
+      "additionalProperties": false,
+      "properties": {
+        "checkpoint_id": {
+          "type": "string"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/EvidenceReference"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "checkpoint_id",
+        "evidence"
+      ],
+      "type": "object"
+    },
+    "OperationalEvidenceClause": {
+      "additionalProperties": false,
+      "properties": {
+        "clause_id": {
+          "type": "string"
+        },
+        "operational_signal": {
+          "$ref": "#/$defs/Identity"
+        },
+        "required_evidence": {
+          "items": {
+            "$ref": "#/$defs/EvidenceReference"
+          },
+          "type": "array"
+        },
+        "requirement": {
+          "$ref": "#/$defs/RuleDeclaration"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "clause_id",
+        "version",
+        "operational_signal",
+        "requirement",
+        "required_evidence"
+      ],
+      "type": "object"
+    },
+    "OrderingDeclaration": {
+      "additionalProperties": false,
+      "properties": {
+        "fields": {
+          "items": {
+            "$ref": "#/$defs/OrderingField"
+          },
+          "type": "array"
+        },
+        "ordering_id": {
+          "type": "string"
+        },
+        "tie_breaker_fields": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ordering_id",
+        "version",
+        "fields",
+        "tie_breaker_fields"
+      ],
+      "type": "object"
+    },
+    "OrderingField": {
+      "additionalProperties": false,
+      "properties": {
+        "direction": {
+          "enum": [
+            "ascending",
+            "descending"
+          ],
+          "type": "string"
+        },
+        "field_id": {
+          "type": "string"
+        },
+        "null_placement": {
+          "enum": [
+            "first",
+            "last"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "field_id",
+        "direction",
+        "null_placement"
+      ],
+      "type": "object"
+    },
+    "OutputLineageBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "expected_output_id": {
+          "type": "string"
+        },
+        "terminal_checkpoint_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "expected_output_id",
+        "terminal_checkpoint_id"
+      ],
+      "type": "object"
+    },
+    "OwnerPresentedEvidence": {
+      "additionalProperties": false,
+      "properties": {
+        "approval_evidence": {
+          "$ref": "#/$defs/EvidenceReference"
+        },
+        "digest": {
+          "type": "string"
+        },
+        "evidence_id": {
+          "type": "string"
+        },
+        "presented_by": {
+          "$ref": "#/$defs/Identity"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "version",
+        "digest",
+        "presented_by",
+        "approval_evidence"
+      ],
+      "type": "object"
+    },
+    "ParityClause": {
+      "additionalProperties": false,
+      "properties": {
+        "clause_id": {
+          "type": "string"
+        },
+        "comparison": {
+          "$ref": "#/$defs/ComparisonDeclaration"
+        },
+        "expected_output_id": {
+          "type": "string"
+        },
+        "required_evidence": {
+          "items": {
+            "$ref": "#/$defs/EvidenceReference"
+          },
+          "type": "array"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "clause_id",
+        "version",
+        "expected_output_id",
+        "comparison",
+        "required_evidence"
+      ],
+      "type": "object"
+    },
+    "RemediationAdvice": {
+      "additionalProperties": false,
+      "properties": {
+        "advice_id": {
+          "type": "string"
+        },
+        "assumptions": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "confidence": {
+          "enum": [
+            "unknown",
+            "low",
+            "medium",
+            "high"
+          ],
+          "type": "string"
+        },
+        "contradicting_evidence": {
+          "items": {
+            "$ref": "#/$defs/EvidenceReference"
+          },
+          "type": "array"
+        },
+        "discriminating_tests": {
+          "items": {
+            "$ref": "#/$defs/Identity"
+          },
+          "type": "array"
+        },
+        "fault": {
+          "$ref": "#/$defs/Identity"
+        },
+        "hypotheses": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "proposed_fixes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "required_authority": {
+          "$ref": "#/$defs/Identity"
+        },
+        "supporting_evidence": {
+          "items": {
+            "$ref": "#/$defs/EvidenceReference"
+          },
+          "type": "array"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "advice_id",
+        "version",
+        "fault",
+        "hypotheses",
+        "proposed_fixes",
+        "discriminating_tests",
+        "supporting_evidence",
+        "contradicting_evidence",
+        "assumptions",
+        "required_authority",
+        "confidence"
+      ],
+      "type": "object"
+    },
+    "RemediationDecision": {
+      "additionalProperties": false,
+      "properties": {
+        "advice": {
+          "$ref": "#/$defs/Identity"
+        },
+        "approved_work": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Identity"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "decided_by": {
+          "$ref": "#/$defs/Identity"
+        },
+        "disposition": {
+          "enum": [
+            "proposed",
+            "accepted",
+            "rejected",
+            "modified",
+            "request-more-evidence"
+          ],
+          "type": "string"
+        },
+        "rationale": {
+          "$ref": "#/$defs/EvidenceReference"
+        },
+        "remediation_id": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "remediation_id",
+        "version",
+        "advice",
+        "disposition",
+        "decided_by",
+        "rationale",
+        "approved_work"
+      ],
+      "type": "object"
+    },
+    "RepeatRunIdentity": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "type": "string"
+        },
+        "repeat_run_id": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "repeat_run_id",
+        "version",
+        "digest"
+      ],
+      "type": "object"
+    },
+    "ReplayInput": {
+      "additionalProperties": false,
+      "properties": {
+        "dataset_id": {
+          "type": "string"
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "role": {
+          "enum": [
+            "input",
+            "reference",
+            "enrichment",
+            "prior-state"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "dataset_id",
+        "role",
+        "required"
+      ],
+      "type": "object"
+    },
+    "ReplaySpecification": {
+      "additionalProperties": false,
+      "properties": {
+        "canonicalisation": {
+          "$ref": "#/$defs/CanonicalisationDeclaration"
+        },
+        "checkpoint_id": {
+          "type": "string"
+        },
+        "context": {
+          "$ref": "#/$defs/ContextIdentity"
+        },
+        "inputs": {
+          "items": {
+            "$ref": "#/$defs/ReplayInput"
+          },
+          "type": "array"
+        },
+        "output_grain": {
+          "$ref": "#/$defs/GrainDeclaration"
+        },
+        "output_schema": {
+          "$ref": "#/$defs/SchemaDeclaration"
+        },
+        "replay_id": {
+          "type": "string"
+        },
+        "transformation": {
+          "$ref": "#/$defs/Identity"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "replay_id",
+        "version",
+        "checkpoint_id",
+        "inputs",
+        "context",
+        "transformation",
+        "output_schema",
+        "output_grain",
+        "canonicalisation"
+      ],
+      "type": "object"
+    },
+    "RuleConstraint": {
+      "additionalProperties": false,
+      "properties": {
+        "expected_value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "field_id": {
+          "type": "string"
+        },
+        "operator": {
+          "enum": [
+            "equals",
+            "not-equals",
+            "present",
+            "absent",
+            "at-least",
+            "at-most",
+            "matches"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "field_id",
+        "operator",
+        "expected_value"
+      ],
+      "type": "object"
+    },
+    "RuleDeclaration": {
+      "additionalProperties": false,
+      "properties": {
+        "constraints": {
+          "items": {
+            "$ref": "#/$defs/RuleConstraint"
+          },
+          "type": "array"
+        },
+        "rule_id": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "rule_id",
+        "version",
+        "constraints"
+      ],
+      "type": "object"
+    },
+    "SchemaDeclaration": {
+      "additionalProperties": false,
+      "properties": {
+        "fields": {
+          "items": {
+            "$ref": "#/$defs/SchemaField"
+          },
+          "type": "array"
+        },
+        "format_name": {
+          "type": "string"
+        },
+        "schema_id": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_id",
+        "version",
+        "fields",
+        "format_name"
+      ],
+      "type": "object"
+    },
+    "SchemaField": {
+      "additionalProperties": false,
+      "properties": {
+        "field_id": {
+          "type": "string"
+        },
+        "nullable": {
+          "type": "boolean"
+        },
+        "precision": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "scale": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "semantic_role": {
+          "type": "string"
+        },
+        "value_type": {
+          "enum": [
+            "string",
+            "integer",
+            "decimal",
+            "boolean",
+            "date",
+            "timestamp",
+            "binary"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "field_id",
+        "value_type",
+        "nullable",
+        "semantic_role",
+        "precision",
+        "scale"
+      ],
+      "type": "object"
+    },
+    "SyntheticProvenance": {
+      "additionalProperties": false,
+      "properties": {
+        "constrained_by": {
+          "items": {
+            "$ref": "#/$defs/Identity"
+          },
+          "type": "array"
+        },
+        "constraints_digest": {
+          "type": "string"
+        },
+        "generator_id": {
+          "type": "string"
+        },
+        "generator_version": {
+          "type": "string"
+        },
+        "seed": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "generator_id",
+        "generator_version",
+        "seed",
+        "constraints_digest",
+        "constrained_by"
+      ],
+      "type": "object"
+    },
+    "ToleranceDeclaration": {
+      "additionalProperties": false,
+      "properties": {
+        "clause_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "dimensions": {
+          "items": {
+            "enum": [
+              "schema",
+              "population",
+              "key",
+              "value",
+              "join-cardinality",
+              "effective-time",
+              "calculation",
+              "aggregate",
+              "ordering",
+              "output-format",
+              "replay-metadata"
+            ],
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "field_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "lower_bound": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "measurement": {
+          "type": "string"
+        },
+        "rounding_mode": {
+          "type": "string"
+        },
+        "tolerance_id": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "upper_bound": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "tolerance_id",
+        "version",
+        "clause_ids",
+        "dimensions",
+        "field_ids",
+        "measurement",
+        "lower_bound",
+        "upper_bound",
+        "unit",
+        "rounding_mode"
+      ],
+      "type": "object"
+    },
+    "UncoveredPath": {
+      "additionalProperties": false,
+      "properties": {
+        "checkpoint_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/EvidenceReference"
+          },
+          "type": "array"
+        },
+        "path_id": {
+          "type": "string"
+        },
+        "reason": {
+          "enum": [
+            "output-only",
+            "missing-checkpoint-evidence",
+            "ambiguous-branch",
+            "replay-not-declared"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "path_id",
+        "checkpoint_ids",
+        "reason",
+        "evidence"
+      ],
+      "type": "object"
+    },
+    "VerificationCase": {
+      "additionalProperties": false,
+      "properties": {
+        "assurance": {
+          "$ref": "#/$defs/AssuranceDeclaration"
+        },
+        "case_id": {
+          "type": "string"
+        },
+        "comparison_policy": {
+          "$ref": "#/$defs/ComparisonPolicy"
+        },
+        "context": {
+          "$ref": "#/$defs/ContextIdentity"
+        },
+        "diagnostic_strength": {
+          "enum": [
+            "output-only",
+            "checkpointed",
+            "replayable"
+          ],
+          "type": "string"
+        },
+        "expected_outputs": {
+          "items": {
+            "$ref": "#/$defs/ExpectedOutput"
+          },
+          "type": "array"
+        },
+        "frozen_datasets": {
+          "items": {
+            "$ref": "#/$defs/FrozenDataset"
+          },
+          "type": "array"
+        },
+        "lineage": {
+          "$ref": "#/$defs/LineageDefinition"
+        },
+        "mode": {
+          "enum": [
+            "modernisation",
+            "greenfield"
+          ],
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "case_id",
+        "version",
+        "mode",
+        "frozen_datasets",
+        "expected_outputs",
+        "context",
+        "comparison_policy",
+        "lineage",
+        "assurance",
+        "diagnostic_strength"
+      ],
+      "type": "object"
+    },
+    "VerificationResult": {
+      "additionalProperties": false,
+      "properties": {
+        "actual_outputs": {
+          "items": {
+            "$ref": "#/$defs/ActualOutput"
+          },
+          "type": "array"
+        },
+        "candidate": {
+          "$ref": "#/$defs/CandidateIdentity"
+        },
+        "case": {
+          "$ref": "#/$defs/Identity"
+        },
+        "clause_outcomes": {
+          "items": {
+            "$ref": "#/$defs/ClauseOutcome"
+          },
+          "type": "array"
+        },
+        "context": {
+          "$ref": "#/$defs/ContextIdentity"
+        },
+        "diagnostic_strength": {
+          "enum": [
+            "output-only",
+            "checkpointed",
+            "replayable"
+          ],
+          "type": "string"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/EvidenceReference"
+          },
+          "type": "array"
+        },
+        "independent_receipts": {
+          "items": {
+            "$ref": "#/$defs/IndependentlyDerivedReceipt"
+          },
+          "type": "array"
+        },
+        "repeat_run_identity": {
+          "$ref": "#/$defs/RepeatRunIdentity"
+        },
+        "result_id": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "pass",
+            "fail",
+            "insufficient-evidence"
+          ],
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "result_id",
+        "version",
+        "case",
+        "candidate",
+        "context",
+        "independent_receipts",
+        "actual_outputs",
+        "clause_outcomes",
+        "status",
+        "evidence",
+        "diagnostic_strength",
+        "repeat_run_identity"
+      ],
+      "type": "object"
+    },
+    "WarningBandDeclaration": {
+      "additionalProperties": false,
+      "properties": {
+        "clause_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "dimensions": {
+          "items": {
+            "enum": [
+              "schema",
+              "population",
+              "key",
+              "value",
+              "join-cardinality",
+              "effective-time",
+              "calculation",
+              "aggregate",
+              "ordering",
+              "output-format",
+              "replay-metadata"
+            ],
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "field_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "lower_bound": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "measurement": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "upper_bound": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "version": {
+          "type": "string"
+        },
+        "warning_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "warning_id",
+        "version",
+        "clause_ids",
+        "dimensions",
+        "field_ids",
+        "measurement",
+        "lower_bound",
+        "upper_bound",
+        "unit"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "https://evorthon-data.dev/schemas/verification/domain/v2.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Generated from evorthon_data.verification.domain.contracts; unknown fields and schema versions are rejected.",
+  "oneOf": [
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/Identity"
+        },
+        "record_type": {
+          "const": "Identity"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/EvidenceReference"
+        },
+        "record_type": {
+          "const": "EvidenceReference"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/SchemaField"
+        },
+        "record_type": {
+          "const": "SchemaField"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/SchemaDeclaration"
+        },
+        "record_type": {
+          "const": "SchemaDeclaration"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/GrainDeclaration"
+        },
+        "record_type": {
+          "const": "GrainDeclaration"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/CanonicalisationDeclaration"
+        },
+        "record_type": {
+          "const": "CanonicalisationDeclaration"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/SyntheticProvenance"
+        },
+        "record_type": {
+          "const": "SyntheticProvenance"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/FrozenDataset"
+        },
+        "record_type": {
+          "const": "FrozenDataset"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/ExpectedOutput"
+        },
+        "record_type": {
+          "const": "ExpectedOutput"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/CandidateIdentity"
+        },
+        "record_type": {
+          "const": "CandidateIdentity"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/ContextIdentity"
+        },
+        "record_type": {
+          "const": "ContextIdentity"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/IndependentlyDerivedReceipt"
+        },
+        "record_type": {
+          "const": "IndependentlyDerivedReceipt"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/RepeatRunIdentity"
+        },
+        "record_type": {
+          "const": "RepeatRunIdentity"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/RuleConstraint"
+        },
+        "record_type": {
+          "const": "RuleConstraint"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/RuleDeclaration"
+        },
+        "record_type": {
+          "const": "RuleDeclaration"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/AggregateControl"
+        },
+        "record_type": {
+          "const": "AggregateControl"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/OrderingField"
+        },
+        "record_type": {
+          "const": "OrderingField"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/OrderingDeclaration"
+        },
+        "record_type": {
+          "const": "OrderingDeclaration"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/ReplayInput"
+        },
+        "record_type": {
+          "const": "ReplayInput"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/ReplaySpecification"
+        },
+        "record_type": {
+          "const": "ReplaySpecification"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/ComparisonDeclaration"
+        },
+        "record_type": {
+          "const": "ComparisonDeclaration"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/ToleranceDeclaration"
+        },
+        "record_type": {
+          "const": "ToleranceDeclaration"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/ExclusionDeclaration"
+        },
+        "record_type": {
+          "const": "ExclusionDeclaration"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/WarningBandDeclaration"
+        },
+        "record_type": {
+          "const": "WarningBandDeclaration"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/ParityClause"
+        },
+        "record_type": {
+          "const": "ParityClause"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/ConformanceClause"
+        },
+        "record_type": {
+          "const": "ConformanceClause"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/InvariantClause"
+        },
+        "record_type": {
+          "const": "InvariantClause"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/OperationalEvidenceClause"
+        },
+        "record_type": {
+          "const": "OperationalEvidenceClause"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/DeliveryIntegrityClause"
+        },
+        "record_type": {
+          "const": "DeliveryIntegrityClause"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/ComparisonPolicy"
+        },
+        "record_type": {
+          "const": "ComparisonPolicy"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/Checkpoint"
+        },
+        "record_type": {
+          "const": "Checkpoint"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/OutputLineageBinding"
+        },
+        "record_type": {
+          "const": "OutputLineageBinding"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/LineageDefinition"
+        },
+        "record_type": {
+          "const": "LineageDefinition"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/OwnerPresentedEvidence"
+        },
+        "record_type": {
+          "const": "OwnerPresentedEvidence"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/EnvironmentCertificateClaim"
+        },
+        "record_type": {
+          "const": "EnvironmentCertificateClaim"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/AssuranceDeclaration"
+        },
+        "record_type": {
+          "const": "AssuranceDeclaration"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/VerificationCase"
+        },
+        "record_type": {
+          "const": "VerificationCase"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/ActualOutput"
+        },
+        "record_type": {
+          "const": "ActualOutput"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/ClauseOutcome"
+        },
+        "record_type": {
+          "const": "ClauseOutcome"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/LineageFrontier"
+        },
+        "record_type": {
+          "const": "LineageFrontier"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/UncoveredPath"
+        },
+        "record_type": {
+          "const": "UncoveredPath"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/DiagnosticLocalisation"
+        },
+        "record_type": {
+          "const": "DiagnosticLocalisation"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/VerificationResult"
+        },
+        "record_type": {
+          "const": "VerificationResult"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/FaultRecord"
+        },
+        "record_type": {
+          "const": "FaultRecord"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/RemediationAdvice"
+        },
+        "record_type": {
+          "const": "RemediationAdvice"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "$ref": "#/$defs/RemediationDecision"
+        },
+        "record_type": {
+          "const": "RemediationDecision"
+        },
+        "schema_version": {
+          "const": "evorthon.verification.domain.v2"
+        }
+      },
+      "required": [
+        "schema_version",
+        "record_type",
+        "record"
+      ],
+      "type": "object"
+    }
+  ],
+  "title": "Evorthon Data verification-domain record envelope"
+}

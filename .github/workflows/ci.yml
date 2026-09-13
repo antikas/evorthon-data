@@ -1,0 +1,38 @@
+name: repository-check
+on: [push, pull_request]
+jobs:
+  fast:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version-file: pyproject.toml}
+      - uses: astral-sh/setup-uv@v5
+      - name: Validate the checked-out tree
+        shell: bash
+        run: |
+          # A published candidate carries a finalized inventory, so the candidate
+          # branch takes no provisional allowance. Only an unpublished candidate
+          # still holds a provisional inventory, and it is not what CI checks out.
+          if [ -f PUBLIC-INVENTORY.json ] && [ -f PUBLIC-LEAKAGE-POLICY.json ]; then
+            python scripts/check_public_candidate.py
+          else
+            uv run --locked --group dev python scripts/run_tests.py --lane fast
+          fi
+  vectors:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version-file: pyproject.toml}
+      - uses: astral-sh/setup-uv@v5
+      - name: Compare the committed canonical vectors
+        shell: bash
+        run: uv run --locked --group dev python scripts/run_tests.py --lane fast tests/verification/test_canonical_identity.py
+      - name: Run the fast lane
+        shell: bash
+        run: uv run --locked --group dev python scripts/run_tests.py --lane fast

@@ -1,0 +1,45 @@
+{
+  "schema": {
+    "schema_id": "asset-telemetry-extract",
+    "version": "v1",
+    "format_name": "csv-rfc4180",
+    "fields": [
+      {"field_id": "asset-code", "value_type": "string", "nullable": false, "semantic_role": "business-key", "precision": null, "scale": null},
+      {"field_id": "observed-on", "value_type": "date", "nullable": false, "semantic_role": "event-date", "precision": null, "scale": null},
+      {"field_id": "telemetry-source", "value_type": "string", "nullable": false, "semantic_role": "label", "precision": null, "scale": null},
+      {"field_id": "generated-mwh", "value_type": "decimal", "nullable": false, "semantic_role": "measure", "precision": 18, "scale": 3}
+    ]
+  },
+  "grain": {
+    "grain_id": "one-row-per-asset-observation",
+    "version": "v1",
+    "key_fields": ["asset-code"],
+    "population_description": "one row per asset observation taken in from the telemetry extract",
+    "duplicate_keys_permitted": false
+  },
+  "keys": [
+    {
+      "key_list_id": "telemetry-source-keys",
+      "source": {
+        "identifier": "asset-register-reference",
+        "version": "v1",
+        "digest": "blake2b-256:5b2ea90c4d17836fe0a94cb27d6531480f9ac2e5731bd86049fe2cab37150de6"
+      },
+      "values": ["scada", "meter", "inverter", "forecast"]
+    }
+  ],
+  "constraints": {
+    "constraints_id": "asset-telemetry-extract-summaries",
+    "version": "v1",
+    "dataset_id": "asset-telemetry-extract",
+    "role": "input",
+    "row_count": 16,
+    "approved_summary": "Sixteen invented asset observations drawn against the declared telemetry sources.",
+    "fields": [
+      {"field_id": "asset-code", "rule": "sequence", "lower": "WTG-", "upper": null, "categories": [], "key_list_id": null, "cardinality": null, "null_rate": 0.0, "null_rate_tolerance": 0.0},
+      {"field_id": "observed-on", "rule": "range", "lower": "2026-08-31", "upper": "2026-09-02", "categories": [], "key_list_id": null, "cardinality": null, "null_rate": 0.0, "null_rate_tolerance": 0.0},
+      {"field_id": "telemetry-source", "rule": "foreign-key", "lower": null, "upper": null, "categories": [], "key_list_id": "telemetry-source-keys", "cardinality": "many-to-one", "null_rate": 0.0, "null_rate_tolerance": 0.0},
+      {"field_id": "generated-mwh", "rule": "range", "lower": "80.000", "upper": "170.000", "categories": [], "key_list_id": null, "cardinality": null, "null_rate": 0.0, "null_rate_tolerance": 0.0}
+    ]
+  }
+}

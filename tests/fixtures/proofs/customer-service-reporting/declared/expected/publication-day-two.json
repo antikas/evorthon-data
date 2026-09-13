@@ -1,0 +1,71 @@
+{
+  "business_date": "2026-09-02",
+  "output": "service-report-2026-09-02",
+  "rows": [
+    {
+      "business-date": "2026-09-02",
+      "case-reference": "CSR-2001",
+      "effective-from": "2026-09-01",
+      "handled-minutes": "11.00",
+      "record-state": "published",
+      "resolution-rate": "0.8500"
+    },
+    {
+      "business-date": "2026-09-02",
+      "case-reference": "CSR-2002",
+      "effective-from": "2026-09-01",
+      "handled-minutes": "14.25",
+      "record-state": "published",
+      "resolution-rate": "0.7750"
+    },
+    {
+      "business-date": "2026-09-02",
+      "case-reference": "CSR-2003",
+      "effective-from": "2026-09-01",
+      "handled-minutes": "7.50",
+      "record-state": "published",
+      "resolution-rate": "0.9250"
+    },
+    {
+      "business-date": "2026-09-02",
+      "case-reference": "CSR-2004",
+      "effective-from": "2026-09-01",
+      "handled-minutes": "23.75",
+      "record-state": "published",
+      "resolution-rate": "0.6500"
+    },
+    {
+      "business-date": "2026-09-02",
+      "case-reference": "CSR-2005",
+      "effective-from": "2026-09-01",
+      "handled-minutes": "10.50",
+      "record-state": "published",
+      "resolution-rate": "0.8875"
+    },
+    {
+      "business-date": "2026-09-02",
+      "case-reference": "CSR-2006",
+      "effective-from": "2026-09-01",
+      "handled-minutes": "19.25",
+      "record-state": "published",
+      "resolution-rate": "0.7375"
+    },
+    {
+      "business-date": "2026-09-02",
+      "case-reference": "CSR-2007",
+      "effective-from": "2026-09-01",
+      "handled-minutes": "8.00",
+      "record-state": "published",
+      "resolution-rate": "0.9125"
+    },
+    {
+      "business-date": "2026-09-02",
+      "case-reference": "CSR-2008",
+      "effective-from": "2026-09-01",
+      "handled-minutes": "16.75",
+      "record-state": "published",
+      "resolution-rate": "0.8000"
+    }
+  ],
+  "summary": "the approved daily service report for the second business day"
+}

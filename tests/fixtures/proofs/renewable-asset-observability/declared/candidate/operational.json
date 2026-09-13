@@ -1,0 +1,174 @@
+{
+  "candidate": "asset-performance-candidate-operational",
+  "clauses": [
+    {
+      "clause": "conformance-asset-performance-interface",
+      "values": {
+        "published-field-count": "6",
+        "published-interface-version": "v1"
+      }
+    },
+    {
+      "clause": "invariant-asset-observation-quality",
+      "values": {
+        "observations-outside-declared-range": "0"
+      }
+    },
+    {
+      "clause": "operational-asset-feed-completeness",
+      "values": {
+        "feed-run-state": "incomplete",
+        "minutes-before-declared-cutoff": "45"
+      }
+    },
+    {
+      "clause": "integrity-asset-register-snapshot",
+      "values": {
+        "asset-register-version": "v3",
+        "snapshot-digest": "sha256:asset-register-snapshot-v3",
+        "unmatched-asset-codes": "0"
+      }
+    }
+  ],
+  "defect": "the feed run the environment observed did not complete before the declared cutoff",
+  "outputs": [
+    {
+      "output": "asset-performance-view-2026-09-01",
+      "rows": [
+        {
+          "asset-code": "RAO-2101",
+          "capacity-factor": "0.4125",
+          "generated-mwh": "142.500",
+          "observed-from": "2026-08-31",
+          "reporting-date": "2026-09-01",
+          "view-state": "published"
+        },
+        {
+          "asset-code": "RAO-2102",
+          "capacity-factor": "0.3875",
+          "generated-mwh": "118.250",
+          "observed-from": "2026-08-31",
+          "reporting-date": "2026-09-01",
+          "view-state": "published"
+        },
+        {
+          "asset-code": "RAO-2103",
+          "capacity-factor": "0.3250",
+          "generated-mwh": "96.750",
+          "observed-from": "2026-08-31",
+          "reporting-date": "2026-09-01",
+          "view-state": "published"
+        },
+        {
+          "asset-code": "RAO-2104",
+          "capacity-factor": "0.4500",
+          "generated-mwh": "154.000",
+          "observed-from": "2026-08-31",
+          "reporting-date": "2026-09-01",
+          "view-state": "published"
+        },
+        {
+          "asset-code": "RAO-2105",
+          "capacity-factor": "0.2875",
+          "generated-mwh": "87.125",
+          "observed-from": "2026-08-31",
+          "reporting-date": "2026-09-01",
+          "view-state": "published"
+        },
+        {
+          "asset-code": "RAO-2106",
+          "capacity-factor": "0.4000",
+          "generated-mwh": "133.375",
+          "observed-from": "2026-08-31",
+          "reporting-date": "2026-09-01",
+          "view-state": "published"
+        },
+        {
+          "asset-code": "RAO-2107",
+          "capacity-factor": "0.3625",
+          "generated-mwh": "109.500",
+          "observed-from": "2026-08-31",
+          "reporting-date": "2026-09-01",
+          "view-state": "published"
+        },
+        {
+          "asset-code": "RAO-2108",
+          "capacity-factor": "0.4750",
+          "generated-mwh": "165.875",
+          "observed-from": "2026-08-31",
+          "reporting-date": "2026-09-01",
+          "view-state": "published"
+        }
+      ]
+    },
+    {
+      "output": "asset-performance-view-2026-09-02",
+      "rows": [
+        {
+          "asset-code": "RAO-2101",
+          "capacity-factor": "0.4375",
+          "generated-mwh": "151.250",
+          "observed-from": "2026-09-01",
+          "reporting-date": "2026-09-02",
+          "view-state": "published"
+        },
+        {
+          "asset-code": "RAO-2102",
+          "capacity-factor": "0.4000",
+          "generated-mwh": "124.750",
+          "observed-from": "2026-09-01",
+          "reporting-date": "2026-09-02",
+          "view-state": "published"
+        },
+        {
+          "asset-code": "RAO-2103",
+          "capacity-factor": "0.3375",
+          "generated-mwh": "102.125",
+          "observed-from": "2026-09-01",
+          "reporting-date": "2026-09-02",
+          "view-state": "published"
+        },
+        {
+          "asset-code": "RAO-2104",
+          "capacity-factor": "0.4250",
+          "generated-mwh": "147.500",
+          "observed-from": "2026-09-01",
+          "reporting-date": "2026-09-02",
+          "view-state": "published"
+        },
+        {
+          "asset-code": "RAO-2105",
+          "capacity-factor": "0.3125",
+          "generated-mwh": "93.875",
+          "observed-from": "2026-09-01",
+          "reporting-date": "2026-09-02",
+          "view-state": "published"
+        },
+        {
+          "asset-code": "RAO-2106",
+          "capacity-factor": "0.3875",
+          "generated-mwh": "128.625",
+          "observed-from": "2026-09-01",
+          "reporting-date": "2026-09-02",
+          "view-state": "published"
+        },
+        {
+          "asset-code": "RAO-2107",
+          "capacity-factor": "0.3750",
+          "generated-mwh": "115.250",
+          "observed-from": "2026-09-01",
+          "reporting-date": "2026-09-02",
+          "view-state": "published"
+        },
+        {
+          "asset-code": "RAO-2108",
+          "capacity-factor": "0.4625",
+          "generated-mwh": "158.000",
+          "observed-from": "2026-09-01",
+          "reporting-date": "2026-09-02",
+          "view-state": "published"
+        }
+      ]
+    }
+  ]
+}

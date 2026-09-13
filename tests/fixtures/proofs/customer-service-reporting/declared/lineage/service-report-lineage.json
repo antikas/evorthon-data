@@ -1,0 +1,35 @@
+{
+  "lineage_id": "service-report-lineage",
+  "version": "v1",
+  "summary": "The declared lineage of the daily service report: one reconciliation checkpoint and one checkpoint per published day.",
+  "checkpoints": [
+    {
+      "checkpoint_id": "reconciled-service-cases",
+      "parents": [],
+      "transformation": "reconcile-service-cases",
+      "expected_state": "reconciled-service-cases-state",
+      "provenance": "service-case-extract-run",
+      "evidence": "checkpoint-reconciled-service-cases"
+    },
+    {
+      "checkpoint_id": "published-service-report-day-one",
+      "parents": ["reconciled-service-cases"],
+      "transformation": "publish-service-report",
+      "expected_state": "published-service-report-day-one-state",
+      "provenance": "service-report-publication-run",
+      "evidence": "checkpoint-published-service-report-day-one"
+    },
+    {
+      "checkpoint_id": "published-service-report-day-two",
+      "parents": ["reconciled-service-cases"],
+      "transformation": "publish-service-report",
+      "expected_state": "published-service-report-day-two-state",
+      "provenance": "service-report-publication-run",
+      "evidence": "checkpoint-published-service-report-day-two"
+    }
+  ],
+  "bindings": [
+    {"output": "service-report-2026-09-01", "checkpoint": "published-service-report-day-one"},
+    {"output": "service-report-2026-09-02", "checkpoint": "published-service-report-day-two"}
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "classification": "public",
+  "content": "Hand authored declarations and invented rows for one modernisation proof. No real, personal or confidential data, no row taken from any system, and no real organisation, person or system named.",
+  "encoding": "ascii",
+  "files": {
+    "declared/adviser/scripted-replies.json": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this proof. Inert text a scripted adviser returns; no model produced any of it."
+    },
+    "declared/candidate/aggregate.json": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this proof from the approved publications, with one deliberate defect."
+    },
+    "declared/candidate/calculation.json": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this proof from the approved publications, with one deliberate defect."
+    },
+    "declared/candidate/corrected.json": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this proof as the corrected candidate that reproduces both approved publications."
+    },
+    "declared/candidate/effective-date.json": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this proof from the approved publications, with one deliberate defect."
+    },
+    "declared/candidate/key.json": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this proof from the approved publications, with one deliberate defect."
+    },
+    "declared/candidate/population.json": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this proof from the approved publications, with one deliberate defect."
+    },
+    "declared/expected/publication-day-one.json": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this proof as the approved daily publication of the first business day."
+    },
+    "declared/expected/publication-day-two.json": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this proof as the approved daily publication of the second business day."
+    },
+    "declared/generation/service-case-extract-seed.csv": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this proof as the fixture seed the segment generation stage is given for the declared case extract."
+    },
+    "declared/inputs/service-case-extract.json": {
+      "author": "evorthon-data maintainer",
+      "generator": "evorthon_data.synthetic.generator",
+      "generator_version": "1.0.0",
+      "licence": "MIT",
+      "projection": "declared",
+      "seed": "service-case-extract-2026-09",
+      "source": "Constraints written by hand for this proof. The frozen input dataset is produced from them by the shipped seeded generator at the declared seed and generator version."
+    },
+    "declared/lineage/service-report-lineage.json": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this proof as the declared lineage of the daily service report."
+    },
+    "declared/reference/service-channel-reference.json": {
+      "author": "evorthon-data maintainer",
+      "generator": "evorthon_data.synthetic.generator",
+      "generator_version": "1.0.0",
+      "licence": "MIT",
+      "projection": "declared",
+      "seed": "service-channel-reference-2026-09",
+      "source": "Constraints written by hand for this proof. The frozen reference dataset is produced from them by the shipped seeded generator at the declared seed and generator version."
+    },
+    "declared/reference/service-team-lookup.json": {
+      "author": "evorthon-data maintainer",
+      "generator": "evorthon_data.synthetic.generator",
+      "generator_version": "1.0.0",
+      "licence": "MIT",
+      "projection": "declared",
+      "seed": "service-team-lookup-2026-09",
+      "source": "Constraints written by hand for this proof. The frozen lookup dataset is produced from them by the shipped seeded generator at the declared seed and generator version."
+    },
+    "declared/remediation/human-selection.json": {
+      "author": "evorthon-data maintainer",
+      "licence": "MIT",
+      "projection": "declared",
+      "source": "Written by hand for this proof as what a named human decided about the recorded advice."
+    },
+    "withheld/confidential-case-export.txt": {
+      "classification": "confidential",
+      "licence": "unresolved",
+      "projection": "withheld",
+      "provenance": "unresolved",
+      "reason": "A confidential-class sample whose provenance cannot be resolved. It is the declared negative sample: the boundary scan reports it, no proof reads it as data, and it reaches no projection.",
+      "source": "unresolved"
+    }
+  },
+  "form": "evorthon.fixture.provenance.v1",
+  "licence": "MIT",
+  "line_endings": "lf",
+  "purpose": "The frozen material one executable modernisation proof runs the shared delivery lifecycle over: the declared inputs, the reference and lookup datasets, the two approved daily publications, the declared lineage, the fixture seed the generation stage is given, the candidate outputs carrying one deliberate defect each, the corrected outputs, the scripted adviser replies and the named human selection.",
+  "re_emitted_material": "none",
+  "read_by": "tests/product/test_proof_customer_service.py",
+  "shared_material": {
+    "tests/fixtures/intake": "The artefacts the scripted intake round reads are the shipped intake artefacts and are declared at their own root."
+  }
+}

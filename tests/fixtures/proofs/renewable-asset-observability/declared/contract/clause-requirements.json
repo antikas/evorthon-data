@@ -1,0 +1,54 @@
+{
+  "summary": "The declared requirements of the four contract families this greenfield delivery is answered against: the published interface, the platform invariants, the operational observation the environment reports, and the integrity of the register snapshot the delivery carries.",
+  "clauses": [
+    {
+      "clause_id": "conformance-asset-performance-interface",
+      "family": "conformance",
+      "subject": "asset-performance-interface-contract",
+      "requirement": "asset-performance-interface-rule",
+      "evidence": "approved-asset-performance-interface",
+      "summary": "the published view carries the approved interface version and every declared field",
+      "constraints": [
+        {"field": "published-interface-version", "operator": "equals", "value": "v1"},
+        {"field": "published-field-count", "operator": "at-least", "value": "6"}
+      ]
+    },
+    {
+      "clause_id": "invariant-asset-observation-quality",
+      "family": "invariant",
+      "subject": "asset-observation-invariant",
+      "requirement": "asset-observation-invariant-rule",
+      "evidence": "approved-asset-observation-invariant",
+      "summary": "no observation falls outside the declared measurement range and no alert severity is unowned",
+      "constraints": [
+        {"field": "observations-outside-declared-range", "operator": "at-most", "value": "0"},
+        {"field": "unowned-alert-severity", "operator": "absent", "value": null}
+      ]
+    },
+    {
+      "clause_id": "operational-asset-feed-completeness",
+      "family": "operational-evidence",
+      "subject": "asset-feed-completeness-signal",
+      "requirement": "asset-feed-completeness-rule",
+      "evidence": "approved-asset-feed-completeness",
+      "summary": "the feed run completed and finished before the declared cutoff",
+      "constraints": [
+        {"field": "feed-run-state", "operator": "equals", "value": "complete"},
+        {"field": "minutes-before-declared-cutoff", "operator": "at-least", "value": "30"}
+      ]
+    },
+    {
+      "clause_id": "integrity-asset-register-snapshot",
+      "family": "delivery-integrity",
+      "subject": "asset-register-snapshot",
+      "requirement": "asset-register-snapshot-rule",
+      "evidence": "approved-asset-register-snapshot",
+      "summary": "the delivered register snapshot is the approved one and left no asset code unmatched",
+      "constraints": [
+        {"field": "asset-register-version", "operator": "equals", "value": "v3"},
+        {"field": "unmatched-asset-codes", "operator": "at-most", "value": "0"},
+        {"field": "snapshot-digest", "operator": "present", "value": null}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "canonical_record_form": "evorthon.canonical.record.v1",
+  "canonical_row_stream_form": "evorthon.canonical.row-stream.v1",
+  "digest_prefix": "blake2b-256",
+  "hash_algorithm": "blake2b",
+  "hash_digest_size_bytes": 32,
+  "vectors": {
+    "base-row-stream": {
+      "digest": "blake2b-256:b6c9ac31b9f2bd6cd6acd94a3f0795931ef9778200ca999a9dcdb5e0dcbe3b2b",
+      "file": "vectors/base-row-stream.canonical",
+      "kind": "row-stream"
+    },
+    "case-record": {
+      "digest": "blake2b-256:0a83020f58fd5796a92d24a9730de1ffa5562ebd0cad5e3c2c0a8b378f475244",
+      "file": "vectors/case-record.canonical",
+      "kind": "record"
+    },
+    "decimal-scale-four": {
+      "digest": "blake2b-256:7a70a0c0de4054572ede056722b45b7120e23377edef55339988b875735babfc",
+      "file": "vectors/decimal-scale-four.canonical",
+      "kind": "row-stream"
+    },
+    "duplicate-rows": {
+      "digest": "blake2b-256:a874568c3beb56ce05c904b1f1b9a7ff48dbc9b10c20dc39a5f26add702aabd4",
+      "file": "vectors/duplicate-rows.canonical",
+      "kind": "row-stream"
+    },
+    "empty-zero-and-false": {
+      "digest": "blake2b-256:3d067510df1883165ee74dc92aed0d575171def0c382d718c905cdf611fcdacb",
+      "file": "vectors/empty-zero-and-false.canonical",
+      "kind": "row-stream"
+    },
+    "multiset-order": {
+      "digest": "blake2b-256:f949adfb43571b10a8e250783a260f008e6b4e7b7ae919d7d479827a231053bf",
+      "file": "vectors/multiset-order.canonical",
+      "kind": "row-stream"
+    },
+    "non-finite-tokens": {
+      "digest": "blake2b-256:689adffbe9ab0795dd7e61ad83b60fd05680b143d3c5f43d51666ce4c6c981ad",
+      "file": "vectors/non-finite-tokens.canonical",
+      "kind": "row-stream"
+    },
+    "null-values": {
+      "digest": "blake2b-256:705a1ce6f5f9022435c019d1cd9eabcf2543f13e9f40024dd5a5869ec9ed55ce",
+      "file": "vectors/null-values.canonical",
+      "kind": "row-stream"
+    },
+    "ordering-ascending-nulls-last": {
+      "digest": "blake2b-256:4ef2865f2877f652ed75ee80e55feb160792bb93e3db9b284793a5ecc4c9c6a5",
+      "file": "vectors/ordering-ascending-nulls-last.canonical",
+      "kind": "row-stream"
+    },
+    "ordering-descending-nulls-first": {
+      "digest": "blake2b-256:c0e53bb2f7db85310bafb604afc501871458aac7c5fbb342375f6b3d25cef4d4",
+      "file": "vectors/ordering-descending-nulls-first.canonical",
+      "kind": "row-stream"
+    },
+    "result-record": {
+      "digest": "blake2b-256:3ed1eac60b14ad8a59435379304e60da837deb3f59eacad506345dfe391dfb86",
+      "file": "vectors/result-record.canonical",
+      "kind": "record"
+    },
+    "signed-zero-positive": {
+      "digest": "blake2b-256:07b89eba56c09f2ef7f0ea9877fb1ca9efd4d401d2538c2aeea8cc0577feaf5b",
+      "file": "vectors/signed-zero-positive.canonical",
+      "kind": "row-stream"
+    },
+    "signed-zero-preserved": {
+      "digest": "blake2b-256:79bf8c6bfe13bf5245a46c1c6f970e4aa3c11cf6b2d4143ff29a09374e641deb",
+      "file": "vectors/signed-zero-preserved.canonical",
+      "kind": "row-stream"
+    },
+    "timestamp-microseconds": {
+      "digest": "blake2b-256:823c9fdcbd6c05980937e33b5f1b233d6a42a39313ddfdfcff50c0c333f3bb63",
+      "file": "vectors/timestamp-microseconds.canonical",
+      "kind": "row-stream"
+    },
+    "timestamp-milliseconds": {
+      "digest": "blake2b-256:52fd02bc2f6ce209bb29f207b953cca5bffd7a7a436644ad07f064cb9bfbcc41",
+      "file": "vectors/timestamp-milliseconds.canonical",
+      "kind": "row-stream"
+    },
+    "timestamp-seconds": {
+      "digest": "blake2b-256:a38835b6d89ed5657dd0df24bea40b5cbd6035b73f977d0651134b7de374a73c",
+      "file": "vectors/timestamp-seconds.canonical",
+      "kind": "row-stream"
+    },
+    "unicode-nfc": {
+      "digest": "blake2b-256:1267c180ba44074381cbd1652a4625c5f36fa40f06f5ca82fd930b84a1160b5c",
+      "file": "vectors/unicode-nfc.canonical",
+      "kind": "row-stream"
+    },
+    "unicode-nfd": {
+      "digest": "blake2b-256:4bae301328d12e24d1360dc1dbfe4ef1e5bc1e0456c1a0ce0879263857a48868",
+      "file": "vectors/unicode-nfd.canonical",
+      "kind": "row-stream"
+    }
+  }
+}

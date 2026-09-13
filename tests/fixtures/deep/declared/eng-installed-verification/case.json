@@ -1,0 +1,397 @@
+{
+  "record": {
+    "assurance": {
+      "assurance_id": "assurance",
+      "declared_level": "declared",
+      "environment_certificate_claims": [],
+      "owner_presented_evidence": [],
+      "version": "v1"
+    },
+    "case_id": "reconciliation-case",
+    "comparison_policy": {
+      "clauses": [
+        {
+          "clause_id": "parity",
+          "comparison": {
+            "aggregates": [
+              {
+                "aggregate_id": "daily-total",
+                "group_by_fields": [
+                  "business-date"
+                ],
+                "input_field_id": "daily-value",
+                "null_handling": "exclude-null",
+                "operation": "sum",
+                "output_field_id": "daily-value-total",
+                "rounding_mode": "half-even",
+                "version": "v1"
+              }
+            ],
+            "canonicalisation": {
+              "canonicalisation_id": "canonical-json-v1",
+              "decimal_scale": 2,
+              "non_finite_number_policy": "reject",
+              "null_representation": "json-null",
+              "signed_zero_representation": "positive-zero",
+              "timestamp_precision": "milliseconds",
+              "timezone": "UTC",
+              "unicode_normalisation": "NFC",
+              "version": "v1"
+            },
+            "comparison_id": "daily-output-comparison",
+            "dimensions": [
+              "schema",
+              "population",
+              "key",
+              "value",
+              "join-cardinality",
+              "effective-time",
+              "calculation",
+              "aggregate",
+              "ordering",
+              "output-format"
+            ],
+            "grain": {
+              "duplicate_keys_permitted": false,
+              "grain_id": "customer-day",
+              "key_fields": [
+                "business-date",
+                "customer-id"
+              ],
+              "population_description": "one approved customer-day population",
+              "version": "v1"
+            },
+            "ordering": {
+              "fields": [
+                {
+                  "direction": "ascending",
+                  "field_id": "business-date",
+                  "null_placement": "last"
+                },
+                {
+                  "direction": "ascending",
+                  "field_id": "customer-id",
+                  "null_placement": "last"
+                }
+              ],
+              "ordering_id": "daily-output-order",
+              "tie_breaker_fields": [],
+              "version": "v1"
+            },
+            "replay": null,
+            "schema": {
+              "fields": [
+                {
+                  "field_id": "business-date",
+                  "nullable": false,
+                  "precision": null,
+                  "scale": null,
+                  "semantic_role": "partition-date",
+                  "value_type": "date"
+                },
+                {
+                  "field_id": "customer-id",
+                  "nullable": false,
+                  "precision": null,
+                  "scale": null,
+                  "semantic_role": "business-key",
+                  "value_type": "string"
+                },
+                {
+                  "field_id": "effective-from",
+                  "nullable": false,
+                  "precision": null,
+                  "scale": null,
+                  "semantic_role": "effective-date",
+                  "value_type": "date"
+                },
+                {
+                  "field_id": "daily-value",
+                  "nullable": false,
+                  "precision": 18,
+                  "scale": 2,
+                  "semantic_role": "measure",
+                  "value_type": "decimal"
+                },
+                {
+                  "field_id": "record-state",
+                  "nullable": false,
+                  "precision": null,
+                  "scale": null,
+                  "semantic_role": "publication-state",
+                  "value_type": "string"
+                }
+              ],
+              "format_name": "csv-rfc4180",
+              "schema_id": "daily-output-schema",
+              "version": "v1"
+            },
+            "version": "v1"
+          },
+          "expected_output_id": "daily-output",
+          "required_evidence": [
+            {
+              "digest": "blake2b-256:e23112c83c6fb1641ddde7cf88a0691ba8151e46139077853d16160d3311fc30",
+              "evidence_id": "parity-evidence",
+              "summary": "approved parity-evidence",
+              "version": "v1"
+            }
+          ],
+          "version": "v1"
+        }
+      ],
+      "digest": "sha256:policy",
+      "exclusions": [],
+      "policy_id": "comparison-policy",
+      "tolerances": [
+        {
+          "clause_ids": [
+            "parity"
+          ],
+          "dimensions": [
+            "value",
+            "calculation"
+          ],
+          "field_ids": [
+            "daily-value"
+          ],
+          "lower_bound": "0.00",
+          "measurement": "absolute-difference",
+          "rounding_mode": "half-even",
+          "tolerance_id": "daily-value-tolerance",
+          "unit": "currency-units",
+          "upper_bound": "0.05",
+          "version": "v1"
+        },
+        {
+          "clause_ids": [
+            "parity"
+          ],
+          "dimensions": [
+            "aggregate"
+          ],
+          "field_ids": [
+            "daily-value-total"
+          ],
+          "lower_bound": "0.00",
+          "measurement": "absolute-difference",
+          "rounding_mode": "half-even",
+          "tolerance_id": "daily-total-tolerance",
+          "unit": "currency-units",
+          "upper_bound": "0.05",
+          "version": "v1"
+        }
+      ],
+      "version": "v1",
+      "warning_bands": [
+        {
+          "clause_ids": [
+            "parity"
+          ],
+          "dimensions": [
+            "value"
+          ],
+          "field_ids": [
+            "daily-value"
+          ],
+          "lower_bound": "0.01",
+          "measurement": "absolute-difference",
+          "unit": "currency-units",
+          "upper_bound": "0.05",
+          "version": "v1",
+          "warning_id": "daily-value-warning"
+        }
+      ]
+    },
+    "context": {
+      "context_id": "context",
+      "cutoff_time": "09:00",
+      "digest": "sha256:context",
+      "logical_run_time": "2026-09-02T09:00:00Z",
+      "timezone": "UTC",
+      "version": "v1"
+    },
+    "diagnostic_strength": "output-only",
+    "expected_outputs": [
+      {
+        "approved_summary": "approved expected daily output",
+        "canonicalisation": {
+          "canonicalisation_id": "canonical-json-v1",
+          "decimal_scale": 2,
+          "non_finite_number_policy": "reject",
+          "null_representation": "json-null",
+          "signed_zero_representation": "positive-zero",
+          "timestamp_precision": "milliseconds",
+          "timezone": "UTC",
+          "unicode_normalisation": "NFC",
+          "version": "v1"
+        },
+        "content_digest": "blake2b-256:1dfc93a9ec5b8ceeaafed29c035121d695b02239a0951aee82693a00d2e863ff",
+        "format_digest": "blake2b-256:eb349ae75ec38044369d692dfccd9a5705b08ec92814ce6f9333154e1ddbeb53",
+        "grain": {
+          "duplicate_keys_permitted": false,
+          "grain_id": "customer-day",
+          "key_fields": [
+            "business-date",
+            "customer-id"
+          ],
+          "population_description": "one approved customer-day population",
+          "version": "v1"
+        },
+        "origin": "synthetic-derivation",
+        "output_id": "daily-output",
+        "provenance": "synthetic",
+        "row_count": 3,
+        "schema": {
+          "fields": [
+            {
+              "field_id": "business-date",
+              "nullable": false,
+              "precision": null,
+              "scale": null,
+              "semantic_role": "partition-date",
+              "value_type": "date"
+            },
+            {
+              "field_id": "customer-id",
+              "nullable": false,
+              "precision": null,
+              "scale": null,
+              "semantic_role": "business-key",
+              "value_type": "string"
+            },
+            {
+              "field_id": "effective-from",
+              "nullable": false,
+              "precision": null,
+              "scale": null,
+              "semantic_role": "effective-date",
+              "value_type": "date"
+            },
+            {
+              "field_id": "daily-value",
+              "nullable": false,
+              "precision": 18,
+              "scale": 2,
+              "semantic_role": "measure",
+              "value_type": "decimal"
+            },
+            {
+              "field_id": "record-state",
+              "nullable": false,
+              "precision": null,
+              "scale": null,
+              "semantic_role": "publication-state",
+              "value_type": "string"
+            }
+          ],
+          "format_name": "csv-rfc4180",
+          "schema_id": "daily-output-schema",
+          "version": "v1"
+        },
+        "version": "v1"
+      }
+    ],
+    "frozen_datasets": [
+      {
+        "approved_summary": "approved frozen input",
+        "canonicalisation": {
+          "canonicalisation_id": "canonical-json-v1",
+          "decimal_scale": 2,
+          "non_finite_number_policy": "reject",
+          "null_representation": "json-null",
+          "signed_zero_representation": "positive-zero",
+          "timestamp_precision": "milliseconds",
+          "timezone": "UTC",
+          "unicode_normalisation": "NFC",
+          "version": "v1"
+        },
+        "content_digest": "blake2b-256:d1917b54c8182d93647765a570a3744004032192bebe4c2583b335355b7f9f54",
+        "dataset_id": "input-dataset",
+        "grain": {
+          "duplicate_keys_permitted": false,
+          "grain_id": "customer-day",
+          "key_fields": [
+            "business-date",
+            "customer-id"
+          ],
+          "population_description": "one approved customer-day population",
+          "version": "v1"
+        },
+        "provenance": "synthetic",
+        "role": "input",
+        "row_count": 4,
+        "schema": {
+          "fields": [
+            {
+              "field_id": "business-date",
+              "nullable": false,
+              "precision": null,
+              "scale": null,
+              "semantic_role": "partition-date",
+              "value_type": "date"
+            },
+            {
+              "field_id": "customer-id",
+              "nullable": false,
+              "precision": null,
+              "scale": null,
+              "semantic_role": "business-key",
+              "value_type": "string"
+            },
+            {
+              "field_id": "effective-from",
+              "nullable": false,
+              "precision": null,
+              "scale": null,
+              "semantic_role": "effective-date",
+              "value_type": "date"
+            },
+            {
+              "field_id": "daily-value",
+              "nullable": false,
+              "precision": 18,
+              "scale": 2,
+              "semantic_role": "measure",
+              "value_type": "decimal"
+            },
+            {
+              "field_id": "record-state",
+              "nullable": false,
+              "precision": null,
+              "scale": null,
+              "semantic_role": "publication-state",
+              "value_type": "string"
+            }
+          ],
+          "format_name": "csv-rfc4180",
+          "schema_id": "daily-output-schema",
+          "version": "v1"
+        },
+        "synthetic_provenance": {
+          "constrained_by": [],
+          "constraints_digest": "sha256:constraints",
+          "generator_id": "declared-schema-generator",
+          "generator_version": "v1",
+          "seed": "seed:input"
+        },
+        "version": "v1"
+      }
+    ],
+    "lineage": {
+      "checkpoints": [],
+      "lineage_id": "lineage",
+      "output_bindings": [
+        {
+          "expected_output_id": "daily-output",
+          "terminal_checkpoint_id": null
+        }
+      ],
+      "version": "v1"
+    },
+    "mode": "modernisation",
+    "version": "v1"
+  },
+  "record_type": "VerificationCase",
+  "schema_version": "evorthon.verification.domain.v2"
+}

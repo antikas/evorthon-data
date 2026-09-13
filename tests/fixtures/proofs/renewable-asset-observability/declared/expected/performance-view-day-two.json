@@ -1,0 +1,73 @@
+{
+  "approval": "EVD-GRN-005@v1#digest-evd-grn-005",
+  "author": "evorthon-data maintainer",
+  "output": "asset-performance-view-2026-09-02",
+  "reporting_date": "2026-09-02",
+  "rows": [
+    {
+      "asset-code": "RAO-2101",
+      "capacity-factor": "0.4375",
+      "generated-mwh": "151.250",
+      "observed-from": "2026-09-01",
+      "reporting-date": "2026-09-02",
+      "view-state": "published"
+    },
+    {
+      "asset-code": "RAO-2102",
+      "capacity-factor": "0.4000",
+      "generated-mwh": "124.750",
+      "observed-from": "2026-09-01",
+      "reporting-date": "2026-09-02",
+      "view-state": "published"
+    },
+    {
+      "asset-code": "RAO-2103",
+      "capacity-factor": "0.3375",
+      "generated-mwh": "102.125",
+      "observed-from": "2026-09-01",
+      "reporting-date": "2026-09-02",
+      "view-state": "published"
+    },
+    {
+      "asset-code": "RAO-2104",
+      "capacity-factor": "0.4250",
+      "generated-mwh": "147.500",
+      "observed-from": "2026-09-01",
+      "reporting-date": "2026-09-02",
+      "view-state": "published"
+    },
+    {
+      "asset-code": "RAO-2105",
+      "capacity-factor": "0.3125",
+      "generated-mwh": "93.875",
+      "observed-from": "2026-09-01",
+      "reporting-date": "2026-09-02",
+      "view-state": "published"
+    },
+    {
+      "asset-code": "RAO-2106",
+      "capacity-factor": "0.3875",
+      "generated-mwh": "128.625",
+      "observed-from": "2026-09-01",
+      "reporting-date": "2026-09-02",
+      "view-state": "published"
+    },
+    {
+      "asset-code": "RAO-2107",
+      "capacity-factor": "0.3750",
+      "generated-mwh": "115.250",
+      "observed-from": "2026-09-01",
+      "reporting-date": "2026-09-02",
+      "view-state": "published"
+    },
+    {
+      "asset-code": "RAO-2108",
+      "capacity-factor": "0.4625",
+      "generated-mwh": "158.000",
+      "observed-from": "2026-09-01",
+      "reporting-date": "2026-09-02",
+      "view-state": "published"
+    }
+  ],
+  "summary": "the approved golden asset performance view for the second reporting day"
+}

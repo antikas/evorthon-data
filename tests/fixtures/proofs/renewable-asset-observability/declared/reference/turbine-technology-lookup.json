@@ -1,0 +1,31 @@
+{
+  "schema": {
+    "schema_id": "turbine-technology-lookup",
+    "version": "v1",
+    "format_name": "csv-rfc4180",
+    "fields": [
+      {"field_id": "asset-code", "value_type": "string", "nullable": false, "semantic_role": "business-key", "precision": null, "scale": null},
+      {"field_id": "technology-class", "value_type": "string", "nullable": false, "semantic_role": "label", "precision": null, "scale": null}
+    ]
+  },
+  "grain": {
+    "grain_id": "one-row-per-asset-technology",
+    "version": "v1",
+    "key_fields": ["asset-code"],
+    "population_description": "one row per asset the technology lookup declares",
+    "duplicate_keys_permitted": false
+  },
+  "keys": [],
+  "constraints": {
+    "constraints_id": "turbine-technology-lookup-summaries",
+    "version": "v1",
+    "dataset_id": "turbine-technology-lookup",
+    "role": "enrichment",
+    "row_count": 8,
+    "approved_summary": "Eight invented assets with the technology class the platform enriches them by.",
+    "fields": [
+      {"field_id": "asset-code", "rule": "sequence", "lower": "WTG-", "upper": null, "categories": [], "key_list_id": null, "cardinality": null, "null_rate": 0.0, "null_rate_tolerance": 0.0},
+      {"field_id": "technology-class", "rule": "categories", "lower": null, "upper": null, "categories": [{"value": "onshore wind", "weight": 4}, {"value": "offshore wind", "weight": 3}, {"value": "solar", "weight": 1}], "key_list_id": null, "cardinality": null, "null_rate": 0.0, "null_rate_tolerance": 0.0}
+    ]
+  }
+}

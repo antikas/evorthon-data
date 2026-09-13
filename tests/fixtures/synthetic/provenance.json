@@ -1,0 +1,18 @@
+{
+  "author": "evorthon-data maintainer",
+  "classification": "public",
+  "constraint_definitions": "tests/product/test_synthetic_generator.py",
+  "content": "Hand authored declared summaries with invented names, labels and key values. No real, personal or confidential data, no credential and no row taken from any system.",
+  "encoding": "ascii",
+  "files": {
+    "constraints/customer-orders.json": "The declared constraints of the invented customer order dataset.",
+    "constraints/region-reference.json": "The declared constraints of the invented region reference dataset."
+  },
+  "form": "evorthon.fixture.provenance.v1",
+  "licence": "MIT",
+  "line_endings": "lf",
+  "produced_by": "hand authored",
+  "purpose": "Declared schema, grain, key lists and summaries that drive the synthetic dataset generator in its shipped tests.",
+  "re_emitted_material": "none",
+  "source": "Declared schema, grain, key lists and summaries written by hand for the shipped generator's own tests."
+}

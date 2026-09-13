@@ -1,0 +1,37 @@
+{
+  "schema": {
+    "schema_id": "service-team-lookup",
+    "version": "v1",
+    "format_name": "csv-rfc4180",
+    "fields": [
+      {"field_id": "team-code", "value_type": "string", "nullable": false, "semantic_role": "business-key", "precision": null, "scale": null},
+      {"field_id": "team-name", "value_type": "string", "nullable": false, "semantic_role": "label", "precision": null, "scale": null},
+      {"field_id": "rota-size", "value_type": "integer", "nullable": false, "semantic_role": "measure", "precision": null, "scale": null}
+    ]
+  },
+  "grain": {
+    "grain_id": "one-row-per-service-team",
+    "version": "v1",
+    "key_fields": ["team-code"],
+    "population_description": "one row per service team the report is enriched from",
+    "duplicate_keys_permitted": false
+  },
+  "keys": [],
+  "constraints": {
+    "constraints_id": "service-team-lookup-summaries",
+    "version": "v1",
+    "dataset_id": "service-team-lookup",
+    "role": "enrichment",
+    "row_count": 3,
+    "approved_summary": "Three invented service teams the daily report is enriched from.",
+    "fields": [
+      {"field_id": "team-code", "rule": "sequence", "lower": "TEAM-", "upper": null, "categories": [], "key_list_id": null, "cardinality": null, "null_rate": 0.0, "null_rate_tolerance": 0.0},
+      {"field_id": "team-name", "rule": "categories", "lower": null, "upper": null, "categories": [
+        {"value": "Frontline team", "weight": 1},
+        {"value": "Escalation team", "weight": 1},
+        {"value": "Overnight team", "weight": 1}
+      ], "key_list_id": null, "cardinality": null, "null_rate": 0.0, "null_rate_tolerance": 0.0},
+      {"field_id": "rota-size", "rule": "range", "lower": 4, "upper": 12, "categories": [], "key_list_id": null, "cardinality": null, "null_rate": 0.0, "null_rate_tolerance": 0.0}
+    ]
+  }
+}

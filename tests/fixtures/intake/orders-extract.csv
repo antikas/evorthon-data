@@ -1,0 +1,6 @@
+order_id,settled_on,channel,order_value
+ORD-1001,2026-08-03,web,124.50
+ORD-1002,2026-08-03,phone,58.00
+ORD-1003,2026-08-04,web,310.25
+ORD-1004,2026-08-04,branch,42.75
+ORD-1005,2026-08-05,web,987.10

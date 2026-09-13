@@ -1,0 +1,23 @@
+{
+  "author": "evorthon-data maintainer",
+  "classification": "public",
+  "content": "Hand authored identities, digests and notes with invented names and values. No real, personal or confidential data, and no record taken from any system.",
+  "encoding": "ascii",
+  "files": {
+    "candidate.json": "The candidate artefact the fixture runner declares, as identity, version and declared digest.",
+    "declared-outputs/conformance-case/v1.json": "The outputs the fixture runner replays for one frozen case, with the case digest they were frozen against.",
+    "evidence/conformance-checkpoint-note/v1.content": "The stored bytes of an invented checkpoint note.",
+    "evidence/conformance-checkpoint-note/v1.record.json": "What the environment declares about those bytes: digest, validity and summary.",
+    "evidence/conformance-lineage-note/v1.content": "The stored bytes of an invented lineage note.",
+    "evidence/conformance-lineage-note/v1.record.json": "What the environment declares about those bytes: digest, validity and summary."
+  },
+  "form": "evorthon.fixture.provenance.v1",
+  "layout": "evorthon_data.verification.adapters.fixtures",
+  "licence": "MIT",
+  "line_endings": "lf",
+  "produced_by": "evorthon_data.verification.adapters.fixtures.write_fixture_material",
+  "purpose": "The material the fixture evidence repository and fixture candidate runner read, so the reference adapters run the conformance suite and a real intake with no environment of any kind.",
+  "re_emitted_material": "none",
+  "read_by": "tests/verification/test_adapter_kit.py",
+  "source": "Identities, digests and notes written by hand for the reference adapters, emitted by the shipped fixture writer and committed as the material it produced."
+}

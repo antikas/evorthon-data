@@ -1,0 +1,30 @@
+{
+  "summary": "The replies a scripted adviser returns for each gated packet. Nothing here is a model output; each reply is written by hand and is inert text the product records and never acts on.",
+  "confidence": "medium",
+  "assumptions": [
+    "the localisation is an interval and not a confirmed point",
+    "the reply reads the packet only and never the published rows"
+  ],
+  "replies": {
+    "key": {
+      "cause": "the publication step joined the channel reference at a grain that repeats a case reference",
+      "proposed_fix": "restore the declared one row per case reference before the report is published",
+      "discriminating_test": "count the published rows against the distinct case references for the business date"
+    },
+    "population": {
+      "cause": "the publication step dropped settled cases the declared population keeps",
+      "proposed_fix": "restore the declared population filter for the business date",
+      "discriminating_test": "count the published population against the reconciled case population"
+    },
+    "effective-date": {
+      "cause": "the publication step carried the previous effective date onto the published rows",
+      "proposed_fix": "publish each case against the effective date the reconciliation declares",
+      "discriminating_test": "compare the published effective date with the reconciled effective date per case"
+    },
+    "calculation": {
+      "cause": "the publication step rounded the resolution rate at a place the declared scale does not carry",
+      "proposed_fix": "carry the declared decimal scale through the resolution rate calculation",
+      "discriminating_test": "recompute the resolution rate at the declared scale and compare the last declared place"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "schema": {
+    "schema_id": "service-case-extract",
+    "version": "v1",
+    "format_name": "csv-rfc4180",
+    "fields": [
+      {"field_id": "case-reference", "value_type": "string", "nullable": false, "semantic_role": "business-key", "precision": null, "scale": null},
+      {"field_id": "opened-on", "value_type": "date", "nullable": false, "semantic_role": "event-date", "precision": null, "scale": null},
+      {"field_id": "service-channel", "value_type": "string", "nullable": false, "semantic_role": "label", "precision": null, "scale": null},
+      {"field_id": "handled-minutes", "value_type": "decimal", "nullable": false, "semantic_role": "measure", "precision": 18, "scale": 2}
+    ]
+  },
+  "grain": {
+    "grain_id": "one-row-per-service-case",
+    "version": "v1",
+    "key_fields": ["case-reference"],
+    "population_description": "one row per service case taken in from the case extract",
+    "duplicate_keys_permitted": false
+  },
+  "keys": [
+    {
+      "key_list_id": "service-channel-keys",
+      "source": {
+        "identifier": "service-channel-reference",
+        "version": "v1",
+        "digest": "blake2b-256:3f1c8a5d6e2b47908cfa1d3b5e7092461ac8d35f0b9e2746d8130fac5be97204"
+      },
+      "values": ["voice", "chat", "email", "callback"]
+    }
+  ],
+  "constraints": {
+    "constraints_id": "service-case-extract-summaries",
+    "version": "v1",
+    "dataset_id": "service-case-extract",
+    "role": "input",
+    "row_count": 16,
+    "approved_summary": "Sixteen invented service cases drawn against the declared channel reference.",
+    "fields": [
+      {"field_id": "case-reference", "rule": "sequence", "lower": "CSE-", "upper": null, "categories": [], "key_list_id": null, "cardinality": null, "null_rate": 0.0, "null_rate_tolerance": 0.0},
+      {"field_id": "opened-on", "rule": "range", "lower": "2026-08-31", "upper": "2026-09-02", "categories": [], "key_list_id": null, "cardinality": null, "null_rate": 0.0, "null_rate_tolerance": 0.0},
+      {"field_id": "service-channel", "rule": "foreign-key", "lower": null, "upper": null, "categories": [], "key_list_id": "service-channel-keys", "cardinality": "many-to-one", "null_rate": 0.0, "null_rate_tolerance": 0.0},
+      {"field_id": "handled-minutes", "rule": "range", "lower": "5.00", "upper": "30.00", "categories": [], "key_list_id": null, "cardinality": null, "null_rate": 0.0, "null_rate_tolerance": 0.0}
+    ]
+  }
+}

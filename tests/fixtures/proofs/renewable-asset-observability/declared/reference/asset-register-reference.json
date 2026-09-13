@@ -1,0 +1,33 @@
+{
+  "schema": {
+    "schema_id": "asset-register-reference",
+    "version": "v1",
+    "format_name": "csv-rfc4180",
+    "fields": [
+      {"field_id": "asset-code", "value_type": "string", "nullable": false, "semantic_role": "business-key", "precision": null, "scale": null},
+      {"field_id": "site-name", "value_type": "string", "nullable": false, "semantic_role": "label", "precision": null, "scale": null},
+      {"field_id": "rated-mw", "value_type": "decimal", "nullable": false, "semantic_role": "measure", "precision": 18, "scale": 3}
+    ]
+  },
+  "grain": {
+    "grain_id": "one-row-per-registered-asset",
+    "version": "v1",
+    "key_fields": ["asset-code"],
+    "population_description": "one row per asset the register declares",
+    "duplicate_keys_permitted": false
+  },
+  "keys": [],
+  "constraints": {
+    "constraints_id": "asset-register-reference-summaries",
+    "version": "v1",
+    "dataset_id": "asset-register-reference",
+    "role": "reference",
+    "row_count": 8,
+    "approved_summary": "Eight invented registered assets with their declared rated output.",
+    "fields": [
+      {"field_id": "asset-code", "rule": "sequence", "lower": "WTG-", "upper": null, "categories": [], "key_list_id": null, "cardinality": null, "null_rate": 0.0, "null_rate_tolerance": 0.0},
+      {"field_id": "site-name", "rule": "categories", "lower": null, "upper": null, "categories": [{"value": "north ridge", "weight": 3}, {"value": "south flats", "weight": 3}, {"value": "east water", "weight": 2}], "key_list_id": null, "cardinality": null, "null_rate": 0.0, "null_rate_tolerance": 0.0},
+      {"field_id": "rated-mw", "rule": "range", "lower": "2.000", "upper": "6.000", "categories": [], "key_list_id": null, "cardinality": null, "null_rate": 0.0, "null_rate_tolerance": 0.0}
+    ]
+  }
+}

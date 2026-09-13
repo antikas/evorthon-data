@@ -1,0 +1,119 @@
+# evorthon-implements: EVD-README-032
+direction: down
+dependency-policy: deny-by-default
+intent: "Human intent and platform evidence"
+koine_projection: "Koine projections: validated Markdown, templates, prompts and reviews"
+engagement: "Engagement lifecycle, the use-case aggregate and named human decisions; verification identities only"
+readiness: "per-segment buildability computed from use-case facts and case identities; advice, never a gate; distinct from the Koine intent-readiness discipline"
+synthetic: "labelled frozen datasets generated from declared shape and constraints"
+verification_domain: "Verification domain: cases, results, proposals and identities"
+verification_core: "Verification core: portable deterministic semantics"
+verification_enforcement: "Verification enforcement: schemas and fail-closed policy"
+verification_workflows: "Verification workflows: intake, reconciliation and diagnosis orchestration"
+verification_ports: "Verification ports: environment-owned access contracts"
+verification_adapters: "Verification adapters: adopter-owned environment implementations"
+verification_presentation: "Verification presentation: safe CLI, records and review surfaces"
+security_model_egress: "security/model_egress: sole authorization and enforcement owner"
+boundary_patterns: "Boundary patterns: the closed shapes for machine routes, credentials and raw rows, one owner and no other content"
+composition: "Composition root: product wiring without domain ownership"
+delivery_adapters: "Narrow adapters for opt-in released delivery wheels"
+pinax: "Pinax released wheel: live work graph"
+ergasterion: "Ergasterion released wheel: declared generation"
+autobuild: "AutoBuild released wheel: approved engineering"
+presentation: "Product presentation and dependency diagnostics"
+compatibility: "Temporary compatibility facades with no semantic ownership"
+human_acceptance: "Named human acceptance and durable learning"
+
+intent -> koine_projection -> engagement
+engagement -> verification_domain
+engagement -> composition -> delivery_adapters
+composition -> readiness -> verification_domain
+composition -> synthetic -> verification_domain
+delivery_adapters -> pinax
+delivery_adapters -> ergasterion
+delivery_adapters -> autobuild
+verification_domain -> verification_core
+verification_domain -> verification_enforcement
+verification_core -> verification_workflows
+verification_enforcement -> verification_workflows
+verification_adapters -> verification_ports -> verification_workflows
+koine_projection -> security_model_egress
+verification_workflows -> security_model_egress
+verification_workflows -> verification_presentation -> human_acceptance
+engagement -> human_acceptance
+
+# Direct product-code imports are deny-by-default. The following are the only
+# cross-component dependencies allowed by this model.
+allow: composition -> engagement
+allow: composition -> koine_projection
+allow: composition -> verification_workflows
+# the composition root constructs the domain's declared case, schema and status
+# values when it wires a run; it owns none of them.
+allow: composition -> verification_domain
+allow: composition -> verification_presentation
+# the composition root reads a case document through the enforcement layer and resolves
+# a logical adapter identity to a shipped reference adapter; presentation never does either.
+allow: composition -> verification_enforcement
+allow: composition -> verification_adapters
+allow: composition -> delivery_adapters
+allow: composition -> readiness
+allow: composition -> synthetic
+allow: presentation -> composition
+allow: presentation -> engagement
+allow: presentation -> verification_presentation
+# presentation reaches readiness to render the projection type only.
+allow: presentation -> readiness
+allow: compatibility -> engagement
+allow: koine_projection -> engagement
+allow: koine_projection -> security_model_egress
+allow: engagement -> verification_domain
+allow: readiness -> engagement
+allow: readiness -> verification_domain
+allow: synthetic -> verification_domain
+# synthetic reaches the verification core for canonical identity only.
+allow: synthetic -> verification_core
+allow: verification_core -> verification_domain
+allow: verification_enforcement -> verification_domain
+allow: verification_workflows -> verification_domain
+allow: verification_workflows -> verification_core
+allow: verification_workflows -> verification_enforcement
+allow: verification_workflows -> verification_ports
+allow: verification_workflows -> security_model_egress
+allow: engagement -> boundary_patterns
+allow: presentation -> boundary_patterns
+allow: koine_projection -> boundary_patterns
+allow: verification_enforcement -> boundary_patterns
+allow: delivery_adapters -> boundary_patterns
+allow: verification_adapters -> verification_ports
+# adapter conformance reads the boundary shapes to refuse a portable location or credential.
+allow: verification_adapters -> boundary_patterns
+allow: verification_presentation -> verification_workflows
+# the verification presentation reads the domain's closed words to render them.
+allow: verification_presentation -> verification_domain
+allow: verification_presentation -> engagement
+allow: delivery_adapters -> engagement
+allow: delivery_adapters -> verification_workflows
+# the tracker adapter reads a readiness projection's gaps and digest to write
+# the work items and the note that carry them.
+allow: delivery_adapters -> readiness
+# delivery adapters read lineage, checkpoint, schema and dataset values only.
+allow: delivery_adapters -> verification_domain
+allow: delivery_adapters -> pinax
+allow: delivery_adapters -> ergasterion
+allow: delivery_adapters -> autobuild
+
+# These high-risk boundaries remain explicit as well as being covered by the
+# default-deny closure above.
+forbid: engagement -> verification_core
+forbid: verification_domain -> engagement
+forbid: verification_core -> verification_adapters
+forbid: verification_adapters -> verification_workflows
+forbid: koine_projection -> verification_core
+forbid: security_model_egress -> engagement
+forbid: verification_workflows -> delivery_adapters
+forbid: delivery_adapters -> verification_core
+forbid: presentation -> verification_core
+forbid: readiness -> verification_core
+forbid: readiness -> verification_workflows
+forbid: readiness -> verification_enforcement
+forbid: synthetic -> engagement

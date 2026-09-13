@@ -1,0 +1,18 @@
+{
+  "decided_by": {
+    "identity": "service-acceptance-authority",
+    "kind": "human",
+    "version": "v1"
+  },
+  "disposition": "accepted",
+  "iteration": {
+    "iteration_id": "first-publication-loop",
+    "summary": "build and verify the daily service report for the reported business date"
+  },
+  "rationale": {
+    "identifier": "service-remedy-rationale",
+    "summary": "the named authority read the gated packet and approved the remedy it names"
+  },
+  "remedy_summary": "correct the declared publication of the reported business date",
+  "summary": "What the named human decided about the recorded advice, and the work that decision approves."
+}

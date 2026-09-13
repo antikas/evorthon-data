@@ -1,0 +1,15 @@
+{
+  "summary": "The replies a scripted adviser returns for each gated packet. Nothing here is a model output; each reply is written by hand and is inert text the product records and never acts on.",
+  "confidence": "medium",
+  "assumptions": [
+    "the localisation is an interval and not a confirmed point",
+    "the reply reads the packet only and never the published rows"
+  ],
+  "replies": {
+    "transformation": {
+      "cause": "the publication step rounded the capacity factor at a place the declared scale does not carry",
+      "proposed_fix": "carry the declared decimal scale through the capacity factor calculation",
+      "discriminating_test": "recompute the capacity factor at the declared scale and compare the last declared place"
+    }
+  }
+}

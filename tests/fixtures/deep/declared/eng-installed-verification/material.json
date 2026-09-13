@@ -1,0 +1,139 @@
+{
+  "clauses": [],
+  "expected": [
+    {
+      "output": "daily-output",
+      "rows": [
+        {
+          "business-date": "2026-09-01",
+          "customer-id": "customer-a",
+          "daily-value": "10.00",
+          "effective-from": "2026-08-31",
+          "record-state": "published"
+        },
+        {
+          "business-date": "2026-09-01",
+          "customer-id": "customer-b",
+          "daily-value": "20.00",
+          "effective-from": "2026-08-31",
+          "record-state": "published"
+        },
+        {
+          "business-date": "2026-09-02",
+          "customer-id": "customer-a",
+          "daily-value": "30.00",
+          "effective-from": "2026-09-01",
+          "record-state": "published"
+        }
+      ]
+    }
+  ],
+  "form": "evorthon.verification.material.v1",
+  "observed": [
+    {
+      "output": {
+        "record": {
+          "approved_summary": "observed daily output",
+          "canonicalisation": {
+            "canonicalisation_id": "canonical-json-v1",
+            "decimal_scale": 2,
+            "non_finite_number_policy": "reject",
+            "null_representation": "json-null",
+            "signed_zero_representation": "positive-zero",
+            "timestamp_precision": "milliseconds",
+            "timezone": "UTC",
+            "unicode_normalisation": "NFC",
+            "version": "v1"
+          },
+          "content_digest": "blake2b-256:1dfc93a9ec5b8ceeaafed29c035121d695b02239a0951aee82693a00d2e863ff",
+          "format_digest": "blake2b-256:eb349ae75ec38044369d692dfccd9a5705b08ec92814ce6f9333154e1ddbeb53",
+          "grain": {
+            "duplicate_keys_permitted": false,
+            "grain_id": "customer-day",
+            "key_fields": [
+              "business-date",
+              "customer-id"
+            ],
+            "population_description": "one approved customer-day population",
+            "version": "v1"
+          },
+          "output_id": "daily-output",
+          "row_count": 3,
+          "schema": {
+            "fields": [
+              {
+                "field_id": "business-date",
+                "nullable": false,
+                "precision": null,
+                "scale": null,
+                "semantic_role": "partition-date",
+                "value_type": "date"
+              },
+              {
+                "field_id": "customer-id",
+                "nullable": false,
+                "precision": null,
+                "scale": null,
+                "semantic_role": "business-key",
+                "value_type": "string"
+              },
+              {
+                "field_id": "effective-from",
+                "nullable": false,
+                "precision": null,
+                "scale": null,
+                "semantic_role": "effective-date",
+                "value_type": "date"
+              },
+              {
+                "field_id": "daily-value",
+                "nullable": false,
+                "precision": 18,
+                "scale": 2,
+                "semantic_role": "measure",
+                "value_type": "decimal"
+              },
+              {
+                "field_id": "record-state",
+                "nullable": false,
+                "precision": null,
+                "scale": null,
+                "semantic_role": "publication-state",
+                "value_type": "string"
+              }
+            ],
+            "format_name": "csv-rfc4180",
+            "schema_id": "daily-output-schema",
+            "version": "v1"
+          },
+          "version": "v1"
+        },
+        "record_type": "ActualOutput",
+        "schema_version": "evorthon.verification.domain.v2"
+      },
+      "rows": [
+        {
+          "business-date": "2026-09-01",
+          "customer-id": "customer-a",
+          "daily-value": "10.00",
+          "effective-from": "2026-08-31",
+          "record-state": "published"
+        },
+        {
+          "business-date": "2026-09-01",
+          "customer-id": "customer-b",
+          "daily-value": "20.00",
+          "effective-from": "2026-08-31",
+          "record-state": "published"
+        },
+        {
+          "business-date": "2026-09-02",
+          "customer-id": "customer-a",
+          "daily-value": "30.00",
+          "effective-from": "2026-09-01",
+          "record-state": "published"
+        }
+      ]
+    }
+  ]
+}

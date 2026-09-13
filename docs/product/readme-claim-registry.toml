@@ -1,0 +1,527 @@
+# evorthon-implements: EVD-README-001
+schema = "evorthon-data.readme-claim-registry.v1"
+claim_source = "README.md"
+status_guide = "docs/product/capability-status.md"
+
+[[relation]]
+claim_id = "EVD-README-036"
+status = "environment-owned"
+implementation_state = "not-provided"
+evidence_state = "adopter-owned"
+implementation_refs = []
+evidence_refs = []
+
+[[relation]]
+claim_id = "EVD-README-037"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = ["src/evorthon_data/lifecycle.py::EVD-README-037"]
+evidence_refs = [
+    "tests/product/test_lifecycle.py::EVD-README-037",
+    "tests/product/test_proof_customer_service.py::EVD-README-037",
+    "tests/product/test_proof_renewable_asset.py::EVD-README-037",
+]
+
+[[relation]]
+claim_id = "EVD-README-038"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = [
+    "src/evorthon_data/engagement/aggregate.py::EVD-README-038",
+    "src/evorthon_data/verification/presentation/remediation.py::EVD-README-038",
+]
+evidence_refs = [
+    "tests/product/test_engagement_lifecycle.py::EVD-README-038",
+    "tests/product/test_use_case_versions.py::EVD-README-038",
+]
+
+[[relation]]
+claim_id = "EVD-README-039"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = ["scripts/check_readme_claim_registry.py::EVD-README-039"]
+evidence_refs = ["tests/product/test_readme_claim_registry.py::EVD-README-039"]
+
+[[relation]]
+claim_id = "EVD-README-040"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = ["src/evorthon_data/lifecycle.py::EVD-README-040"]
+evidence_refs = ["tests/product/test_lifecycle.py::EVD-README-040"]
+
+[[relation]]
+claim_id = "EVD-README-041"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = ["src/evorthon_data/koine_session.py::EVD-README-041"]
+evidence_refs = ["tests/product/test_koine_delivery_contract.py::EVD-README-041"]
+
+[[relation]]
+claim_id = "EVD-README-042"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = ["src/evorthon_data/verification/core/reconciliation.py::EVD-README-042"]
+evidence_refs = ["tests/verification/test_reconciliation.py::EVD-README-042"]
+
+[[relation]]
+claim_id = "EVD-README-001"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = [
+    "docs/product/capability-status.md::EVD-README-001",
+    "docs/product/readme-claim-registry.toml::EVD-README-001",
+]
+evidence_refs = ["tests/product/test_readme_claim_registry.py::EVD-README-001"]
+
+[[relation]]
+claim_id = "EVD-README-002"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = ["examples/modernisation/customer-service-reporting/outcome-brief.md::EVD-README-002"]
+evidence_refs = ["tests/product/test_proof_customer_service.py::EVD-README-002"]
+
+[[relation]]
+claim_id = "EVD-README-003"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = [
+    "src/evorthon_data/verification/workflows/reconciliation.py::EVD-README-003",
+    "examples/modernisation/customer-service-reporting/verification-record.md::EVD-README-003",
+]
+evidence_refs = ["tests/product/test_proof_customer_service.py::EVD-README-003"]
+
+[[relation]]
+claim_id = "EVD-README-004"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = ["src/evorthon_data/koine_session.py::EVD-README-004"]
+evidence_refs = ["tests/product/test_koine_session.py::EVD-README-004"]
+
+[[relation]]
+claim_id = "EVD-README-005"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = ["src/evorthon_data/engagement/aggregate.py::EVD-README-005"]
+evidence_refs = [
+    "tests/product/test_engagement_lifecycle.py::EVD-README-005",
+    "tests/pack/test_two_engagement_modes.py::EVD-README-005",
+]
+
+[[relation]]
+claim_id = "EVD-README-006"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = ["src/evorthon_data/koine_session.py::EVD-README-006"]
+evidence_refs = ["tests/product/test_koine_delivery_contract.py::EVD-README-006"]
+
+[[relation]]
+claim_id = "EVD-README-007"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = ["src/evorthon_data/delivery/pinax.py::EVD-README-007"]
+evidence_refs = ["tests/product/test_pinax_projection.py::EVD-README-007"]
+
+[[relation]]
+claim_id = "EVD-README-008"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = ["src/evorthon_data/delivery/ergasterion.py::EVD-README-008"]
+evidence_refs = ["tests/product/test_ergasterion_route.py::EVD-README-008"]
+
+[[relation]]
+claim_id = "EVD-README-009"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = [
+    "src/evorthon_data/verification/workflows/reconciliation.py::EVD-README-009",
+    "src/evorthon_data/verification/core/localisation.py::EVD-README-009",
+]
+evidence_refs = [
+    "tests/verification/test_lineage_localisation.py::EVD-README-009",
+    "tests/product/test_proof_customer_service.py::EVD-README-009",
+]
+
+[[relation]]
+claim_id = "EVD-README-010"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = [
+    "src/evorthon_data/engagement/versions.py::EVD-README-010",
+    "src/evorthon_data/verification/presentation/remediation.py::EVD-README-010",
+]
+evidence_refs = ["tests/product/test_use_case_versions.py::EVD-README-010"]
+
+[[relation]]
+claim_id = "EVD-README-011"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = ["koine/skills/tracing-current-estate/SKILL.md::EVD-README-011"]
+evidence_refs = ["tests/pack/test_two_engagement_modes.py::EVD-README-011"]
+
+[[relation]]
+claim_id = "EVD-README-012"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = ["koine/skills/discovering-greenfield-capabilities/SKILL.md::EVD-README-012"]
+evidence_refs = [
+    "tests/pack/test_two_engagement_modes.py::EVD-README-012",
+    "tests/product/test_proof_renewable_asset.py::EVD-README-012",
+]
+
+[[relation]]
+claim_id = "EVD-README-013"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = ["src/evorthon_data/engagement/aggregate.py::EVD-README-013"]
+evidence_refs = ["tests/product/test_engagement_lifecycle.py::EVD-README-013"]
+
+[[relation]]
+claim_id = "EVD-README-014"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = ["src/evorthon_data/koine_session.py::EVD-README-014"]
+evidence_refs = [
+    "tests/product/test_koine_session.py::EVD-README-014",
+    "tests/pack/test_skill_pairings.py::EVD-README-014",
+]
+
+[[relation]]
+claim_id = "EVD-README-015"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = ["src/evorthon_data/delivery/pinax.py::EVD-README-015"]
+evidence_refs = ["tests/product/test_pinax_projection.py::EVD-README-015"]
+
+[[relation]]
+claim_id = "EVD-README-016"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = [
+    "src/evorthon_data/delivery/ergasterion.py::EVD-README-016",
+    "src/evorthon_data/delivery/autobuild.py::EVD-README-016",
+]
+evidence_refs = [
+    "tests/product/test_ergasterion_route.py::EVD-README-016",
+    "tests/product/test_autobuild_route.py::EVD-README-016",
+]
+
+[[relation]]
+claim_id = "EVD-README-017"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = [
+    "src/evorthon_data/verification/core/reconciliation.py::EVD-README-017",
+    "src/evorthon_data/verification/adapters/conformance.py::EVD-README-017",
+]
+evidence_refs = [
+    "tests/verification/test_reconciliation.py::EVD-README-017",
+    "tests/verification/test_adapter_kit.py::EVD-README-017",
+]
+
+[[relation]]
+claim_id = "EVD-README-018"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = ["src/evorthon_data/engagement/aggregate.py::EVD-README-018"]
+evidence_refs = ["tests/product/test_engagement_lifecycle.py::EVD-README-018"]
+
+[[relation]]
+claim_id = "EVD-README-019"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = ["src/evorthon_data/verification/domain/contracts.py::EVD-README-019"]
+evidence_refs = [
+    "tests/verification/test_domain_contracts.py::EVD-README-019",
+    "tests/verification/test_reconciliation_workflow.py::EVD-README-019",
+]
+
+[[relation]]
+claim_id = "EVD-README-020"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = [
+    "src/evorthon_data/verification/workflows/intake.py::EVD-README-020",
+    "src/evorthon_data/verification/core/localisation.py::EVD-README-020",
+]
+evidence_refs = [
+    "tests/verification/test_intake_workflow.py::EVD-README-020",
+    "tests/verification/test_lineage_localisation.py::EVD-README-020",
+]
+
+[[relation]]
+claim_id = "EVD-README-021"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = [
+    "src/evorthon_data/verification/enforcement/privacy.py::EVD-README-021",
+    "src/evorthon_data/verification/ports/contracts.py::EVD-README-021",
+]
+evidence_refs = [
+    "tests/verification/test_privacy_gate.py::EVD-README-021",
+    "tests/verification/test_adapter_kit.py::EVD-README-021",
+]
+
+[[relation]]
+claim_id = "EVD-README-022"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = [
+    "src/evorthon_data/verification/core/fault.py::EVD-README-022",
+    "src/evorthon_data/verification/workflows/remediation.py::EVD-README-022",
+]
+evidence_refs = [
+    "tests/verification/test_fault_packet.py::EVD-README-022",
+    "tests/verification/test_remediation_workflow.py::EVD-README-022",
+]
+
+[[relation]]
+claim_id = "EVD-README-023"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = [
+    "src/evorthon_data/verification/domain/contracts.py::EVD-README-023",
+    "src/evorthon_data/engagement/aggregate.py::EVD-README-023",
+]
+evidence_refs = [
+    "tests/verification/test_reconciliation_workflow.py::EVD-README-023",
+    "tests/product/test_engagement_lifecycle.py::EVD-README-023",
+]
+
+[[relation]]
+claim_id = "EVD-README-024"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = [
+    "src/evorthon_data/koine_session.py::EVD-README-024",
+    "src/evorthon_data/verification/workflows/remediation.py::EVD-README-024",
+]
+evidence_refs = [
+    "tests/product/test_koine_session.py::EVD-README-024",
+    "tests/verification/test_remediation_workflow.py::EVD-README-024",
+]
+
+[[relation]]
+claim_id = "EVD-README-025"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = [
+    "src/evorthon_data/delivery/pinax.py::EVD-README-025",
+    "src/evorthon_data/delivery/autobuild.py::EVD-README-025",
+]
+evidence_refs = [
+    "tests/product/test_pinax_projection.py::EVD-README-025",
+    "tests/product/test_autobuild_route.py::EVD-README-025",
+]
+
+[[relation]]
+claim_id = "EVD-README-026"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = ["scripts/run_tests.py::EVD-README-026"]
+evidence_refs = [
+    "tests/verification/test_reconciliation.py::EVD-README-026",
+    "tests/verification/test_contract_engine.py::EVD-README-026",
+]
+
+[[relation]]
+claim_id = "EVD-README-027"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = [
+    "src/evorthon_data/verification/core/localisation.py::EVD-README-027",
+    "src/evorthon_data/verification/workflows/delivery_contract.py::EVD-README-027",
+]
+evidence_refs = [
+    "tests/verification/test_lineage_localisation.py::EVD-README-027",
+    "tests/verification/test_contract_engine.py::EVD-README-027",
+]
+
+[[relation]]
+claim_id = "EVD-README-028"
+status = "environment-owned"
+implementation_state = "not-provided"
+evidence_state = "adopter-owned"
+implementation_refs = []
+evidence_refs = []
+
+[[relation]]
+claim_id = "EVD-README-029"
+status = "environment-owned"
+implementation_state = "not-provided"
+evidence_state = "adopter-owned"
+implementation_refs = []
+evidence_refs = []
+
+[[relation]]
+claim_id = "EVD-README-030"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = ["src/evorthon_data/engagement/aggregate.py::EVD-README-030"]
+evidence_refs = ["tests/product/test_engagement_lifecycle.py::EVD-README-030"]
+
+[[relation]]
+claim_id = "EVD-README-031"
+status = "environment-owned"
+implementation_state = "not-provided"
+evidence_state = "adopter-owned"
+implementation_refs = []
+evidence_refs = []
+
+[[relation]]
+claim_id = "EVD-README-032"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = [
+    "ADOPTION-GUIDE.md::EVD-README-032",
+    "docs/architecture/solution-architecture.d2::EVD-README-032",
+    "examples/INDEX.md::EVD-README-032",
+    "koine/INDEX.md::EVD-README-032",
+]
+evidence_refs = [
+    "tests/pack/test_links_and_indexes.py::EVD-README-032",
+    "tests/pack/test_two_engagement_modes.py::EVD-README-032",
+]
+
+[[relation]]
+claim_id = "EVD-README-033"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = ["pyproject.toml::EVD-README-033", "src/evorthon_data/dependencies.py::EVD-README-033"]
+evidence_refs = ["tests/packaging/test_wheel_dependencies.py::EVD-README-033"]
+
+[[relation]]
+claim_id = "EVD-README-034"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = ["src/evorthon_data/cli.py::EVD-README-034", "src/evorthon_data/dependencies.py::EVD-README-034"]
+evidence_refs = ["tests/product/test_readme_claim_registry.py::EVD-README-034"]
+
+[[relation]]
+claim_id = "EVD-README-035"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = ["scripts/run_tests.py::EVD-README-035", "scripts/check_public_candidate.py::EVD-README-035"]
+evidence_refs = ["tests/product/test_readme_claim_registry.py::EVD-README-035"]
+
+[[relation]]
+claim_id = "EVD-README-043"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = ["src/evorthon_data/engagement/use_case.py::EVD-README-043"]
+evidence_refs = ["tests/product/test_use_case_aggregate.py::EVD-README-043"]
+
+[[relation]]
+claim_id = "EVD-README-044"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = [
+    "src/evorthon_data/engagement/use_case.py::EVD-README-044",
+    "src/evorthon_data/koine_session.py::EVD-README-044",
+]
+evidence_refs = [
+    "tests/product/test_use_case_aggregate.py::EVD-README-044",
+    "tests/product/test_koine_session.py::EVD-README-044",
+]
+
+[[relation]]
+claim_id = "EVD-README-045"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = ["src/evorthon_data/readiness/projection.py::EVD-README-045"]
+evidence_refs = ["tests/product/test_readiness_projection.py::EVD-README-045"]
+
+[[relation]]
+claim_id = "EVD-README-046"
+status = "environment-owned"
+implementation_state = "not-provided"
+evidence_state = "adopter-owned"
+implementation_refs = []
+evidence_refs = []
+
+[[relation]]
+claim_id = "EVD-README-047"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = ["src/evorthon_data/engagement/versions.py::EVD-README-047"]
+evidence_refs = ["tests/product/test_use_case_versions.py::EVD-README-047"]
+
+[[relation]]
+claim_id = "EVD-README-048"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = [
+    "src/evorthon_data/synthetic/generator.py::EVD-README-048",
+    "src/evorthon_data/engagement/versions.py::EVD-README-048",
+]
+evidence_refs = [
+    "tests/product/test_synthetic_generator.py::EVD-README-048",
+    "tests/product/test_use_case_versions.py::EVD-README-048",
+]
+
+[[relation]]
+claim_id = "EVD-README-049"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = [
+    "src/evorthon_data/readiness/projection.py::EVD-README-049",
+    "src/evorthon_data/engagement/use_case.py::EVD-README-049",
+]
+evidence_refs = [
+    "tests/product/test_readiness_projection.py::EVD-README-049",
+    "tests/product/test_cli_use_case.py::EVD-README-049",
+]
+
+[[relation]]
+claim_id = "EVD-README-050"
+status = "available"
+implementation_state = "available"
+evidence_state = "verified"
+implementation_refs = [
+    "src/evorthon_data/koine_session.py::EVD-README-050",
+    "src/evorthon_data/verification/workflows/adviser.py::EVD-README-050",
+]
+evidence_refs = ["tests/product/test_koine_session.py::EVD-README-050"]

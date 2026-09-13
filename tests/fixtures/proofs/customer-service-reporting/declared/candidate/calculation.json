@@ -1,0 +1,144 @@
+{
+  "candidate": "service-report-candidate-calculation",
+  "defect": "six resolution rates move by one unit in the last declared decimal place",
+  "outputs": [
+    {
+      "output": "service-report-2026-09-01",
+      "rows": [
+        {
+          "business-date": "2026-09-01",
+          "case-reference": "CSR-1001",
+          "effective-from": "2026-08-31",
+          "handled-minutes": "12.50",
+          "record-state": "published",
+          "resolution-rate": "0.8125"
+        },
+        {
+          "business-date": "2026-09-01",
+          "case-reference": "CSR-1002",
+          "effective-from": "2026-08-31",
+          "handled-minutes": "8.75",
+          "record-state": "published",
+          "resolution-rate": "0.9000"
+        },
+        {
+          "business-date": "2026-09-01",
+          "case-reference": "CSR-1003",
+          "effective-from": "2026-08-31",
+          "handled-minutes": "21.00",
+          "record-state": "published",
+          "resolution-rate": "0.7500"
+        },
+        {
+          "business-date": "2026-09-01",
+          "case-reference": "CSR-1004",
+          "effective-from": "2026-08-31",
+          "handled-minutes": "15.25",
+          "record-state": "published",
+          "resolution-rate": "0.8750"
+        },
+        {
+          "business-date": "2026-09-01",
+          "case-reference": "CSR-1005",
+          "effective-from": "2026-08-31",
+          "handled-minutes": "6.50",
+          "record-state": "published",
+          "resolution-rate": "0.9500"
+        },
+        {
+          "business-date": "2026-09-01",
+          "case-reference": "CSR-1006",
+          "effective-from": "2026-08-31",
+          "handled-minutes": "18.00",
+          "record-state": "published",
+          "resolution-rate": "0.6875"
+        },
+        {
+          "business-date": "2026-09-01",
+          "case-reference": "CSR-1007",
+          "effective-from": "2026-08-31",
+          "handled-minutes": "9.75",
+          "record-state": "published",
+          "resolution-rate": "0.8250"
+        },
+        {
+          "business-date": "2026-09-01",
+          "case-reference": "CSR-1008",
+          "effective-from": "2026-08-31",
+          "handled-minutes": "27.25",
+          "record-state": "published",
+          "resolution-rate": "0.7125"
+        }
+      ]
+    },
+    {
+      "output": "service-report-2026-09-02",
+      "rows": [
+        {
+          "business-date": "2026-09-02",
+          "case-reference": "CSR-2001",
+          "effective-from": "2026-09-01",
+          "handled-minutes": "11.00",
+          "record-state": "published",
+          "resolution-rate": "0.8501"
+        },
+        {
+          "business-date": "2026-09-02",
+          "case-reference": "CSR-2002",
+          "effective-from": "2026-09-01",
+          "handled-minutes": "14.25",
+          "record-state": "published",
+          "resolution-rate": "0.7751"
+        },
+        {
+          "business-date": "2026-09-02",
+          "case-reference": "CSR-2003",
+          "effective-from": "2026-09-01",
+          "handled-minutes": "7.50",
+          "record-state": "published",
+          "resolution-rate": "0.9251"
+        },
+        {
+          "business-date": "2026-09-02",
+          "case-reference": "CSR-2004",
+          "effective-from": "2026-09-01",
+          "handled-minutes": "23.75",
+          "record-state": "published",
+          "resolution-rate": "0.6501"
+        },
+        {
+          "business-date": "2026-09-02",
+          "case-reference": "CSR-2005",
+          "effective-from": "2026-09-01",
+          "handled-minutes": "10.50",
+          "record-state": "published",
+          "resolution-rate": "0.8876"
+        },
+        {
+          "business-date": "2026-09-02",
+          "case-reference": "CSR-2006",
+          "effective-from": "2026-09-01",
+          "handled-minutes": "19.25",
+          "record-state": "published",
+          "resolution-rate": "0.7376"
+        },
+        {
+          "business-date": "2026-09-02",
+          "case-reference": "CSR-2007",
+          "effective-from": "2026-09-01",
+          "handled-minutes": "8.00",
+          "record-state": "published",
+          "resolution-rate": "0.9125"
+        },
+        {
+          "business-date": "2026-09-02",
+          "case-reference": "CSR-2008",
+          "effective-from": "2026-09-01",
+          "handled-minutes": "16.75",
+          "record-state": "published",
+          "resolution-rate": "0.8000"
+        }
+      ]
+    }
+  ]
+}

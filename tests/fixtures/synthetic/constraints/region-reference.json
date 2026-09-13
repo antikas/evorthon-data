@@ -1,0 +1,49 @@
+{
+  "schema": {
+    "schema_id": "region-reference",
+    "version": "v1",
+    "format_name": "csv-rfc4180",
+    "fields": [
+      {"field_id": "region_code", "value_type": "string", "nullable": false, "semantic_role": "key", "precision": null, "scale": null},
+      {"field_id": "region_name", "value_type": "string", "nullable": false, "semantic_role": "label", "precision": null, "scale": null},
+      {"field_id": "active_from", "value_type": "date", "nullable": false, "semantic_role": "effective date", "precision": null, "scale": null},
+      {"field_id": "population_band", "value_type": "integer", "nullable": true, "semantic_role": "band", "precision": null, "scale": null}
+    ]
+  },
+  "grain": {
+    "grain_id": "one-row-per-region",
+    "version": "v1",
+    "key_fields": ["region_code"],
+    "population_description": "one row per region in the reference list",
+    "duplicate_keys_permitted": false
+  },
+  "keys": [
+    {
+      "key_list_id": "region-keys",
+      "source": {
+        "identifier": "region-reference-extract",
+        "version": "v2",
+        "digest": "blake2b-256:8d40b7e21f6c95a3047be18d2c5039fa7146bd82e09c374a5fb61d0e938a24c7"
+      },
+      "values": ["R-NORTH", "R-SOUTH", "R-EAST", "R-WEST", "R-CENTRAL", "R-ISLANDS"]
+    }
+  ],
+  "constraints": {
+    "constraints_id": "region-reference-summaries",
+    "version": "v1",
+    "dataset_id": "region-reference-synthetic",
+    "role": "reference",
+    "row_count": 5,
+    "approved_summary": "Five synthetic regions drawn one to one from the known region key list.",
+    "fields": [
+      {"field_id": "region_code", "rule": "foreign-key", "lower": null, "upper": null, "categories": [], "key_list_id": "region-keys", "cardinality": "one-to-one", "null_rate": 0.0, "null_rate_tolerance": 0.0},
+      {"field_id": "region_name", "rule": "categories", "lower": null, "upper": null, "categories": [
+        {"value": "Northern Region", "weight": 1},
+        {"value": "Southern Region", "weight": 1},
+        {"value": "Coastal Region", "weight": 2}
+      ], "key_list_id": null, "cardinality": null, "null_rate": 0.0, "null_rate_tolerance": 0.0},
+      {"field_id": "active_from", "rule": "sequence", "lower": "2020-01-01", "upper": null, "categories": [], "key_list_id": null, "cardinality": null, "null_rate": 0.0, "null_rate_tolerance": 0.0},
+      {"field_id": "population_band", "rule": "range", "lower": 1, "upper": 5, "categories": [], "key_list_id": null, "cardinality": null, "null_rate": 0.2, "null_rate_tolerance": 0.05}
+    ]
+  }
+}
