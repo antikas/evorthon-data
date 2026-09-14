@@ -1,6 +1,6 @@
 # Verifying a data product
 
-A team needs to know whether a candidate data product produces the agreed results, and where differences arise. Evorthon Data compares candidate outputs with expected outputs under rules that the responsible people can read and change before a run.
+A team needs to know whether a candidate data product produces the agreed results, and where differences arise. Evorthon Data Harness compares candidate outputs with expected outputs under rules that the responsible people can read and change before a run.
 
 ## Freeze the comparison
 

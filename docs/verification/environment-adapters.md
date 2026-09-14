@@ -1,6 +1,6 @@
 # Environment adapters
 
-To verify a data product, Evorthon Data needs stored evidence and candidate outputs from the adopting environment. Your team provides adapters that supply them through two Python interfaces. The adapter kit includes reference implementations and checks for contract conformance.
+To verify a data product, Evorthon Data Harness needs stored evidence and candidate outputs from the adopting environment. Your team provides adapters that supply them through two Python interfaces. The adapter kit includes reference implementations and checks for contract conformance.
 
 Adapters use the port contracts and adapter kit. They do not import the verification domain, comparison core or workflows.
 

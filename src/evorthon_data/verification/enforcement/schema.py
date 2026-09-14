@@ -106,7 +106,7 @@ def generate_json_schema() -> dict[str, Any]:
     return {
         "$schema": JSON_SCHEMA_DRAFT,
         "$id": SCHEMA_IDENTITY,
-        "title": "Evorthon Data verification-domain record envelope",
+        "title": "Evorthon Data Harness verification-domain record envelope",
         "description": "Generated from evorthon_data.verification.domain.contracts; unknown fields and schema versions are rejected.",
         "oneOf": envelope_variants,
         "$defs": definitions,

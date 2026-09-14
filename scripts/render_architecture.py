@@ -124,7 +124,7 @@ def parse(source: pathlib.Path) -> Architecture:
 
 def rendered(source: pathlib.Path) -> tuple[str, str]:
     architecture = parse(source)
-    lines = ["# Evorthon Data architecture", "", f"Direction: `{architecture.direction}`.", "", "## Components", ""]
+    lines = ["# Evorthon Data Harness architecture", "", f"Direction: `{architecture.direction}`.", "", "## Components", ""]
     lines.extend(f"- `{identity}` - {label}" for identity, label in architecture.nodes.items())
     lines.extend(["", "## Routes", ""])
     lines.extend(f"- `{left} -> {right}`" for left, right in architecture.routes)

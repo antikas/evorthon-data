@@ -4,9 +4,9 @@ build-backend = "hatchling.build"
 
 [project]
 # evorthon-implements: EVD-README-033
-name = "evorthon-data"
-version = "1.0.1"
-description = "End-to-end data-platform delivery coworker for modernising an existing estate or building a new one"
+name = "evorthon-data-harness"
+version = "1.0.2"
+description = "Data engineering harness for modernising an existing estate or building a new platform"
 readme = "README.md"
 requires-python = ">=3.11"
 license = {text = "MIT"}
@@ -16,6 +16,11 @@ classifiers = [
   "Programming Language :: Python :: 3",
   "Topic :: Software Development :: Quality Assurance",
 ]
+
+[project.urls]
+Documentation = "https://github.com/antikas/evorthon-data-harness#readme"
+Issues = "https://github.com/antikas/evorthon-data-harness/issues"
+Repository = "https://github.com/antikas/evorthon-data-harness"
 
 [project.optional-dependencies]
 # This is the sole owner of the delivery version ranges. Each entry declares a
@@ -34,7 +39,7 @@ test = ["pytest>=8,<9", "pytest-timeout>=2,<3"]
 dev = ["pytest>=8,<9", "pytest-timeout>=2,<3"]
 
 [project.scripts]
-evorthon-data = "evorthon_data.cli:main"
+evorthon-data-harness = "evorthon_data.cli:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/evorthon_data"]

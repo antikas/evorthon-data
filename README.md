@@ -1,12 +1,12 @@
-# Evorthon Data
+# Evorthon Data Harness
 
 Delivering a data platform means carrying business definitions, design decisions and evidence from discovery through engineering to acceptance. When that work is split across documents and tools, teams spend time reconstructing what was agreed and how to check it.
 <!-- evorthon-claim: EVD-README-036 -->
 
-Evorthon Data is a **data engineering harness**: software and a specialist AI coworker that help a team turn a business outcome into reviewed, built and verified data products. It supports both modernising an existing estate and building a new platform.
+Evorthon Data Harness is a **data engineering harness**: software and a specialist AI coworker that help a team turn a business outcome into reviewed, built and verified data products. It supports both modernising an existing estate and building a new platform.
 <!-- evorthon-claim: EVD-README-037 -->
 
-People set the outcome, scope, policies and acceptance rules. Evorthon Data records those decisions, carries them through delivery and retains the evidence for a named person to accept the result.
+People set the outcome, scope, policies and acceptance rules. Evorthon Data Harness records those decisions, carries them through delivery and retains the evidence for a named person to accept the result.
 <!-- evorthon-claim: EVD-README-038 -->
 
 ## Delivery example
@@ -70,13 +70,13 @@ Model calls require authorization from the adopting environment. Intake may send
 Readiness is calculated for each span of processing, called a segment. Its output definition must specify fields, what one row represents and identifying keys. Other missing facts receive labelled substitutes or tracked follow-up work, allowing ready segments to proceed.
 <!-- evorthon-claim: EVD-README-045 -->
 
-The work tracker holds dependencies, readiness, claims and completion. Evorthon Data uses the separately released Pinax tracker for this shared operational record.
+The work tracker holds dependencies, readiness, claims and completion. Evorthon Data Harness uses the separately released Pinax tracker for this shared operational record.
 <!-- evorthon-claim: EVD-README-015 -->
 
 Pinax shares state changes through Git. It reads shared state before claiming work and refuses a claim that loses a race with another worker.
 <!-- evorthon-claim: EVD-README-046 -->
 
-Two further tools support delivery: Ergasterion generates outputs from suitable contracts, and AutoBuild runs eligible work through build and review cycles. Evorthon Data connects to their released packages through narrow adapters.
+Two further tools support delivery: Ergasterion generates outputs from suitable contracts, and AutoBuild runs eligible work through build and review cycles. Evorthon Data Harness connects to their released packages through narrow adapters.
 <!-- evorthon-claim: EVD-README-016 -->
 
 Verification begins when the team defines success, evidence ownership and failure conditions. The product provides the comparison engine; platform delivery includes the contracts, checks and environment adapters needed to use it.
@@ -125,7 +125,7 @@ Comparison results come from deterministic checks against the case's declared ru
 
 ## Scope and limits
 
-Evorthon Data is specific to data-platform delivery.
+Evorthon Data Harness is specific to data-platform delivery.
 <!-- evorthon-claim: EVD-README-028 -->
 
 The adopting team chooses its cloud, processing engine, storage and target architecture.
@@ -145,7 +145,7 @@ Start with the [adoption guide](ADOPTION-GUIDE.md) and a [worked example](exampl
 The Python package requires Python 3.11 or later. Optional delivery dependencies provide the tracker, generator and build runner; their declared minimum versions follow the interfaces this product uses.
 <!-- evorthon-claim: EVD-README-033 -->
 
-Use `evorthon-data diagnose` to inspect installed delivery capabilities. To run the repository's fast checks with [uv](https://docs.astral.sh/uv/):
+Use `evorthon-data-harness diagnose` to inspect installed delivery capabilities. To run the repository's fast checks with [uv](https://docs.astral.sh/uv/):
 <!-- evorthon-claim: EVD-README-034 -->
 
 ```text

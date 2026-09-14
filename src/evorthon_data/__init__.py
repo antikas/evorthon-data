@@ -1,5 +1,5 @@
-"""Evorthon Data product boundary."""
+"""Evorthon Data Harness product boundary."""
 
 # evorthon-component: composition
 
-__version__ = "1.0.1"
+__version__ = "1.0.2"
