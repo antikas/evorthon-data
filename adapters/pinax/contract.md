@@ -6,7 +6,7 @@ use case has approved, and the iterations in flight on its spans. It does not
 copy readiness, claims, completion or any other live state into its own store,
 and it does not couple verification semantics to a tracker.
 
-## What the projection creates
+## Projection items
 
 - One parent item for each use case, titled with a stable namespace built from
   the engagement identity and the use-case identity. The namespace carries no
@@ -18,10 +18,11 @@ and it does not couple verification semantics to a tracker.
 - Each gap child is titled with that namespace followed by the suggested item
   title exactly as readiness wrote it. Readiness owns that wording.
 
-A gap is projected as work under the use case. It is never a block on the use
-case, and a gap synthetic data can fill is labelled rather than refused.
+A gap is projected as work under the use case. A gap that synthetic data can
+fill carries that label. A gap blocks only the items on the span it names.
+It does not block the use-case parent or other spans.
 
-## Typed edges
+## Edges
 
 - `parent-child` from the use-case parent to every child.
 - `blocks` from a package to each package that depends on it.
@@ -31,21 +32,20 @@ case, and a gap synthetic data can fill is labelled rather than refused.
   consumed product to the consuming use case's items on the spans that read
   that product, for every consumer dependency the record declares.
 
-An edge joins two items the projection creates. A declaration that names no item
-at one of its ends, such as a consumed product with no iteration declared on
-either side of it, creates no edge rather than an invented one.
+An edge joins two items the projection creates. A declaration with no item at
+one end, such as a consumed product with no iteration on either side, produces
+no edge.
 
-## Notes
+## Gap notes
 
 Each gap item carries one note. Its `--ref` is
 `koine://use-case/<use case>/readiness/<projection digest>`, which points at the
 reading the gap came from and never at a stored document or an environment
 route. Its caption names the gap kind, the suggested owner and whether
 synthetic data can fill the gap, within the tracker's 200-character cap. The
-note is written once; a later reading is surfaced in the report rather than by
-writing a second note.
+note is written once. A later reading appears in the report.
 
-## Re-projection
+## Repeated projection
 
 Re-projection is idempotent while the already projected graph is still the exact
 declared scope: it adds no item, edge or note and changes no state. Pinax gate
@@ -53,10 +53,10 @@ resolution afterwards is left untouched.
 
 Re-projection reports, without changing anything, every open gap item whose fact
 the current reading no longer states, and every open gap item whose kind,
-suggested owner or synthetic-fillability no longer matches its note. Closing
+suggested owner or eligibility for synthetic data no longer matches its note. Closing
 such an item is a tracker decision, not the projection's.
 
-## Refusals
+## Integrity refusals
 
 The projection refuses only integrity failures, and every refusal about the
 declared scope happens before the first tracker command:
@@ -70,7 +70,7 @@ declared scope happens before the first tracker command:
   or a gap kind the projection has no wording for;
 - an actor handle that is not a role and a host.
 
-## Commands Evorthon invokes
+## Commands
 
 These six are the whole command surface the projection composes.
 
@@ -86,7 +86,7 @@ These six are the whole command surface the projection composes.
   reaches the tracker.
 - `dep add --type` records a typed edge between two items.
 
-## Commands Evorthon does not invoke
+## Commands for board users
 
 Pinax offers these to the people and agents working the board. Evorthon issues
 none of them, and depends only on their meaning staying as described.
@@ -104,4 +104,4 @@ folded state back through the board response and never reads a tracker file.
 Evorthon stores opaque returned item identities, not tracker state. There is no
 retitle command, so an item title is decided when the item is created. No
 version is named in this contract: `pyproject.toml` owns the lower bound and
-`docs/dependency-contracts.md` records the dated resolution.
+`uv.lock` records resolved versions; `docs/dependency-contracts.md` explains the version policy.

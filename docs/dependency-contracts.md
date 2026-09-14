@@ -1,45 +1,27 @@
-# Dependency contracts
+# Delivery dependencies
 
-Evorthon consumes three separately owned delivery mechanisms as published index
-distributions: `pinax-tracker`, `autobuild-factory` and `ergasterion-factory`.
-It invokes their public commands and reads their published files. It does not
-import a sibling source tree, vendor an implementation, or reproduce a tool's
-internals.
+Evorthon Data connects to separately released packages for work tracking, builds and generation: `pinax-tracker`, `autobuild-factory` and `ergasterion-factory`. Its adapters call their public commands and read published files. The product uses installed distributions from a package index.
 
-## Floors, not ceilings
+## Version requirements
 
-`pyproject.toml` is the sole owner of the delivery version ranges. Each delivery
-distribution carries a lower bound and no upper bound. A lower bound names the
-first published version that carries an interface Evorthon calls, and it rises
-only when Evorthon starts calling a newer interface. Nothing else in the product
-restates a range: the adapter contracts in `adapters/` describe the interfaces by
-capability and command, and the diagnostics report whatever is installed.
+`pyproject.toml` defines the supported dependency ranges. Each delivery dependency has a minimum version and no upper bound. The minimum is the first published version with an interface Evorthon Data uses; it increases when the product uses a newer interface.
 
-Install the delivery mechanisms only when an adopting delivery needs them:
+The [adapter contracts](../adapters/) describe capabilities and commands. Version requirements belong in the package metadata, so the contracts do not repeat them.
 
-    pip install 'evorthon-data[delivery]'
+## Installation and diagnostics
 
-The base package and its verification domain work without them.
-`evorthon-data diagnose` reads package metadata and reports each delivery
-distribution's installed version, or its absence.
+Install the optional delivery tools when an engagement needs them:
 
-## The lock is dated evidence
+```text
+python -m pip install "evorthon-data[delivery]"
+```
 
-`uv.lock` records one resolution at one moment. It is build evidence, never a
-requirement; the lower bound in `pyproject.toml` is the requirement. Resolved on
-2026-09-08 against the public index: `pinax-tracker` 0.1.3, `autobuild-factory`
-0.5.0 and `ergasterion-factory` 0.6.1, the last of which newly requires
-`sqlglot`.
+The base package and verification domain work without those tools. Run `evorthon-data diagnose` to report each delivery package's installed version or absence.
 
-Refreshing the lock is ordinary maintenance. Re-resolve the three delivery
-distributions, run the locked clean-install and adapter-contract checks, and read
-the adapter contracts against the newly resolved interfaces. A lower bound moves
-only when the code calls a newer interface. An upper bound is never added to hold
-a tool back.
+Environment-specific ingestion is supplied through the adopting team's verification adapters. The `delivery` extra installs the delivery tools.
 
-## What is not here
+## Reproducible builds
 
-The former `local-data` extra is removed. Environment-specific ingestion stays
-behind an adopter-owned verification adapter. Teams that need the delivery
-distributions migrate to the single `delivery` extra rather than enabling an
-ingestion extra on the generator.
+`uv.lock` records the exact versions resolved for a build. The minimum supported versions remain in `pyproject.toml`.
+
+When refreshing the lock, resolve the delivery dependencies, run the locked clean-install and adapter-contract checks, and compare the adapter contracts with the resolved interfaces. Keep minimum versions tied to interfaces the product uses, with no upper bounds.

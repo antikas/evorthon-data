@@ -1,22 +1,30 @@
-# Capability status
+# Capabilities and evidence
 <!-- evorthon-implements: EVD-README-001 -->
 
-Evorthon Data is in an approved product-build programme. The README remains the binding product contract; this page says what each claim's status means and where a claim's boundary lies.
+A technical assessment needs to distinguish the product's own capabilities from the work an adopting team must supply. Evorthon Data includes the coworker pack, engagement and use-case records, readiness calculation, synthetic data generation, verification engine, acceptance records and environment-adapter kit.
 
-## Status terms
+Its delivery adapters connect to the separately released tracker, generator and build runner. The adopting team supplies platform access, model authorization, protected data handling, evidence storage and any certification.
 
-- **Available** means the repository contains the stated capability and a focused check named by the claim registry verifies it.
-- **In development** means the behaviour is approved product scope but is not yet an available capability. It has no implementation or verification reference in the registry until that changes.
-- **Environment owned** means the product intentionally does not provide the stated capability. It sits outside the product boundary: the adopting environment or a separately released tool owns it, or the claim describes the delivery situation a team already has. The product must not imply otherwise.
+## Inspect the evidence
 
-The available surface is the whole delivery route. It carries the specialist co-worker pack and its templates, the governed engagement lifecycle, the use-case record with its per-segment readiness, artefact-first intake, synthetic dataset generation, version cutting and named acceptance, the narrow routes to the released tracker, generator and build tools, the deterministic verification engine with its intake, reconciliation, localisation, replay, delivery-contract and remediation steps, the diagnostic adviser, the environment-adapter kit, dependency diagnostics, repository checks and private-to-public projection machinery. Both shipped examples run that route end to end on frozen synthetic material.
+The [claim registry](readme-claim-registry.toml) connects stable references in the [README](../../README.md) to implementation files and focused tests. It stores those relationships without copying the claim text. Use it to find the code and checks supporting a capability you need to assess.
 
-Every claim the product provides is available and carries its implementation and evidence references in the [claim registry](readme-claim-registry.toml). No claim carries the in-development mark today.
+Repository validation checks that every marked claim has a registry entry, that its state is consistent, and that its references resolve to matching implementation and test markers. This check validates traceability; assessing a claim also requires reading its implementation and evidence.
 
-The claims outside the product boundary are environment owned. EVD-README-029 and EVD-README-031 keep technology selection, live connections, credentials, protected data and certified evidence stores inside the adopting environment. EVD-README-046 describes shared tracker state, which the released Pinax distribution owns and this product never copies into a store of its own. EVD-README-028 places a generic delivery product outside this boundary, and EVD-README-036 describes the split delivery system a team already has before it adopts the product.
+## Registry terms
 
-The claim registry is relational: it records only stable README identifiers, states and implementation/evidence references. It deliberately does not restate the product claims. This keeps the README as their single textual source.
+- **Available** means the repository contains the capability and the registry names implementation and focused verification references.
+- **In development** means the behaviour is approved product scope but is not yet an available capability.
+- **Environment owned** means the registry describes an external responsibility or context. This includes adopter controls, separately released tools and the delivery situation described in the introduction.
 
-Two claims bound what an available implementation may do: EVD-README-049 names the classes that fail closed, and EVD-README-045 governs how readiness is computed. The README remains the single textual source for both rules.
+## Interpret the verification results
 
-The verification engine rests on a versioned, frozen verification case. Deterministic code reconciles actual and expected outputs and reports the evidence-supported divergence; an AI adviser may propose a remedy but a person remains responsible for deciding whether it enters delivery.
+The [verification guide](../verification/README.md) explains frozen cases, comparisons and evidence gaps. Both [worked examples](../../examples/INDEX.md) exercise the delivery route using synthetic material.
+
+Synthetic evidence remains labelled on cases, results and acceptance records. A successful synthetic run supports the declared scenario; it provides no certificate for a live platform. A named person decides whether the available evidence is sufficient for acceptance.
+
+Readiness, provenance and assurance inform that decision. The [README](../../README.md#checks-and-acceptance) states the integrity conditions that refuse a record or operation.
+
+## Check a public copy
+
+Run `python scripts/check_public_candidate.py` from a public checkout to validate its contents against the published inventory.

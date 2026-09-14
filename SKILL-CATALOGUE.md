@@ -10,4 +10,6 @@
 | Build | `building-data-platform` | build reviewer | implementation plan |
 | Verify | `verifying-data-platform` | verify reviewer | verification record |
 
-The frame stage begins verification planning: case intent, check families, owned lineage/checkpoint expectations and acceptance rules travel with every later record. The trace stage is used only for an existing estate; greenfield engagements use independently reviewed capability discovery instead. Each skill points to the canonical Koine prompt pair; runtime adapters do not own duplicate workflow instructions.
+Verification planning begins during outcome framing. Later records retain the case intent, check families, checkpoint evidence owners and acceptance rules.
+
+Use estate tracing for modernisation and reviewed capability discovery for greenfield delivery. Each skill links to its Koine generator and reviewer prompts; runtime adapters use those same instructions.

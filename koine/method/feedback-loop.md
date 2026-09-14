@@ -1,3 +1,3 @@
 # Feedback loop
 
-Acceptance records what was proved, what was not, and what changes the reusable method. A review is not a substitute for a named acceptance decision.
+Acceptance records verified results, unresolved evidence and changes to the reusable method. A named human records the acceptance decision after review.

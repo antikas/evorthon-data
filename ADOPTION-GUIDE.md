@@ -1,26 +1,99 @@
 # Adopting Evorthon Data
 <!-- evorthon-implements: EVD-README-032 -->
 
-Start with a real consumer outcome, a clear platform boundary, named authorities, and evidence that can support the next decision. Do not begin with a tool or a target architecture.
+Start with a report, dataset or consumer view whose success you can describe and check. Gather the material that explains it and involve the people who can decide what should change.
 
-For a modernisation engagement, create an outcome brief, a current-estate map, platform design, implementation plan, delivery contract, and verification record. For greenfield, replace the current-estate map with an independently reviewed capability-discovery record; do not simply skip discovery. The resulting records establish required capabilities, constraints, architecture, increments, the delivery contract, and contract-conformance evidence without inventing a legacy-parity claim.
+Evorthon Data provides a specialist AI coworker, delivery records and Python tools for recording and verifying the work. Adapters connect it to separately released delivery tools. The adopting team supplies platform access, model authorization and the people who accept the result.
 
-Koine is the specialist co-worker. Its prompts generate a stage record; its paired prompts challenge it before the next stage. Pinax holds operational work state. Ergasterion may generate declared artefacts. AutoBuild may execute only eligible, approved work. None owns another mechanism's role.
+## Work through an example
 
-## What crosses to a model
+Choose the [customer service reporting example](examples/modernisation/customer-service-reporting/outcome-brief.md) for an existing estate, or the [renewable asset example](examples/greenfield/renewable-asset-observability/outcome-brief.md) for a new platform. Both use synthetic data and named fictional decision owners.
 
-Every model call travels through one authorization gateway. An external call is refused unless it is presented with a current, unrevoked authorization issued in your environment and bound to the case, purpose, route, destination, exact fields, data class, retention policy and evidence policy. An ambient credential never authorises a send on its own.
+Read the outcome brief first, then follow the records in that example's directory through discovery, design, implementation planning and verification. Use them to understand what a completed record contains before adapting the [templates](koine/templates/) to your own work.
 
-A use-case intake round calls a model twice, and the two calls carry different things. The generator call carries the use-case identity, the engagement mode, each admitted artefact's identity, version, digest, handling classification and logical locator, the intake sections still open, the answers a named human confirmed, and a bounded sample of the text of each artefact the authorization lets cross. The sample is cut to a declared number of rows and characters, so no artefact crosses whole however large it is, and an artefact whose handling classification is above the level the authorization's field scope names crosses no text at all. The round then proceeds on that artefact's digest and the record, and reports for every artefact how much crossed or the closed reason nothing did. The independent review call carries the recorded facts with their provenance and the artefact identities and digests, and no artefact text at any classification.
+## Prepare the first use case
 
-The diagnostic adviser is the third route that calls a model. It carries only the declared text fields of a fault packet the privacy gate has already passed, together with the two lists of evidence identities that packet cites, so no row, key, field value or approved case text reaches it. Its reply comes back as an inert advice record: it is recorded as text for a person to read, and nothing in the product executes, applies or forwards it.
+1. Name the consumer and the output they need. Record how often they need it, what success means and who can accept delivery.
+2. Gather existing schemas, data extracts, transformations, reports, schedules and catalogue exports. Facts recorded from them retain their source and whether they are extracted, inferred or confirmed.
+3. Define the output's fields, what each row represents and its identifying keys. These are the minimum facts needed to assess a segment of processing for build readiness.
+4. Name the people responsible for source evidence, technical decisions, policies and acceptance. Record unresolved questions and constraints alongside the outcome.
 
-Raw rows beyond the sample, credentials and machine paths never cross. A locator is logical, which means it names the artefact and the position inside that artefact and nothing else, and the record refuses it before it is written if it carries an address under any scheme, a path from the root of a machine, a lettered volume, a share host, a written home directory, a climb out of where it starts, or a path written with a machine path's separator. The same shapes are refused in a fault packet and in a tracker note. A locator that reads like a dotted server name followed by a path or a port, or like a connection string, is admitted and the round reports a warning on it, because a dotted name cannot be told from an ordinary written name. Connection details belong in your environment's configuration and not in a record, and a locator that reads like one is admitted with a warning rather than refused, because a server name typed into a locator is a naming matter for your team. A credential-shaped pattern is refused before an artefact is admitted, so it cannot reach a call at all. Your environment owns the authorization, the provider account, retention and any evidence store.
+For modernisation, document the current estate and the behaviour that must continue. For greenfield delivery, do not simply skip discovery: document required capabilities and constraints in a reviewed capability-discovery record. Both routes then produce a platform design, implementation plan, delivery contract and verification record.
 
-## Reaching your own material
+Missing data can be filled with labelled synthetic datasets. Readiness is calculated per segment, so another segment's missing facts need not stop ready work. Acceptance records show what was covered, what evidence was used and what remains outside the accepted version.
 
-This product never reaches into your environment. Candidate artefacts and stored evidence arrive through two small read contracts that you implement, and the code that implements them is yours. Reference adapters ship with the product for both contracts, one pair answering from values held in memory and one pair answering from material laid out in a directory you name, so a team can run the product end to end before wiring anything of its own.
+## Use the coworker and delivery tools
 
-An adapter declares what it can do and what its answers are worth, and a conformance suite reads those claims against what the contract actually showed. It refuses a capability the port never showed, an assurance above the plainest level with no named input behind it, and any value or refusal carrying a machine route or a written credential. Locations, credentials, capture, signing, retention and certificate claims stay on your side of the boundary and have no field in any contract. See the [environment-adapter contract](docs/verification/environment-adapters.md).
+The [Koine coworker pack](koine/INDEX.md) provides prompts and templates for the delivery conversation. A generation prompt drafts a record; a separate reviewer challenges it. People resolve the findings and approve the decisions.
 
-The shipped examples are synthetic teaching material. They are not a delivery template for a particular organisation. Any live evidence, credentials, local paths, review records, and operational state remain in the adopting environment.
+Pinax holds work state and dependencies, while Ergasterion generates outputs from suitable contracts. Eligible, approved work can run through build and review cycles in AutoBuild. The [dependency contracts](docs/dependency-contracts.md) describe how Evorthon Data connects to those separately released tools.
+
+Use Python 3.11 or later in a virtual environment. From the root of a repository checkout, install the package and its delivery tools:
+
+```text
+python -m pip install ".[delivery]"
+```
+
+Inspect the available commands and delivery dependencies:
+
+```text
+evorthon-data diagnose
+evorthon-data use-case --help
+evorthon-data verification --help
+```
+
+## Model access
+
+Every model call passes through an authorization gateway. A call requires current, unrevoked authorization issued by your environment for the case, purpose, route, destination and exact fields. It also names the data class, retention policy and evidence policy.
+
+A provider credential alone does not authorize sending material. The people responsible for model access control both the authorization and the provider account. They can inspect the permitted fields before use.
+
+### Intake
+
+The generator call carries the use-case identity, engagement mode, open questions, confirmed answers and admitted artefact references. Each reference includes its identity, version, digest, handling classification and logical location within the source.
+
+It may also carry a bounded sample of artefact text, limited by a declared number of rows and characters. Text crosses only when its handling classification is permitted by the authorization's field scope. A small artefact may fit entirely within those limits.
+
+For higher classifications, the round uses the digest and recorded facts without sending artefact text. Each round reports the amount sent for each artefact or the reason its text was withheld.
+
+### Independent review
+
+The review call carries recorded facts, their provenance, and artefact identities and digests. It carries no artefact text at any classification.
+
+### Diagnostic advice
+
+The diagnostic adviser receives declared text fields and evidence identities from a fault packet that has passed the privacy check. It receives no raw rows, keys, field values or approved case text.
+
+The reply is stored as an inert advice record for a person to read. The product does not execute, apply or forward the reply.
+
+### Source references and connection details
+
+A logical locator names an artefact and a position within it. Connection details belong in your environment's configuration. The record refuses a locator containing any of these machine-location forms:
+
+- an address under any scheme
+- a path from the root of a machine
+- a lettered volume
+- a share host
+- a written home directory
+- a climb out of where it starts
+- a path written with a machine path's separator
+
+The same forms are refused in fault packets and tracker notes. The record admits a locator that reads like a dotted server name followed by a path or a port, or like a connection string. The intake round reports a warning on it.
+
+These forms need human review because a dotted name cannot be told from an ordinary written name by the pattern check. The warning leaves the locator admitted. Keep actual connection details in environment configuration.
+
+Credential-shaped patterns are refused before an artefact is admitted. These checks recognise declared patterns; they do not establish that arbitrary text contains no sensitive information. Review the material and authorize only the fields and samples suitable for your model provider.
+
+## Connect your environment
+
+Two adapter contracts connect verification to your material: one reads stored evidence and one produces candidate outputs. The adopting team implements the code that accesses its platform. Reference adapters can read values held in memory or material in a directory you select.
+
+Each adapter declares its capabilities and the evidence supporting its answers. A conformance suite checks those declarations against the contract, including unsupported capabilities, missing assurance inputs, invalid values, machine locations and credential patterns.
+
+Access, capture, credentials, signing, retention and certification belong to your environment. The [environment-adapter contract](docs/verification/environment-adapters.md) describes the interfaces and their conformance checks.
+
+## Verify and accept
+
+Agree the comparison rules and expected results before the run. The [verification engine](docs/verification/README.md) compares candidate outputs against frozen evidence and reports confirmed differences and evidence gaps.
+
+A named person decides whether the result is acceptable, including when evidence is synthetic or incomplete. Keep live organisational evidence, review records, credentials and operational work state in your team's environment.

@@ -2,9 +2,9 @@
 
 Schemas, data and transformations already exist somewhere before anyone is interviewed. Read them first with base tools, record what they say, and spend the conversation on what no artefact answers.
 
-No parser, conformance suite or artefact adapter is built for a shape that is not in hand. Read what your base tools can read, record the rest as a gap, and say what you did not read. A repeated shape that becomes the bottleneck is a separate, sized piece of work a human approves.
+No parser, conformance suite or artefact adapter is built during intake. Read with base tools, record unread material as a gap, and name the unread material. A repeated bottleneck shape needs a separate, sized work item with human approval.
 
-## What to look for, by artefact class
+## Artefact classes
 
 - **Delimited extracts.** Column names and order, apparent types, null and sentinel values, row counts, the period the extract covers, and any header or footer that carries a run date. Work from the sample you are given; never copy raw rows into the record.
 - **Spreadsheets.** Sheet names, the header row, merged cells and hidden columns, formulas that hold business rules, lookup tables on side sheets, and the manual steps a note in a cell describes.
@@ -17,16 +17,16 @@ No parser, conformance suite or artefact adapter is built for a shape that is no
 - **Schedules.** Trigger times and time zones, upstream dependencies, the window a run is expected to finish in, calendar exceptions, and what the schedule does when a run is late.
 - **Catalogue exports.** Registered datasets and owners, classification and retention labels, declared lineage, freshness expectations, and the entries that name a system nobody mentioned.
 
-## What every artefact contributes
+## Recorded artefact facts
 
 Each artefact yields facts, and each fact carries the artefact identity, the position inside it, the extractor and a status of extracted, inferred or confirmed. Each artefact is frozen with a digest and classified on intake; an unknown classification is handled as confidential. Credentials found inside an exported artefact are removed before it is stored.
 
-A fact locator is logical. It names an artefact and a position inside it, such as a sheet and a cell range, a table and a column, or a statement and a line. It is never a drive letter, a network location or an absolute path.
+A fact locator names an artefact and a position inside it, such as a sheet and a cell range, a table and a column, or a statement and a line. Use logical locators; do not record drive letters, network locations or absolute paths.
 
-## What crosses to a model
+## Model egress
 
-Reading an artefact and sending it are two different acts. The artefact is read where it sits, and what reaches a model on an intake round is a bounded sample of its text: the first rows up to a declared number of rows, cut again at a declared number of characters. The sample is the start of the artefact, not a representative selection from it, and nothing beyond that prefix crosses. No artefact crosses whole, however small it looks.
+The artefact is read where it sits. An intake model receives a bounded sample from the start of its text, limited by the declared row and character counts. A small artefact may fit entirely within those limits. The sample covers a prefix of the text and may omit later sections; it provides no basis for assuming that the remaining text has the same properties.
 
 The handling classification gates the crossing. An artefact classified at or below the level the round's authorization names crosses as a sample. An artefact above that level crosses no text at all: the round proceeds on its digest, its classification label and the record, and says so. An unknown classification is handled as confidential, so it crosses only where confidential text is authorized. Where no authorization names a level, no artefact text crosses at all.
 
-The round reports, for each artefact, how much of it crossed or the closed reason none of it did. Nothing is refused for being synthetic. The independent review pass carries no artefact text at any classification; the reviewer opens the artefacts where they sit.
+The round records, for each artefact, the amount of text sent or the reason no text was sent. Synthetic material can be used when labelled. The independent review pass receives no artefact text; the reviewer opens artefacts where they sit.

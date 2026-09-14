@@ -44,15 +44,12 @@ FUTURE_LANGUAGE_PATTERNS = (
     r"\bwill be (?:able|available|shipped|built)\b",
     r"\buntil (?:that|the) (?:engine|capability|route|command)\b",
 )
-# The only sentences allowed to carry that language: the two places that define
+# The only sentences allowed to carry that language: the reference page that defines
 # what the marks mean. Each is named by its file and by its exact sentence, so
 # a definition cannot grow into a status statement without this list changing.
 STATUS_TERM_DEFINITIONS = {
     "docs/product/capability-status.md": (
         "- **In development** means the behaviour is approved product scope but is not yet an available capability.",
-    ),
-    "README.md": (
-        "A claim the registry marks **in development** is approved product behaviour that is not yet shipped; no claim carries that mark today.",
     ),
 }
 

@@ -155,10 +155,8 @@ class LayerProfile:
         return [bodies[pattern] for pattern in self.ordering if pattern in bodies]
 
 
-# The layer labels this adapter supports, and the composition each one's
-# profile states. Only the layer the estate's derivation profile serves is
-# mapped today; mapping another layer is a registered follow-up, never a
-# silent extension, so an unmapped layer is refused with a closed reason.
+# This adapter supports the estate's derivation profile.
+# An unmapped layer is refused with a closed reason.
 LAYER_PROFILES: Mapping[str, LayerProfile] = MappingProxyType(
     {
         "derived": LayerProfile(

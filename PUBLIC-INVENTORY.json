@@ -154,7 +154,7 @@
     },
     {
       "path": "ADOPTION-GUIDE.md",
-      "sha256": "be3be15a4ab759ec51e928eefe7c49470d992b770a3588fbab157c877098ff9d"
+      "sha256": "ae8b800fbd125aaa983952353bd2e92f3c2afdb906e5156e3bee515eb148e113"
     },
     {
       "path": "AGENTS.md",
@@ -174,35 +174,35 @@
     },
     {
       "path": "README.md",
-      "sha256": "b51c4ca9e27074aa2caf1aa36bfd3fc5297cd4ec4ccb378683ddfed238a40243"
+      "sha256": "df125cd2d9afbc887f963c21687e226ee545a171eb35a83b011864e938f824bd"
     },
     {
       "path": "SKILL-CATALOGUE.md",
-      "sha256": "b4d9588520d132d8bc7088bb0649f5f68c35b3d102302f13f23b92921a652a8a"
+      "sha256": "4a0947508c5af4ff118c3cae9d17d8202d2c0303cc0ecffce3efa147e368f8ae"
     },
     {
       "path": "adapters/autobuild/README.md",
-      "sha256": "b66877cfbe177600a676f6aecf040600820e242b37559d6b897d4822d169ba1c"
+      "sha256": "962a437cd60188f8882c6e492237926fc57909e7ec387c421ccae54618ec3e80"
     },
     {
       "path": "adapters/autobuild/contract.md",
-      "sha256": "065f0c9a858f85fa32e174e1f24136c7abf7195ec7661f20c4e53aead74c9c0f"
+      "sha256": "e7fbbd7c37a8d73e0e175375db70880a8ad40c1d8a05c7f15112f7878a38f910"
     },
     {
       "path": "adapters/ergasterion/README.md",
-      "sha256": "b87afdcf9f35ec0cebb70eb38997414cbafc0fe608067d9fb47450ac6920f315"
+      "sha256": "1b3010598bc522caa4aa190ae2446390ded233bdfbbc33e3f8a6f5c3ed98482b"
     },
     {
       "path": "adapters/ergasterion/contract.md",
-      "sha256": "eaeac1bc3e3a0520615e00b4a7790aaf9f0db286ec6a4b691399808a0bd38190"
+      "sha256": "b3461a5a484c9f55d576cdeb54f5194e2403394abb29299b840281ba4f2c33a1"
     },
     {
       "path": "adapters/pinax/README.md",
-      "sha256": "4075df49e551b1349bd0f9db8f45f729bcce6b2bae0c7a704b478f4c2e29f83d"
+      "sha256": "fcdccb6b265cadcd4eedd1ce8faad46bf0bfe0eb3f96f9a0c66383842aa6bc6b"
     },
     {
       "path": "adapters/pinax/contract.md",
-      "sha256": "3603b8e992b26feb4d72d0c4043a3e364098dd282731f996a8d2d31c9d9dabb0"
+      "sha256": "d0eeb5f148c08eea71f377843ed448ecdc8e0aca516951d3b15604b98f6e631a"
     },
     {
       "path": "context/INDEX.md",
@@ -210,11 +210,11 @@
     },
     {
       "path": "context/instance-context.md",
-      "sha256": "71f3f5cdfe313ea7be433c391e0b68c4bb74eb2fe74bfa867d010eab8d4b341d"
+      "sha256": "141d8de0a243bbd7a6b631b9b673860706207dda34ced1faec087628d2919d57"
     },
     {
       "path": "context/platform-principles.md",
-      "sha256": "483551b051b6e9568710ff399878464c4da9dbef0cf039b1138b9e27317a6341"
+      "sha256": "803a22b50ace9e92f0b4c564f670ab2bd92fd1a9fbd57c9df465d03e77965574"
     },
     {
       "path": "context/tool-boundaries.md",
@@ -222,43 +222,43 @@
     },
     {
       "path": "context/verification-principles.md",
-      "sha256": "ebbebd1a347bb070a17a1e82cb8c2e9126d46484746b26ade56908239e085057"
+      "sha256": "b497c598411c053eb0ba0b0de4e9dbdb25ce0f98b2efff8e77f75c6860b3ab49"
     },
     {
       "path": "docs/INDEX.md",
-      "sha256": "ebbbfa2fa9a128c988dfee8887ae402733f2673062594f3ad08c046bb0f7896a"
+      "sha256": "812f76ae847b703b82a40fefe742d00fa83b0993664020c86ffaf9a5c1dbe5ca"
     },
     {
       "path": "docs/architecture/INDEX.md",
-      "sha256": "b3f6e0f521fd14387d7e24601d507ad26120411f7ac7672e9954e83d585dc3de"
+      "sha256": "2b7d35cca7f887d1f7127648c535f9aa75a5a360e43863d3e391ebc36aff3fbb"
     },
     {
       "path": "docs/architecture/solution-architecture.d2",
-      "sha256": "27a02d6a844fbb0f6d5c130459e26c06523e35710451538a0c1da1fb8a58a63e"
+      "sha256": "e44cab3818aaf4083f2c9cf102cc03fa2bc732f45ed9ca3d58e3e4a83fbec8c5"
     },
     {
       "path": "docs/architecture/solution-architecture.md",
-      "sha256": "ab5b029dd17965a9ffc92423a081de5a2ff09e122ca8681749aebc99e5a7136d"
+      "sha256": "e24708e0945d300a06c7699eb8b2756953e495d84e61977cf81ba492a40feb28"
     },
     {
       "path": "docs/architecture/solution-architecture.svg",
-      "sha256": "d228b02de425a155c35b595a3fde47b587747a9ac65cf19b5c088169efd7e231"
+      "sha256": "b004c2d8560376ef63e657b8a82d520ad544d68b986d3f39d1175cf355943cc6"
     },
     {
       "path": "docs/dependency-contracts.md",
-      "sha256": "dd6921fdce14688730e1330976580db4f20d4bf26dd0941581e1c26863c6075a"
+      "sha256": "dae6374ce721c294707eac02787654f59b121b92608b3a3f4388daf9c99784bc"
     },
     {
       "path": "docs/product/INDEX.md",
-      "sha256": "af2f7a729588cbb5c91c39f1e66376aed7f7182c7f12d4e866779e4b113912b0"
+      "sha256": "ec11d2c077015992d01ec7b0f937c1b262f21d09e3a6c059562e3b56bc381a25"
     },
     {
       "path": "docs/product/capability-status.md",
-      "sha256": "9ad73ec61214b564c16465ba4ed5c820622ff8e151a0237b8c1e1d338e2ba721"
+      "sha256": "a68da734da2a04250f665c59f768551b7d9abd9231a90fef953d0e0ff5fec611"
     },
     {
       "path": "docs/product/incident-containment.md",
-      "sha256": "eb551227e6dcf4fcf5ebb2701e7074d0d865f4cb87c6167d735ad69b546f5d8c"
+      "sha256": "a7c324887a5bbdd550f6373806cfe20a882292b5f2a73054ce97de17fed3d681"
     },
     {
       "path": "docs/product/readme-claim-registry.toml",
@@ -266,11 +266,11 @@
     },
     {
       "path": "docs/verification/README.md",
-      "sha256": "475ae62b7151ee387a1e47d64b2de980db5e43fcf86c42ed4e9e5658e253bf58"
+      "sha256": "ad561c4a032daaaddd48fb522fb01ab1fa4e80f050d894fefc7a8fb6a9f5a1dc"
     },
     {
       "path": "docs/verification/environment-adapters.md",
-      "sha256": "74874701f87c9f56f73e201cad6ccbf82e76e5d2e0bfe71ffb6fc5b1107805e1"
+      "sha256": "fd7ab9eec7498dd80e111692cf068b8c9f9c1d770483761a6dfcda23a177cf79"
     },
     {
       "path": "docs/verification/schemas/verification-domain.schema.json",
@@ -282,7 +282,7 @@
     },
     {
       "path": "engagements/CONVENTION.md",
-      "sha256": "5855a835850d92b8087b4509cec993c8b47f64e577c4d9f15ff5fdfb17e12be8"
+      "sha256": "e307669fdf1c4333c9cefa582ba52cd131f9889fb7bad786580699a9efcf7a6a"
     },
     {
       "path": "engagements/INDEX.md",
@@ -290,7 +290,7 @@
     },
     {
       "path": "engagements/README.md",
-      "sha256": "e033fa6cd1281a83396224b6006b1d70b0f703b4b09026364d3d129655bf2a19"
+      "sha256": "ecacc36993c3ca5c90448bc7836983d108c0dd15e3db732c053e45443ff2e6b5"
     },
     {
       "path": "examples/INDEX.md",
@@ -298,47 +298,47 @@
     },
     {
       "path": "examples/greenfield/renewable-asset-observability/capability-discovery.md",
-      "sha256": "8d44abf7fc8fc0115bb525d240b52bf9efbc935d5b2a930d551304871dc1469c"
+      "sha256": "009a643cde9c6261a893216302804d154b8b1ff283c56d88b76467c3bf3dcf14"
     },
     {
       "path": "examples/greenfield/renewable-asset-observability/implementation-plan.md",
-      "sha256": "43b8850f435a7a2c141ca6926a311d2b3cec4972830c9dbfe00dc06430cc0fb5"
+      "sha256": "b952d13de3addafcf515ae6acd52869883bd2b4378064255b0da41e3690af0fa"
     },
     {
       "path": "examples/greenfield/renewable-asset-observability/outcome-brief.md",
-      "sha256": "a6d215b55d167629906e7d928a949921b941b9c2169d4894f8ebe838e9675128"
+      "sha256": "4f9f20403d41e108afce4b80ac8be998e48a7a284e96f3c3db8da9ea9ab9b9f2"
     },
     {
       "path": "examples/greenfield/renewable-asset-observability/platform-design.md",
-      "sha256": "3116ebea357fee161747a8311f9745507c64d0c89b159cbac17b2a2598c7c25c"
+      "sha256": "009fb86ca0b501e9525e0369ce4a751e53574ae72dca6231b672cf265349aa53"
     },
     {
       "path": "examples/greenfield/renewable-asset-observability/verification-record.md",
-      "sha256": "51789627beeb0cc7a7561f3984ccb66d21719c1ae3e987b2db4d92303bd84f72"
+      "sha256": "15d4e2c47b43677a0f9ae371b3f6c026d48256172a8a6e68b2e6f35b5f7f496f"
     },
     {
       "path": "examples/modernisation/customer-service-reporting/current-estate-map.md",
-      "sha256": "7762e293bab7b9f470a6e3da2cf645d04b2722439bd6bdc20435b3b2cfe60da0"
+      "sha256": "ad80e6207bbd93d0deb064a6cdf9bce4919283dea38346c4470d76ba64c9edb5"
     },
     {
       "path": "examples/modernisation/customer-service-reporting/implementation-plan.md",
-      "sha256": "deea41db96461cd6fba4f56c7daec376d893707a5db03e1f6b6f7a8f81cf4fd5"
+      "sha256": "4b9782f1b83db3fd51987fa4f54c6434342eb7178aa23c561aa6d828a7c1ed8d"
     },
     {
       "path": "examples/modernisation/customer-service-reporting/outcome-brief.md",
-      "sha256": "2ace88a96c48a8b86fbe6b497ee59d3d60f72c06a8dbb61285ed993795b96ea1"
+      "sha256": "4ca94b046d52291dc55552ec0a724add82dc2a24c658e7ecabe5f208704ef941"
     },
     {
       "path": "examples/modernisation/customer-service-reporting/platform-design.md",
-      "sha256": "14dca12ae989901d65c6a80bb289f4538989b3058deb818a89e520f97b427926"
+      "sha256": "38434686f21240229a06abca02e75601036f55dd18c321017936b2f0704994fc"
     },
     {
       "path": "examples/modernisation/customer-service-reporting/verification-record.md",
-      "sha256": "5837213aa462583fe12703b2961657d52e63d4009efed811c167abd4edb90cb1"
+      "sha256": "2489316b40c99dd3d5f1d9b04e4f427916e841e712adf7461c0bc8dedce528b4"
     },
     {
       "path": "koine/INDEX.md",
-      "sha256": "a258ba54f4bfa02094aa913658615c493e4d5fd6e696c0b72b0747baa9228b8e"
+      "sha256": "2ef60dc9f4ac4d51f37089aba15c0994234cf1b2479dd97c38d809827039872e"
     },
     {
       "path": "koine/method/INDEX.md",
@@ -346,27 +346,27 @@
     },
     {
       "path": "koine/method/artefact-first-intake.md",
-      "sha256": "b5a247c56804dd8c7e3c92375690883053061e5dcec98a3c15e8d1ad985aa91b"
+      "sha256": "de4bed01349389765e2264d0195688f92da1c54fe70ae1c760f4cb2a08fe3484"
     },
     {
       "path": "koine/method/build-pipeline.md",
-      "sha256": "370e6250d0b6edde7661ba9c0f0bf022221612e9b1d8603cf0fa6f65f8bfe2a2"
+      "sha256": "ddb7d75184dc38d2927661c594be4a36b93162f6f08f58b7ea3458e0313a004d"
     },
     {
       "path": "koine/method/engagement-lifecycle.md",
-      "sha256": "435b7b1d21fbe71b4298bb6c276b708eac33c410371ac5591473a8ff957ab009"
+      "sha256": "f011bb76164eab1c28441c1089f0a25dafd711204503b328cc5f1fad15988b35"
     },
     {
       "path": "koine/method/evidence-and-knowledge.md",
-      "sha256": "7c8385b8f4bbbbe2c4a21e6a10413f603f982e1ac6566a3a793b2080b48771a1"
+      "sha256": "0e875c0f221b164aba7ae7f474dffae84d3339e1a2c8a4cf44f86ab54cf17bb8"
     },
     {
       "path": "koine/method/feedback-loop.md",
-      "sha256": "9fa89c807f3cf8894c58c603afedc1080c9a207e63c920c801dcbc0c2adb7292"
+      "sha256": "90c89dccc775be0e0bffd71237f9f99cb3620edd786b9b062be3336a8df0ccbb"
     },
     {
       "path": "koine/method/intent-readiness.md",
-      "sha256": "84394cb988a1a2a02114f13369e99bbe4dccd2eb942a85b7f96ab345aebf5fe0"
+      "sha256": "2ad1e3252e01a06dbbfa347b6046a36e3cc9053ae1fe5ed95fa8b9ffee07cece"
     },
     {
       "path": "koine/method/overview.md",
@@ -374,7 +374,7 @@
     },
     {
       "path": "koine/prompts/generators/advise-on-fault.md",
-      "sha256": "7852d00dd9c565e81054202778f442d30c0eed86f95b46a31cbac881c07a263f"
+      "sha256": "9a1d364943c829737153a6524ee02aca67bf51aed6b2c955b2dc9e200fdfcdbb"
     },
     {
       "path": "koine/prompts/generators/build-data-platform.md",
@@ -382,7 +382,7 @@
     },
     {
       "path": "koine/prompts/generators/design-data-platform.md",
-      "sha256": "d2f6a3f0071d2dc40ed673e2a7d1ab25aea763aba50d8bbdfeb88e15b50a9e4a"
+      "sha256": "7dbe90583cc458fd88f39468b3c7a18ae93388418b3de9164a5f65862558e2f4"
     },
     {
       "path": "koine/prompts/generators/discover-greenfield-capabilities.md",
@@ -394,7 +394,7 @@
     },
     {
       "path": "koine/prompts/generators/intake-use-case.md",
-      "sha256": "da235d1c8c7bed63a5b781990072eec8b699f90d6e28b8e8382dbb625c15519d"
+      "sha256": "992302e478b9afe943c8bbb1c83df11ba916bea5e2d52cd7bea3f62eba0a3114"
     },
     {
       "path": "koine/prompts/generators/setup-data-platform.md",
@@ -410,7 +410,7 @@
     },
     {
       "path": "koine/prompts/reviewers/advise-on-fault-reviewer.md",
-      "sha256": "6c53b72b22c96921ee087225f02456e5f01b09517e82ac4f374719a5c2d80d04"
+      "sha256": "32163560fc9fd42c436f7ff949461e207b608d5d4cb478ea4ac2b6e7d3e63d28"
     },
     {
       "path": "koine/prompts/reviewers/build-data-platform-reviewer.md",
@@ -426,11 +426,11 @@
     },
     {
       "path": "koine/prompts/reviewers/frame-platform-outcome-reviewer.md",
-      "sha256": "ff93e6b1516583a3182dbd4192ddd7e47c14d883088ba2dcfb94c02a257275cd"
+      "sha256": "0e0a675ac151327496922d3418a9bd5bfec1184e31958cfd08d2d6494df66038"
     },
     {
       "path": "koine/prompts/reviewers/intake-use-case-reviewer.md",
-      "sha256": "ad14b9176d95a34efdd547fb3d84f942821114bb2511c3bb05ed97028967fda8"
+      "sha256": "94e809e81b080195221a91315cbe1944a5ce68b0cf2493ea3075a9b3fe9e7f9c"
     },
     {
       "path": "koine/prompts/reviewers/setup-data-platform-reviewer.md",
@@ -506,7 +506,7 @@
     },
     {
       "path": "koine/templates/use-case-intake.md",
-      "sha256": "19d676bb5df4f9a974130fb2b24613788cacdf79adba012a892bf2f195d96da3"
+      "sha256": "a99b06f0dca9c4de514dc148770422154590047e216f0b0531167c95faf4553c"
     },
     {
       "path": "koine/templates/verification-record.md",
@@ -514,7 +514,7 @@
     },
     {
       "path": "pyproject.toml",
-      "sha256": "f75122e0cb8dafd4b0a69248d3f8aff0baacc0b1b24ab06b0244d6d05ddf59fd"
+      "sha256": "34ef69189b6da61820318bc1bc2bb3ae741bbee3f5c895ca0ac013cf214e6363"
     },
     {
       "path": "scripts/check_public_candidate.py",
@@ -538,7 +538,7 @@
     },
     {
       "path": "src/evorthon_data/__init__.py",
-      "sha256": "3f61a232a95ad1ea138580649be1637e009c177145798399810f6612e4193996"
+      "sha256": "d9d062dd18a75f0061b9d1a9d55b81f2eda85ddec577c3ed361c662784b68b17"
     },
     {
       "path": "src/evorthon_data/boundary_patterns.py",
@@ -562,7 +562,7 @@
     },
     {
       "path": "src/evorthon_data/delivery/declaration_draft.py",
-      "sha256": "9c853802f8c07a6d801eb83c132d06bfea12bbdc1e983dfd97c20baf24c99eab"
+      "sha256": "7aa08666b67dc1376befc8944e158fe8512f54bc3a34ea5d6466d0e9c22413db"
     },
     {
       "path": "src/evorthon_data/delivery/ergasterion.py",
@@ -602,7 +602,7 @@
     },
     {
       "path": "src/evorthon_data/koine_session.py",
-      "sha256": "4dd716e6639a88240b6ec843d985c5e376c2c1b307d2be74147c83f914163720"
+      "sha256": "d795ef5048bcc2ca4c7dce138a214970d4089e44d06aba516d56d0848d3adeac"
     },
     {
       "path": "src/evorthon_data/lifecycle.py",
@@ -790,7 +790,7 @@
     },
     {
       "path": "tests/architecture/test_dependency_direction.py",
-      "sha256": "248ed5c4444448d855a340b31978ea8b643140bf0600288d96009d6a80db76b4"
+      "sha256": "caae1f576dca448eb243a61a7050ffa0c8f54a97656699f3aecbbac997aaeddf"
     },
     {
       "path": "tests/architecture/test_runtime_adapters_are_thin.py",
@@ -1134,7 +1134,7 @@
     },
     {
       "path": "tests/pack/test_two_engagement_modes.py",
-      "sha256": "f0feb978d894723588d36c21c814330d2913749a80240b768ce1bce3dea69d7b"
+      "sha256": "11825133bd6d35f46cbaf5f1b1ef4b35fbd8480fa4f821752b26d541238e0dfa"
     },
     {
       "path": "tests/packaging/test_wheel_dependencies.py",
@@ -1154,7 +1154,7 @@
     },
     {
       "path": "tests/product/test_boundary_patterns.py",
-      "sha256": "df9b2d94658b2451fc00c6d3366c66d18564f0c9ec0da4db438db8ad74b943ec"
+      "sha256": "0ec712205a26000ff41843861887abbf1cab8e5dd45cc92ab1bdec065a83ee8b"
     },
     {
       "path": "tests/product/test_cli_remediation.py",
@@ -1202,7 +1202,7 @@
     },
     {
       "path": "tests/product/test_koine_session.py",
-      "sha256": "b7a1f246f42b8c8bad91d6fad912c1a49cd31e2e1ae304ed14e7cf350d710086"
+      "sha256": "26be2359f41240dbe3ad4e743293800beed8fbfc2709ad75c300b777ce5b3656"
     },
     {
       "path": "tests/product/test_lifecycle.py",
@@ -1218,11 +1218,11 @@
     },
     {
       "path": "tests/product/test_proof_customer_service.py",
-      "sha256": "da316f4ce761b5ec0c39eb63467506abcbb9f5c7c8eb6f8d5a81ee7fe038ef49"
+      "sha256": "5f8fec0cf27a7ac353c49908c12a29cdc126d697952219edca2c5ae937a06ee0"
     },
     {
       "path": "tests/product/test_proof_renewable_asset.py",
-      "sha256": "bdb56bc9e4f176e29d4f43ac42f6a8f3d0650661ddd29fd6e691aa5c8d7cbe71"
+      "sha256": "277cb979b1aea849dbd19803683afa83c32a7f0adbd7745fb6d1ce6ee1a13312"
     },
     {
       "path": "tests/product/test_readiness_projection.py",
@@ -1230,7 +1230,7 @@
     },
     {
       "path": "tests/product/test_readme_claim_registry.py",
-      "sha256": "9245b7064ba6e0f32d9193218fa4383e1a6d5503689ac2395ba726d2b34c267c"
+      "sha256": "9067bacd0d7238678b9a11268d149e92f5663a06e5cea3dc0173b00e530b0dea"
     },
     {
       "path": "tests/product/test_synthetic_generator.py",
@@ -1278,7 +1278,7 @@
     },
     {
       "path": "tests/verification/test_diagnostic_adviser.py",
-      "sha256": "192c4150e2c23175d5c85fbd2aabf75a12cdb92afbf0ee2f7720515906014d06"
+      "sha256": "8227c47dddd3759a3a21ca800863357868ac8c910538e37f1e87d6ef623111ab"
     },
     {
       "path": "tests/verification/test_domain_contracts.py",
@@ -1318,12 +1318,12 @@
     },
     {
       "path": "uv.lock",
-      "sha256": "04f3c1108eaa8f104332d76d8bff4e8a88135ecd36a53365c8135d223f36f3f9"
+      "sha256": "3377315a5f772bef75aeea5e38ea27389259098684744ca68d09c98c6314ebb1"
     }
   ],
   "inventory_self_exclusion": "The inventory is listed but excluded from its own file digest and tree digest.",
   "provisional": false,
   "schema": "evorthon.public-inventory.v2",
-  "source_commit": "ede34c78752f83959798cb915c0cf8e3355b139d",
-  "tree_digest": "26e610a7ee6a96e332b4ed7b109753c19644ccb011ae74b9173578232d185d6e"
+  "source_commit": "unknown",
+  "tree_digest": "9e2d88454f897c8e8ba8874a3bfb99cea45dfa66bc07f2be39bb0a36cbf64f4b"
 }

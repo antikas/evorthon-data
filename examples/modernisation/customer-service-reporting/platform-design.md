@@ -1,4 +1,4 @@
-# Design record — customer service reporting
+# Customer service reporting - platform design
 
 ## Target contract
 
@@ -11,22 +11,22 @@
 - **Acceptance signals:** two accepted synthetic daily publications and named sponsor acceptance are required.
 - **Verification case intent:** snapshot parity against the approved frozen expected daily output.
 - **Check families:** parity; delivery integrity.
-- **Lineage/checkpoint expectations:** published report — Ishan Rao owns the reconciliation evidence.
+- **Lineage/checkpoint expectations:** published report @ Ishan Rao owns the reconciliation evidence.
 - **Acceptance rules:** two accepted synthetic daily publications and Maya Chen's named acceptance are required.
 - **Evidence:** `EVD-MOD-020` approved outcome contract; `EVD-MOD-021` trace review disposition.
 - **Design:** contract-defined ingestion validates source identity and timing; a quality layer measures population and key coverage; a consumer metric layer publishes declared demand, response and resolution measures; a reconciliation control records evidence before release.
 - **Continuity:** preserve the business-day cut-off and metric definitions from the frame.
 - **Target change:** replace manual population reconciliation with a deterministic, evidence-linked control; retire the synthetic manual route only after acceptance.
-- **Decision:** the current-estate trace remains evidence, not a target-schema owner.
+- **Decision:** the current-estate trace supplies evidence. The target contract defines the target schema.
 
 ## Paired review
 
 - **Paired review:** completed before implementation planning.
 - **Reviewer:** design-data-platform reviewer.
 - **Finding:** retirement criterion was missing.
-- **Disposition:** resolved — retirement requires two accepted synthetic daily publications (`EVD-MOD-022`).
+- **Disposition:** resolved: retirement requires two accepted synthetic daily publications (`EVD-MOD-022`).
 - **Finding D-02:** exception ownership was absent.
-- **Disposition:** resolved — Ishan Rao owns exception triage; Maya Chen accepts business impact.
+- **Disposition:** resolved: Ishan Rao owns exception triage; Maya Chen accepts business impact.
 
 ## Acceptance
 

@@ -167,9 +167,8 @@ NARROWED_SHAPES = (
 )
 NARROWED_IDS = [name for name, _, _, _ in NARROWED_SHAPES]
 
-# The two files that state what the record refuses, and the phrase the refusal
-# list begins with in both of them.
-RELEASED_SURFACES = ("README.md", "ADOPTION-GUIDE.md")
+# The adoption guide owns the detailed refusal list; the README links to it.
+RELEASED_SURFACES = ("ADOPTION-GUIDE.md",)
 CLAUSE_ANCHOR = "an address under any scheme"
 # Every clause of that list, with a probe carrying it and the shape the one
 # owner declares for that probe. A clause the sentence adds with no shape behind
@@ -195,15 +194,15 @@ REFUSED_CLAUSES = (
     ),
 )
 CLAUSE_IDS = [f"{clause}, as {shape}" for clause, _, shape in REFUSED_CLAUSES]
-# The clauses of the same two sentences that state what is admitted and
+# The guide clauses that state what is admitted and
 # labelled instead of refused.
 WARNED_CLAUSES = (
     "a locator that reads like a dotted server name followed by a path or a port",
     "or like a connection string",
     "reports a warning on it",
     "a dotted name cannot be told from an ordinary written name",
-    "configuration and not in a record",
-    "admitted with a warning rather than refused",
+    "keep actual connection details in environment configuration",
+    "the warning leaves the locator admitted",
 )
 
 # One probe per shape this correction added, each caught by that shape alone.
@@ -330,12 +329,11 @@ def route_shape(value: str) -> str | None:
 
 
 def released_refusal_clauses(relative: str) -> tuple[str, ...]:
-    """Read the refusal list out of one released sentence, clause by clause."""
+    """Read the refusal list from the adoption guide, clause by clause."""
     text = (ROOT / relative).read_text(encoding="utf-8")
-    start = text.index(CLAUSE_ANCHOR)
-    listed = text[start : text.index(".", start)]
-    parts = [part.strip() for part in listed.split(",")]
-    return tuple(part[3:].strip() if part.startswith("or ") else part for part in parts)
+    start = text.index("- " + CLAUSE_ANCHOR)
+    listed = text[start : text.index("\n\n", start)]
+    return tuple(line.removeprefix("- ").strip() for line in listed.splitlines())
 
 
 # --- Every boundary reads the same shapes ---
@@ -630,11 +628,11 @@ def test_a_narrowed_shape_admits_the_benign_value_and_still_reads_its_route(shap
         assert boundary(route)
 
 
-# --- Every clause of the two released sentences, bound at the record ---
+# --- Every documented refusal clause, bound at the record ---
 
 
 def test_both_released_sentences_list_exactly_the_clauses_the_owner_has_shapes_for():
-    """A clause with no shape behind it, or a shape with no clause, reddens here."""
+    """A clause without a matching shape, or a shape without a clause, fails here."""
     declared = tuple(dict.fromkeys(clause for clause, _, _ in REFUSED_CLAUSES))
     for relative in RELEASED_SURFACES:
         assert released_refusal_clauses(relative) == declared, relative

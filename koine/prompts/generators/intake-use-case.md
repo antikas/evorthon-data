@@ -6,13 +6,13 @@ Fill the sixteen blocks of the use-case intake record. Work artefact-first. Read
 
 Use your base tools only: ordinary file reading, a data frame or spreadsheet reader, a SQL reader, a query tool against a supplied extract, and plain text. Expect schemas, sample extracts, data dictionaries, table definitions, query and transformation code, project definitions, exported job definitions, reports, schedules and catalogue exports. Read each one as it is.
 
-Never propose a parser. No parser, conformance suite or artefact adapter is built for a shape that is not in hand. If a shape resists your base tools, record what you could read, record the rest as a gap, and say plainly that the remainder was not read. A repeated shape that becomes the bottleneck is a separate, sized piece of work for a human to approve, never something you build inside an intake round.
+Never propose a parser. Intake builds no parser, conformance suite or artefact adapter. If a shape resists your base tools, record what you could read, record the rest as a gap and say that the remainder was unread. A repeated bottleneck shape needs a separate, sized work item with human approval.
 
 `../../method/artefact-first-intake.md` lists what to look for in each artefact class.
 
 ## Work from the sample you are given
 
-What you receive for each artefact is a bounded sample of its text, never the whole artefact: the first rows up to a declared number of rows, cut again at a declared number of characters. It is the start of the artefact, not a representative selection from it, and the last line you see may be cut off in the middle. Read what is in front of you and record only what it actually shows. Do not extrapolate a row count, a date range, a distribution or a distinct-value set from the first rows of a file; record what the sample shows and record the rest as a gap.
+What you receive for each artefact is a bounded sample from the start of its text, limited by the declared row and character counts. A small artefact may fit entirely within those limits. The last line may be cut off in the middle, and the sample may omit later sections with different properties. Read what is in front of you and record only what it actually shows. Do not extrapolate a row count, a date range, a distribution or a distinct-value set from the first rows of a file; record what the sample shows and record the rest as a gap.
 
 Some artefacts arrive with no text at all, only their identity, digest, handling classification and locator. That is the classification gate: an artefact classified above the level the round is authorized for never has its text sent, and where no authorization names a level, no artefact text is sent. Treat such an artefact as unread. Record no fact against it, say plainly that it was not read, and put what it would have answered into the residual questions with the artefact named as its likely source. Never guess its contents from its name, its locator or its classification.
 
@@ -26,7 +26,7 @@ Every value you write carries four things: the artefact identity it was read fro
 
 A locator is logical. Name the artefact and the position inside it, such as a sheet and a cell range, a table and a column, or a statement and a line. Never write a drive letter, a network location or an absolute path.
 
-Freeze each artefact you read with a digest and classify it on intake. An unknown classification is handled as confidential. A file holding real personal data stays with the adopting team; the record carries its digest, its schema and the summaries a human approved, never its rows. The same rule holds for what you are sent: a bounded sample crosses, the whole artefact never does, and the round reports how much of each artefact crossed.
+Freeze each artefact you read with a digest and classify it on intake. An unknown classification is handled as confidential. A file holding real personal data stays with the adopting team; the record carries its digest, its schema and the summaries a human approved, never its rows. Model intake follows the authorization and sampling rules above. The round reports how much of each artefact crossed.
 
 ## Confirm inferred facts in bulk
 
@@ -46,4 +46,4 @@ A greenfield use case never asks a parity question. It has no replaced output, n
 
 ## Close the round
 
-Finish the round by reading the readiness projection. The product computes it per segment from the recorded facts, so readiness is never kept by hand. It shows three lists: what is buildable now and on which fallbacks, the gaps with their suggested owners and whether synthetic data can fill them, and the open questions. A use case is never blocked as a whole. The human decides what to obtain, what to synthesise and what to leave. Then run the paired reviewer.
+Finish the round by reading the readiness projection. The product computes readiness per segment from recorded facts. It lists buildable work and fallbacks, gaps with suggested owners and synthetic-data eligibility, and open questions. The human decides what to obtain, what to synthesise and what to leave. Then run the paired reviewer.
