@@ -18,16 +18,16 @@ output path.
   difference.
 - `lint` reports declaration defects that are not schema violations.
 
-Every `--check` form is the acceptance form. A difference is a defect in the
-declaration, never acceptable drift.
+Every `--check` form is the acceptance form. A difference is a declaration
+defect.
 
-The generation route drives them in one fixed order: `init` into an empty
-scratch directory, then the declarations are written, then `validate`, then
-`emit-products` to generate, then `emit-products --check`, `product-graph
---check` and `contracts --check` to prove the generated set byte-matches what
-the declarations produce. The write form is what generates; the check forms are
-what accept. The presence of every command named in this section is the
-compatibility contract Evorthon asserts before it generates.
+The generation route uses a fixed order. It runs `init` in an empty scratch
+directory, writes the declarations, and runs `validate`. It then runs
+`emit-products` to generate the artefacts. The route follows with
+`emit-products --check`, `product-graph --check`, and `contracts --check`.
+Those checks prove that the generated set byte-matches the declarations. The
+write form generates; the check forms accept. The compatibility contract
+requires every command named in this section.
 
 ## Declaration keys Evorthon writes
 
@@ -73,7 +73,7 @@ A product declaration carries the top-level keys `product`, `sources`, `steps`,
   product pins. The route reads `contract.json` for `identity.major` and for
   the published relation's field names, types and required flags.
 
-A missing or malformed file among these is a refusal, never an empty result.
+A missing or malformed file produces a refusal.
 The route compares each consumed contract reference on an emitted edge with the
 producer's own `identity.major` and refuses a mismatch, because resolution drops
 the major.
@@ -83,8 +83,8 @@ the major.
 Generation runs in a scratch estate the environment owns. The route scaffolds
 into an empty directory, replaces the scaffold's seeded declaration with exactly
 the declared products, and refuses to scaffold over held content. The estate
-path stays with the environment: a generated artefact is recorded by its
-estate-relative identity and its content digest, never by a path.
+path stays with the environment. Evorthon records each generated artefact by
+its estate-relative identity and content digest.
 
 Generated artefacts are referenced as build evidence only after a reviewer
 identity distinct from the generating actor records an accepted disposition.
@@ -107,10 +107,10 @@ evidence only after an accepted disposition. A pending or rejected
 adjudication yields no reference, and nothing reaches an estate until a
 reviewer has accepted the declaration.
 
-### Which declaration implies which pattern
+### Pattern mappings
 
-The draft emits a step for a pattern the segment's own declarations imply,
-and for no other. Nothing is emitted because a backbone says so.
+The draft emits exactly the patterns listed below when their declarations
+are present. A layer label does not add patterns.
 
 | Pattern | The declaration it is emitted for |
 | --- | --- |
@@ -131,45 +131,21 @@ refused. A span that passes no intermediate result and carries no supplied
 computed field implies no calculation at all, and is refused before any
 command runs.
 
-### One source at a time
+### Source combinations
 
-A declaration that consumes two or more sources must also declare how they
-combine, and the use case declares nothing that says: no intermediate result
-kind names a join or a union, the build route names no combination, and a
-target output's definition source states none either. So the draft refuses a
-span that consumes more than one source, naming the missing declaration,
-rather than emitting a declaration the estate rejects with an undeclared
-composition. Each source is declared and checked first, so a malformed one is
-still refused as malformed.
+The use-case record can describe source combinations. The declaration-draft
+adapter does not translate those records into `combine` declarations. It
+accepts one consumed source and refuses any span with more than one source
+before running commands. Each source is validated first, so a malformed
+source is reported as malformed.
 
-The intake record now carries that declaration: a segment states how the
-sources it reads combine, and the span carries the declaration recorded under
-its own name. The draft change that consumes it is a registered follow-up,
-not made here, and this is the mapping it takes:
+A pin carries the producer's contract without a shape. Validation for a pinned
+source uses the consumed field expectations recorded for that source.
 
-| Declared value | Declaration key |
-| --- | --- |
-| the combination method, `union` or `merge` | `combine.method` |
-| the keys a merge merges its sources on | `combine.keys` |
-| which rows a merge keeps, `inner` or `outer` | `combine.join` |
-| a union, which stacks rows and takes neither | `combine` with the method alone |
+### Layer profiles
 
-With that mapping the refusal inverts for a span that carries a declaration:
-the draft emits every source it already checks, adds the `combine` block from
-the declaration, and refuses only a span reading more than one source that
-declares no combination. The declaration names the sources it combines and the
-span refuses one it does not read, so the block cannot describe a source the
-declaration would not emit. A pin still carries the producer's contract and no
-shape of its own, so a validation rule for a pinned source comes from the
-consumed field expectations the record now carries, never from the pin.
-
-### Which patterns a layer's profile admits
-
-The composition a layer label admits is the estate's routing policy, and each
-admitted profile states the patterns it makes mandatory, the ones it leaves
-optional and the ones it forbids. That table is adapter knowledge here: a
-layer this table does not name is refused with a closed reason, never
-accepted unchecked, and mapping a further layer is a registered follow-up.
+The adapter supports the layer profile below. It refuses any other layer.
+The profile defines mandatory, optional and forbidden patterns.
 
 | Layer label | Profile | Mandatory | Optional | Forbidden |
 | --- | --- | --- | --- | --- |
@@ -179,22 +155,21 @@ Steps are emitted in the profile's own composition order. A mandatory pattern
 no declaration implies is refused naming the missing declaration; a pattern
 the profile forbids or does not classify is refused naming the profile.
 
-### Where each declared value comes from
+### Value sources
 
 `product.version` is the use case's version identifier once a version has
-been cut, and otherwise a caller-supplied draft version that the proposal
-notes label as one. `target.shape` comes from the segment's own build route
-where declared, and otherwise from the block 11 historisation kind; only
-`current only` maps to a shape (`declared`) this module can state without
-inventing entity or dimension modelling content the use case does not carry.
+been cut. Before then, it is a caller-supplied draft version named in the
+proposal notes. `target.shape` comes from the segment's build route where
+declared. Otherwise, it comes from the block 11 historisation kind. Only
+`current only` maps to the `declared` shape this module can state.
 `target.contract.freshness` comes from the freshness deadline condition or
 its recorded default.
 
 `data_validation` takes its rule completeness from the completeness
 expectation, its `on_failure` policy from the warning and failure classes,
 and, when that policy quarantines, its `error_threshold` from the accepted
-source defects. A condition value none of those readings can accept is
-refused rather than guessed. `checkpointing` carries `granularity`,
+source defects. A condition value none of those readings can accept produces a
+refusal. `checkpointing` carries `granularity`,
 `max_retries` and `backoff` from the block 12 run-policy keys, declared or
 defaulted, and `checkpoint: true` when the intermediate result the segment
 reaches is a checkpoint candidate. `physical` carries a target output's
@@ -203,10 +178,9 @@ declared stored name and stored column names, where block 2 declared one.
 `data_publish.publication_mode` is the one value no standing condition owns,
 and translation refuses an occurrence that declares none. The draft carries a
 whole-relation swap, the only mode the declaration schema admits without a
-declared unique key, and names it in the proposal notes rather than applying
-it in silence.
+declared unique key, and records that choice in the proposal notes.
 
-### What the proposal notes carry
+### Proposal-note content
 
 The retention, classification and volume/performance ("layout") standing
 conditions have no slot in the installed declaration schema at all. They are
@@ -220,4 +194,4 @@ without consulting the use case again.
 Evorthon writes declarations and reads the outputs named above. It never reaches
 into a working directory these paths do not name, and it never reproduces the
 translation itself. No version is named in this contract: `pyproject.toml` owns
-the lower bound and `docs/dependency-contracts.md` records the dated resolution.
+the lower bound and `uv.lock` records resolved versions; `docs/dependency-contracts.md` explains the version policy.

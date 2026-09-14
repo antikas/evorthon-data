@@ -1150,7 +1150,9 @@ def test_the_pack_reviewer_prompt_reads_register_rather_than_forbidden_words():
 
     assert "inert text" in text
     assert "runs none of them" in text
-    assert "your findings are advice, never a gate" in text
+    assert "report findings for the human decision" in text
+    assert "weak, synthetic or derived evidence lowers confidence without withholding an answer" in text
+    assert "use unknown when the packet does not support a cause" in text
 
 
 def test_the_field_owner_refuses_a_packet_that_did_not_pass_the_gate():

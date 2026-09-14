@@ -58,4 +58,4 @@ primary checkout, so a caller must not also write the tracker for the same item.
 Evorthon supplies an approved queue and reads the outcome; it does not
 reimplement selection, sequencing, or acceptance. No version is named in this
 contract: `pyproject.toml` owns the lower bound and
-`docs/dependency-contracts.md` records the dated resolution.
+`uv.lock` records resolved versions; `docs/dependency-contracts.md` explains the version policy.

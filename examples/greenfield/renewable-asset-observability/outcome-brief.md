@@ -1,8 +1,8 @@
-# Frame record — renewable asset observability
+# Renewable asset observability - outcome
 
 ## Outcome contract
 
-- **Consumer outcome:** operations teams receive timely, trustworthy asset-condition and production signals.
+- **Consumer outcome:** operations teams receive timely asset-condition and production signals.
 - **Success signals:** approved golden scenarios pass; platform invariants pass for each accepted consumer view.
 - **Success criteria:** {"acceptance_rule":"approved golden scenarios and invariants pass before Elena Brooks accepts the consumer view","check_family":"conformance","evidence":[{"digest":"digest-evd-grn-005","identifier":"EVD-GRN-005","version":"v1"}],"required_result":"pass","signal":"approved golden scenarios pass","validator":{"digest":"digest-golden-scenario-validator","identifier":"golden-scenario-validator","kind":"validator_specification","version":"v1"}}
 - **Success criteria:** {"acceptance_rule":"approved golden scenarios and invariants pass before Elena Brooks accepts the consumer view","check_family":"invariant","evidence":[{"digest":"digest-evd-grn-006","identifier":"EVD-GRN-006","version":"v1"}],"required_result":"pass","signal":"platform invariants pass for each accepted consumer view","validator":{"digest":"digest-platform-invariant-validator","identifier":"platform-invariant-validator","kind":"validator_specification","version":"v1"}}
@@ -14,19 +14,19 @@
 - **Open questions:** alert acceptance and timing evidence ownership are resolved in review.
 - **Verification case intent:** contract conformance against approved golden scenarios, without a historic comparison route.
 - **Check families:** conformance; invariant.
-- **Lineage/checkpoint expectations:** consumer view — Dev Malik owns the synthetic evidence checkpoint.
+- **Lineage/checkpoint expectations:** consumer view @ Dev Malik owns the synthetic evidence checkpoint.
 - **Acceptance rules:** approved golden scenarios and invariants pass before Elena Brooks accepts the consumer view.
-- **Greenfield boundary:** no current estate, no legacy pipeline, continuity requirement or parity baseline is invented.
-- **Decision:** start from approved capabilities and constraints, not a fictional replacement landscape.
+- **Greenfield boundary:** no current estate, legacy pipeline, continuity requirement, or parity baseline is assumed.
+- **Decision:** approved capabilities and constraints define the engagement scope.
 
 ## Paired review
 
 - **Paired review:** completed before design.
 - **Reviewer:** frame-platform-outcome reviewer.
 - **Finding:** alert acceptance authority was missing.
-- **Disposition:** resolved — Elena Brooks owns alert acceptance in `EVD-GRN-004`.
+- **Disposition:** resolved: Elena Brooks owns alert acceptance in `EVD-GRN-004`.
 - **Finding F-02:** source-latency measure had no evidence owner.
-- **Disposition:** resolved — Dev Malik owns fixture timing evidence.
+- **Disposition:** resolved: Dev Malik owns fixture timing evidence.
 
 ## Acceptance
 

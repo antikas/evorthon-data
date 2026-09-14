@@ -4,28 +4,28 @@ Direction: `down`.
 
 ## Components
 
-- `intent` - Human intent and platform evidence
-- `koine_projection` - Koine projections: validated Markdown, templates, prompts and reviews
-- `engagement` - Engagement lifecycle, the use-case aggregate and named human decisions; verification identities only
-- `readiness` - per-segment buildability computed from use-case facts and case identities; advice, never a gate; distinct from the Koine intent-readiness discipline
-- `synthetic` - labelled frozen datasets generated from declared shape and constraints
-- `verification_domain` - Verification domain: cases, results, proposals and identities
-- `verification_core` - Verification core: portable deterministic semantics
-- `verification_enforcement` - Verification enforcement: schemas and fail-closed policy
-- `verification_workflows` - Verification workflows: intake, reconciliation and diagnosis orchestration
-- `verification_ports` - Verification ports: environment-owned access contracts
-- `verification_adapters` - Verification adapters: adopter-owned environment implementations
-- `verification_presentation` - Verification presentation: safe CLI, records and review surfaces
-- `security_model_egress` - security/model_egress: sole authorization and enforcement owner
-- `boundary_patterns` - Boundary patterns: the closed shapes for machine routes, credentials and raw rows, one owner and no other content
-- `composition` - Composition root: product wiring without domain ownership
-- `delivery_adapters` - Narrow adapters for opt-in released delivery wheels
-- `pinax` - Pinax released wheel: live work graph
-- `ergasterion` - Ergasterion released wheel: declared generation
-- `autobuild` - AutoBuild released wheel: approved engineering
-- `presentation` - Product presentation and dependency diagnostics
-- `compatibility` - Temporary compatibility facades with no semantic ownership
-- `human_acceptance` - Named human acceptance and durable learning
+- `intent` - Human decisions and platform evidence
+- `koine_projection` - Validated Markdown records, templates, prompts and reviews
+- `engagement` - Engagement lifecycle, use-case records and named human decisions; verification identities only
+- `readiness` - Per-segment buildability from use-case facts and case identities; advisory; separate from the Koine intent-readiness method
+- `synthetic` - Labelled frozen datasets generated from declared shape and constraints
+- `verification_domain` - Verification cases, results, proposals and identities
+- `verification_core` - Portable deterministic verification rules
+- `verification_enforcement` - Schema checks and fail-closed policy
+- `verification_workflows` - Verification intake, reconciliation and diagnostic workflows
+- `verification_ports` - Environment-owned access contracts
+- `verification_adapters` - Adopter-owned environment implementations
+- `verification_presentation` - Verification commands, safe records and review outputs
+- `security_model_egress` - Sole owner of model access authorization and enforcement
+- `boundary_patterns` - Sole owner of closed machine-route, credential and raw-row patterns
+- `composition` - Connects product components; each component owns its behavior
+- `delivery_adapters` - Narrow adapters to optional released delivery distributions
+- `pinax` - Pinax: shared work tracking
+- `ergasterion` - Ergasterion: contract-based generation
+- `autobuild` - AutoBuild: approved build work
+- `presentation` - Product commands and diagnostics
+- `compatibility` - Temporary compatibility wrappers; behavior delegated to components
+- `human_acceptance` - Named human acceptance and recorded learning
 
 ## Routes
 

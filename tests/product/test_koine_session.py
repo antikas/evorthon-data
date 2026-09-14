@@ -1302,14 +1302,18 @@ def test_the_intake_pack_states_the_sample_rule_the_product_enforces():
         assert "bounded sample" in text
     assert "the handling classification gates the crossing" in method
     assert "no artefact text crosses at all" in method
-    assert "never the whole artefact" in generator
-    assert "with no text at all" in reviewer
+    for text in (method, generator):
+        assert "a small artefact may fit entirely within those limits" in text
+        assert "never the whole artefact" not in text
+        assert "no artefact crosses whole" not in text
+        assert "the whole artefact never does" not in text
+    assert "with no text because their handling classification exceeded" in reviewer
 
 
 # evorthon-verifies: EVD-README-050
 def test_the_released_surface_states_the_model_egress_rule_the_session_enforces():
     root = Path(__file__).parents[2]
-    for relative in ("README.md", "ADOPTION-GUIDE.md"):
+    for relative in ("ADOPTION-GUIDE.md",):
         text = (root / relative).read_text(encoding="utf-8").lower()
         assert "bounded sample" in text, relative
         assert "handling classification" in text, relative
@@ -1326,6 +1330,12 @@ def test_the_released_surface_states_the_model_egress_rule_the_session_enforces(
         assert "reports a warning on it" in text, relative
         assert "no connection detail crosses" not in text, relative
         assert "connection details never cross" not in text, relative
+
+    # The introduction states the limits briefly and links to their full rules.
+    readme = (root / "README.md").read_text(encoding="utf-8").lower()
+    assert "adoption-guide.md#model-access" in readme
+    for phrase in ("authorization", "bounded sample", "independent review", "diagnostic advice"):
+        assert phrase in readme
 
 
 def test_a_second_intake_round_with_answers_shrinks_the_recomputed_gap_list():

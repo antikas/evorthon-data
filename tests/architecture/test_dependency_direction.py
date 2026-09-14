@@ -160,9 +160,9 @@ def test_koine_material_is_a_validated_projection_not_a_second_owner():
     from evorthon_data.koine_projection import validate_koine_projections, validate_koine_runtime_adapters
 
     text = (ROOT / "koine/INDEX.md").read_text(encoding="utf-8").lower()
-    assert "validated projections" in text
-    assert "architecture record" in text
-    assert "second lifecycle" in text
+    assert "validation checks template fields" in text
+    assert "architecture reference" in text
+    assert "the runtime defines lifecycle, verification and model-access behavior" in text
     assert validate_koine_projections(ROOT / "koine") == {}
     assert validate_koine_runtime_adapters(ROOT / "koine", ROOT / ".github") == {}
 

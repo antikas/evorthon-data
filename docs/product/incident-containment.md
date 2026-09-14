@@ -1,186 +1,97 @@
-# Incident containment for a published artefact
+# Published-artefact incidents
 
-## What this page is
+Use this procedure when a published package, tagged tree, download or related document contains unsafe material, behaves incorrectly or differs from its declared identity. All actions require named people; nothing on this page runs automatically.
 
-This is the supervised runbook for the case where something already published
-turns out to be wrong, unsafe, or not what it claimed to be. Published means it
-has left this repository: a package version on an index, a tagged public tree,
-a downloadable artefact, or a document that named any of them.
+Withdrawal, deletion, overwriting and notification require an explicit owner decision. Product tools do not perform these actions automatically. Halt further publication and preserve the evidence before changing any published artefact.
 
-Every step below is performed by a named person and recorded. Nothing on this
-page runs automatically, and no tool in this product performs any of it. The
-product has no command that withdraws, deletes, overwrites or notifies, and
-none is automated: containment touches other people's copies of an artefact, so
-it is a human decision each time, taken with the evidence in front of the
-person taking it.
+## Responsibilities
 
-Read the whole page before starting. The order matters: stopping the spread
-comes before deciding what to withdraw, and preserving the evidence comes
-before anything that changes it.
+One person may hold several roles, but each decision records the role responsible for it.
 
-## The named people
+| Role | Responsibility |
+| --- | --- |
+| Owner | Opens and closes the incident; decides what to withdraw and who to notify. |
+| Responder | Performs approved containment actions and records them. |
+| Reviewer | Assesses whether the evidence supports a proposed owner decision before it is taken. |
 
-Three roles carry the decisions. One person may hold more than one role in a
-small team, but each decision is recorded against the role that owned it.
+## Incident reports
 
-| Role | What this role decides |
-|---|---|
-| Owner | Whether an incident is open, what is withdrawn, who is told, and when the incident is closed. |
-| Responder | How containment is carried out, and what is recorded about it. |
-| Reviewer | Whether the evidence supports the owner's decision, stated before the decision is taken. |
+Report the following conditions to the owner:
 
-The owner is the only role that may decide to withdraw a published artefact or
-to tell anyone outside the team. The responder never makes that call alone, and
-never makes it because a check failed.
+- Published material includes private data, credentials, internal addresses, machine paths or another party's protected information.
+- A published artefact disagrees with its declared digest, source commit, inventory or licence.
+- Its behavior could harm users or produce misleading evidence.
+- A dependency or signing identity used for publication is reported compromised.
 
-## What opens an incident
-
-An incident is open when the owner says it is. Anything below is a reason to
-ask the owner, not a reason to act:
-
-- A published artefact carries material that should not have left the private
-  tree: real data, a credential, an internal address, a machine path, or a name
-  belonging to someone else.
-- A published artefact does not match the identity it claims: its digest, its
-  source commit, its inventory or its licence disagree with what was published
-  beside it.
-- A published artefact behaves in a way that could damage the person running
-  it, or produces evidence that would mislead them.
-- A dependency or a signing identity used to produce a published artefact is
-  reported compromised.
+The owner decides whether to open an incident. A failed check alone does not authorize containment actions.
 
 ## 1. Halt
 
-Purpose: stop anything that would produce, publish or promote another copy
-while the facts are unknown.
+The responder stops further production and publication while the report is assessed:
 
-The responder:
+1. Disable triggers for jobs that could publish, tag or upload. Keep the job definitions.
+2. Stop work that could produce another candidate from the affected source and inform the team.
+3. Record the halt time and the work stopped.
 
-1. Stops every automated job that could publish, tag or upload. Stopping means
-   disabling the trigger, not deleting the job.
-2. Stops any work in progress that would produce a new candidate from the same
-   source, and says so in the team's working channel.
-3. Records the time of the halt and what was stopped.
-
-Decision point (owner): confirm the halt, or lift it if the report is a false
-alarm. Record which, with the reason.
-
-Nothing is withdrawn at this step. A halt is reversible; a withdrawal is not.
+Decision point (owner): confirm the halt, or lift it with a recorded reason if the report is a false alarm. This step leaves published artefacts in place.
 
 ## 2. Quarantine
 
-Purpose: separate the affected artefact and everything that describes it, so
-the facts can be established without anyone changing them.
+The responder preserves a fixed copy for investigation:
 
-The responder:
+1. Copy the published artefact, digest, inventory, metadata and page or index entry. Keep that copy read-only.
+2. Copy the source commit identity, built artefact hash, verdicts, review outcomes and candidate inventory from the private publication evidence.
+3. Mark the affected artefact internally as under investigation. Prevent the team from promoting, linking to or building on it.
+4. Record what was copied, its storage location and who can access it.
 
-1. Copies the published artefact exactly as it stands, with its digest, its
-   published inventory, its metadata and the page or index entry that offered
-   it. The copy is read-only from that moment.
-2. Copies the private evidence that produced it: the source commit identity,
-   the built artefact hash, the verdict artefacts, the review outcomes and the
-   candidate inventory.
-3. Marks the affected artefact internally as under investigation, so nobody in
-   the team promotes, links to or builds on it.
-4. Records what was copied, where it is held, and who can read it.
-
-Decision point (owner): confirm the scope. Name every version, tag and artefact
-that is in scope, and every one that has been checked and is out of scope. A
-version nobody has checked is in scope until somebody checks it.
-
-Quarantine changes nothing that is published. It only makes a fixed copy and
-marks the internal state.
+Decision point (owner): name every affected version, tag and artefact, plus those checked and excluded. Keep unchecked versions in scope until they are assessed. Quarantine preserves copies and changes internal status; it leaves the publication unchanged.
 
 ## 3. Yank and revoke
 
-Purpose: stop new consumers from taking the affected artefact, and stop any
-identity that could sign or publish another one.
+The reviewer records an assessment of the evidence before the owner decides on withdrawal or revocation.
 
-This step changes what other people can get. It happens only on a recorded
-owner decision, with the reviewer's statement about the evidence already on
-record.
+Once authorized, the responder:
 
-The responder, once the owner has decided:
+1. Yanks affected package versions on the index. Prefer yanking to deleting: yanking retains the version for existing exact pins while preventing normal selection for new dependencies. Deletion can break builds and remove access to publication evidence.
+2. Removes or supersedes affected public pages, tags or links, retaining their quarantined copies.
+3. Revokes implicated credentials, tokens or signing identities and records their replacements.
+4. Records each action, time and responsible person.
 
-1. Yanks the affected package version on the index. Yanking leaves the version
-   installable for a pinned dependency that already names it and stops it being
-   chosen for anything new. Prefer yanking to deleting: deleting destroys the
-   evidence other people hold and breaks builds that already depend on it.
-2. Removes or supersedes the public page, tag or link that offered it, keeping
-   the quarantined copy of what was there.
-3. Revokes any credential, token or signing identity that the incident implicates,
-   and records the new identity that replaces it.
-4. Records each action, the time, and the person who performed it.
+Decision point (owner): record each decision and its reason:
 
-Decision point (owner): take each of the following separately, and record each
-one with its reason.
-
-- Yank, delete, or leave in place. Deletion is the last resort and needs a
-  stated reason why yanking is not enough.
-- Revoke each named identity, or keep it.
-- Publish a superseding version now, or wait until the cause is understood.
+- Yank, delete or leave each affected artefact in place. Deletion requires an explanation of why yanking is insufficient.
+- Revoke or retain each implicated identity.
+- Publish a corrected version or wait until the cause is established.
 
 ## 4. Notification
 
-Purpose: tell the people who need to know, in the order that serves them, with
-what is known and what is not.
+The responder drafts notices. The owner approves recipients, content and timing before any notice is sent.
 
-The owner decides who is told, what they are told, and when. The responder
-drafts; the owner approves the wording before anything is sent.
+Notify in this order:
 
-Order:
-
-1. The team, at the moment the incident opens.
-2. Anyone contractually or legally entitled to be told, within the time their
-   agreement or the applicable law states. If personal data may have left the
-   private tree, the owner establishes that deadline before anything else in
-   this step.
+1. The team when the incident opens.
+2. People or organisations entitled to notification under an agreement or applicable law, within the relevant deadline. If personal data may have been disclosed, the owner establishes that deadline before proceeding with this step.
 3. Known consumers of the affected artefact.
-4. The public record beside the artefact, once the first three are done.
+4. Readers of the public record beside the artefact, after the preceding notices.
 
-Every notice states what happened, which versions are affected, what a reader
-should do now, what is still unknown, and who to contact. It never states a
-cause that has not been established, and it never blames a named individual.
+Each notice states the event, affected versions, required user action, unresolved questions and contact details. State only established causes and avoid attributing blame to individuals.
 
-Decision point (owner): approve each notice before it is sent, and record the
-approved text with the time it went out.
+Decision point (owner): approve each notice before sending, then retain its exact text and sending time.
 
 ## 5. Preserved forensics
 
-Purpose: keep enough evidence to explain the incident afterwards, and to prove
-what was done about it.
+Preserve evidence unchanged, including:
 
-The responder preserves, unchanged:
+- The quarantined artefact and accompanying published material.
+- The accepted private commit's verdicts, reviews, inventories and built artefact hash.
+- The index and page state before and after withdrawal.
+- The action log with times, roles and names.
+- Every approved notice as sent.
 
-- The quarantined copy of the published artefact and everything published
-  beside it.
-- The private evidence bundle for the accepted commit the artefact came from:
-  verdicts, reviews, inventories, the built artefact hash.
-- The index and page state before and after each withdrawal, captured at the
-  time.
-- The log of every action in this runbook, with times, roles and names.
-- Every approved notice, as sent.
+Add corrections as separate records. If evidence must be held outside the team's control, the owner records where and why.
 
-Nothing preserved is edited afterwards. A correction is a new record beside the
-old one, never a change to it. If a preserved item has to be held somewhere the
-team does not control, the owner records where and why.
+Decision point (owner): verify that the evidence set is complete before closing the incident. Missing evidence keeps the incident open.
 
-Decision point (owner): confirm the preserved set is complete before the
-incident is closed. An incomplete set keeps the incident open.
+## Closure
 
-## Closing
-
-The owner closes the incident with a short record naming: what happened, which
-artefacts were affected, what was withdrawn or revoked, who was told, what the
-cause was or that it is still unknown, and what changes to the product or the
-publication gate follow from it. Work that follows from an incident is tracked
-like any other work and is not part of this runbook.
-
-## What this runbook never does
-
-- It never acts without a named person deciding.
-- It never lets a tool withdraw, delete, overwrite or notify on its own.
-- It never deletes evidence, including evidence that is inconvenient.
-- It never states a cause that has not been established.
-- It never treats a failed check as an incident by itself. A failed check is
-  a reason to ask the owner.
+The owner records the event, affected artefacts, withdrawals, revocations and notifications. Include the established cause or remaining uncertainty, plus changes required to the product or publication procedure. Register follow-up work in the tracker.

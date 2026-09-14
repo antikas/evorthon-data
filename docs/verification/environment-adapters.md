@@ -1,222 +1,148 @@
 # Environment adapters
 
-This product never reaches into your environment. Everything it needs from you
-arrives through two small read contracts, and you write the code that answers
-them. This page is the contract for writing that code: what an adapter
-implements, what it may claim about itself, what must never cross, what stays
-on your side, and how to check an adapter before you trust it.
+To verify a data product, Evorthon Data needs stored evidence and candidate outputs from the adopting environment. Your team provides adapters that supply them through two Python interfaces. The adapter kit includes reference implementations and checks for contract conformance.
 
-Nothing here needs the verification domain, the deterministic core or any
-workflow. An adapter imports the port contracts and the adapter kit, and
-nothing else.
+Adapters use the port contracts and adapter kit. They do not import the verification domain, comparison core or workflows.
 
-## The two contracts an adapter answers
+## Required methods
 
-An **evidence repository** reads evidence records your environment already
-holds. One method:
+An **evidence repository** implements `read_evidence(evidence_id, version)`. It returns the stored bytes, declared digest, recording time, validity period and an approved summary for the requested evidence reference. Raise `EvidenceNotHeld` for an absent reference; an empty record is not a substitute.
 
-- `read_evidence(evidence_id, version)` returns the stored record for one
-  declared reference: the stored bytes, the digest your environment declares
-  about those bytes, when the record was recorded, how long it holds, and a
-  short approved summary. A reference you do not hold is refused by raising
-  `EvidenceNotHeld`. It is never answered with an empty record, because a
-  caller must never be able to read absence as a valid empty answer.
+A **candidate runner** implements:
 
-A **candidate runner** produces candidate outputs from frozen case facts. Two
-methods:
+- `declare_candidate()`: return the candidate's identity, version and declared digest.
+- `produce_outputs(facts)`: return outputs produced from the supplied frozen case facts. Raise `PortRefusal` if those facts are insufficient to produce outputs.
 
-- `declare_candidate()` returns the exact candidate artefact this runner
-  produces outputs from: an identity, a version and a declared digest.
-- `produce_outputs(facts)` returns the outputs the candidate produces from the
-  frozen facts it is given. Those facts are the whole input. There is no
-  address in this contract, no credential, no route to a running source system
-  and no observation of a live run, because a routine verification compares an
-  approved frozen expectation against a candidate and never reaches for the
-  system being replaced. If you cannot produce outputs from the facts alone,
-  raise `PortRefusal` rather than reaching for anything else.
+The frozen facts are the complete input to `produce_outputs`. This interface provides no address, credential, live-source connection or live-run observation. Routine verification compares the candidate against a frozen expectation.
 
-You never receive an expected output. An expected output is the oracle a result
-is measured against, so handing it to a candidate would let the candidate
-answer with the answer.
+Expected outputs remain with the verifier. Keeping them out of the runner's input prevents the candidate from copying the answer it is being checked against.
 
-## The declaration every adapter adds
+## Adapter declarations
 
-Both contracts take one more method, `declare_adapter()`, which returns an
-`AdapterDeclaration`:
+Both interfaces also require `declare_adapter()`, returning an `AdapterDeclaration`:
 
-| Field | What it says |
+| Field | Content |
 | --- | --- |
-| `adapter_id` | What this adapter is called. |
-| `version` | Which version of it this is. |
-| `port_contract_version` | The port contract it implements. It is the one the ports declare, and nothing else is read. |
-| `capabilities` | What it can do, from the closed set below. |
-| `assurance` | What its answers are worth, as one of the three levels below. |
-| `owner_presented_inputs` | Identities of owner-presented input it can name. |
-| `environment_certificates` | Identities of certificate claims it can name. |
+| `adapter_id` | Adapter name. |
+| `version` | Adapter version. |
+| `port_contract_version` | Version of the port contract it implements. |
+| `capabilities` | Supported capabilities from the declared set below. |
+| `assurance` | Declared assurance level. |
+| `owner_presented_inputs` | Identities of inputs presented by an owner. |
+| `environment_certificates` | Identities of certificate claims held by the environment. |
 
-The last two carry identities only. The input itself, the certificate itself
-and wherever either is kept stay with you.
+The final two fields carry identities. The input material, certificates and their locations remain in the adopting environment.
 
-### The capabilities you may claim
+### Capabilities
 
-| Capability | What it claims | How the suite sees it |
+| Capability | Declaration | Conformance check |
 | --- | --- | --- |
-| `replays-declared-outputs` | The runner answers with outputs declared for a case. | It produced at least one output for the conformance facts. |
-| `reads-held-evidence` | The repository answers from evidence it holds. | It answered for the conformance material it was built over. |
-| `holds-material-in-memory` | It keeps what it answers from in memory. | It answered from held material at all. |
-| `holds-material-on-a-file-system` | It keeps what it answers from on a file system. | It answered from held material at all. |
-| `presents-a-certificate` | It can name a certificate claim your environment holds. | Its declaration names at least one. |
+| `replays-declared-outputs` | The runner returns outputs declared for a case. | At least one output was returned for the conformance facts. |
+| `reads-held-evidence` | The repository reads evidence it holds. | It returned the conformance material it was given. |
+| `holds-material-in-memory` | Material is held in memory. | Held material was returned; the interface cannot establish its storage location. |
+| `holds-material-on-a-file-system` | Material is held on a file system. | Held material was returned; the interface cannot establish its storage location. |
+| `presents-a-certificate` | The environment holds a certificate claim. | The declaration names at least one certificate identity. |
 
-Two things follow from that table. A port shows that material is held, never
-which side of the machine holds it, so an adapter names one place; claiming
-both is a contradiction and is refused. And signing and retention have no name
-in this set at all, because neither crosses a read surface. An adapter that
-invents a name for one is refused as claiming a capability this product does
-not name.
+An adapter may declare one storage capability. Declaring both storage locations is a contradiction. Signing and retention are outside this capability set; declarations using unknown capability names fail conformance.
 
-### The assurance you may declare
+### Assurance levels
 
-| Level | What it claims | What it needs |
+| Level | Declaration | Required reference |
 | --- | --- | --- |
-| `declared` | The material is what your environment says it is. | Nothing further. |
-| `owner-presented` | A named owner presented the input behind it. | At least one identity in `owner_presented_inputs`. |
-| `environment-certified` | Your environment certifies it. | At least one identity in `environment_certificates`. |
+| `declared` | The environment declares the material's identity. | No additional reference. |
+| `owner-presented` | A named owner presented the input. | At least one identity in `owner_presented_inputs`. |
+| `environment-certified` | The environment certifies the material. | At least one identity in `environment_certificates`. |
 
-A declaration is labelling. It says what you claim, and the conformance suite
-refuses only a claim the port contradicts: a capability the port never showed,
-an assurance above the plainest one with nothing named to rest it on, a
-contract version these ports do not declare, a value of the wrong shape, or a
-value carrying something that should never have crossed.
+The suite checks whether an adapter's answers support its declaration. It reports unsupported capabilities or assurance, an unknown contract version, malformed values and prohibited content. An assurance label records the environment's claim; checking the label does not verify a certificate's authority.
 
-## What must never cross a port
+## Content checks
 
-Every plain value an adapter sends across a contract is read for two families
-of shape, and a value carrying either is a conformance failure:
+Plain values returned through an adapter are checked for machine-location and credential patterns. A matching value fails conformance.
 
-- A route to a machine. A lettered volume, a share and its host, a path from
-  the root, a written home directory, a climb out of where a name starts, a
-  relative path written with a machine path's separator, an address under any
-  scheme, and a local file address.
-- A written credential. A named secret, a named key, a presented token, the
-  opening line of a stored key, a secret written against its name, a user and
-  a secret written inside an address, and a token written against the header
-  that carries it.
+Machine-location patterns include drive paths, network shares and hosts, absolute paths, home-directory paths, parent-directory traversal, backslash-separated paths, addresses with a scheme and local file addresses.
 
-Both families come from one place in this product, so this boundary, the
-record boundary and the published-candidate scan all read the same shapes.
+Credential patterns include assigned secrets and keys, presented tokens, private-key headers, credentials embedded in addresses and tokens in authorization headers. These patterns are defined centrally and used by the record checks and public-copy scanner.
 
-The words of a refusal are read the same way. A refusal that repeats the
-reference it was given carries whatever that reference held onward into
-whatever reads the refusal, so a conforming adapter refuses with words that
-name no value at all.
+Refusal messages are checked too. Report the reason for refusal without repeating a supplied value, which could disclose the content that caused the failure.
 
-The stored bytes of an evidence record are not read. Those bytes are your
-material: the intake workflow digests them and compares, and this product does
-not decide what your evidence may say.
+The conformance suite does not inspect an evidence record's stored bytes for these patterns. The intake workflow computes their digest and compares it with the declared digest. The adopting team controls the evidence content.
 
-## What stays on your side
+## Environment responsibilities
 
-Locations, credentials, capture, signing, retention and certificate claims are
-yours. So is the configuration that tells an adapter where to look. None of it
-has a field in any contract here, and none of it belongs in a value, a refusal
-or a report.
+The adopting environment owns locations, credentials, capture, signing, retention and certification. Adapter configuration contains connection and storage details. These details have no fields in the portable contracts and must stay out of returned values, refusal messages and reports.
 
-## Where a digest is checked
+Conformance checks validate a declared digest's format. The intake workflow separately verifies that the supplied bytes produce that digest.
 
-The conformance suite reads the **form** of a declared digest and never its
-truth. Whether the bytes of a record produce the digest the record claims is
-the intake workflow's question, it is asked there for every case, and no
-adapter is trusted for it. An adapter declares; the workflow checks.
+## Running conformance checks
 
-## Running the conformance suite
-
-Build your adapter over the material the kit carries, hand the surface to the
-suite, and read the report.
+The following example runs the supplied adapters against the kit's conformance material:
 
 ```python
 from evorthon_data.verification.adapters import (
     CONFORMANCE_CANDIDATE,
     CONFORMANCE_DECLARED_OUTPUTS,
     CONFORMANCE_EVIDENCE,
+    InMemoryCandidateRunner,
+    InMemoryEvidenceRepository,
     check_conformance,
 )
 
 report = check_conformance(
-    candidate_runner=YourRunner(...),
-    evidence_repository=YourRepository(...),
+    candidate_runner=InMemoryCandidateRunner(
+        CONFORMANCE_CANDIDATE, (CONFORMANCE_DECLARED_OUTPUTS,)
+    ),
+    evidence_repository=InMemoryEvidenceRepository(CONFORMANCE_EVIDENCE),
 )
-if not report.conformant:
-    for finding in report.findings:
-        print(finding.contract, finding.contract_version, finding.member, finding.reason.value, finding.detail)
+for finding in report.findings:
+    print(finding.contract, finding.member, finding.reason.value, finding.detail)
+assert report.conformant
 ```
 
-The material is plain values you build your adapter over:
-`CONFORMANCE_EVIDENCE` (the records a repository must hold),
-`CONFORMANCE_CANDIDATE` (the artefact a runner declares),
-`CONFORMANCE_FACTS` with `CONFORMANCE_DECLARED_OUTPUTS` (the case a runner
-replays and the outputs it replays for it), and `CONFORMANCE_FOREIGN_FACTS` (a
-case nothing is declared against, where either declared outputs or a refusal
-is conforming). Pass a runner, a repository, or one of each.
+To check your own adapters, initialise them with the same conformance material and pass a runner, a repository or both to `check_conformance`.
 
-### How a failure reads
+| Material | Purpose |
+| --- | --- |
+| `CONFORMANCE_EVIDENCE` | Records the repository must hold. |
+| `CONFORMANCE_CANDIDATE` | Candidate identity the runner declares. |
+| `CONFORMANCE_FACTS` and `CONFORMANCE_DECLARED_OUTPUTS` | Case facts and their declared outputs. |
+| `CONFORMANCE_FOREIGN_FACTS` | A case with no declared outputs; returning declared outputs or refusing is conformant. |
 
-Every finding names the port contract it was found against, the version of
-that contract, the method or field it was found in, and one reason from a
-closed set:
+### Reported failures
 
-```
+Each finding names the port contract, contract version, method or field, and a reason. For example:
+
+```text
 EvidenceRepositoryPort evorthon.verification.ports.v1 read_evidence.summary
 machine-route-carried the value carries a drive path, and a location stays in
 the environment
 ```
 
-A finding never carries the value it found. A report that repeated an
-offending value would carry the leak onward into whatever reads the report,
-which is the failure the suite exists to catch.
+Findings omit the offending value to avoid disclosing it in the report. The supported reasons are:
 
-The closed reasons are `declaration-missing`, `declaration-malformed`,
-`contract-version-unknown`, `capability-unknown`, `capability-conflicting`,
-`capability-not-observed`, `assurance-unknown`, `assurance-unsupported`,
-`value-malformed`, `machine-route-carried`, `credential-carried`,
-`contract-not-honoured` and `absence-not-refused`.
+`declaration-missing`, `declaration-malformed`, `contract-version-unknown`, `capability-unknown`, `capability-conflicting`, `capability-not-observed`, `assurance-unknown`, `assurance-unsupported`, `value-malformed`, `machine-route-carried`, `credential-carried`, `contract-not-honoured` and `absence-not-refused`.
 
-## The reference adapters
+## Reference implementations
 
-Four adapters ship with the kit. They are worked examples, they are what the
-product is developed against, and each one passes the suite.
+The kit supplies four adapters that pass conformance checks:
 
-- `InMemoryEvidenceRepository` and `InMemoryCandidateRunner` answer from plain
-  values handed to their constructors.
-- `FixtureEvidenceRepository` and `FixtureCandidateRunner` answer from material
-  laid out in a directory you name when you build them.
+- `InMemoryEvidenceRepository` and `InMemoryCandidateRunner` read values supplied to their constructors.
+- `FixtureEvidenceRepository` and `FixtureCandidateRunner` read material from a directory selected when they are constructed.
 
-All four declare `declared` assurance and claim no signing, no retention and no
-certificate, because none of that is true of them.
+All four use `declared` assurance. They provide no signing, retention or certification capability.
 
-The fixture pair reads a closed layout under the directory you name:
+The fixture adapters use this directory layout:
 
-```
+```text
 evidence/<evidence name>/<version>.content
 evidence/<evidence name>/<version>.record.json
 candidate.json
 declared-outputs/<case name>/<case version>.json
 ```
 
-Addressing inside it is by logical identity and version, never by a path a
-caller supplies. A name is written from letters, digits and the three joining
-marks; it does not begin with a stop and carries no climb upward. Anything else
-is not a name the layout can hold, so it is refused as not held, and the
-refusal says only that. `write_fixture_material` lays plain values out in the
-same layout, so what is written and what is read cannot drift apart.
+Callers request material by logical identity and version. Names contain letters, digits, dots, underscores or hyphens; they cannot begin with a dot or contain two consecutive dots. Invalid names receive an absent-material refusal that omits the supplied name.
 
-The directory itself is your configuration. It is named once, when you build
-the adapter, and it appears in no value that crosses a port, in no refusal and
-in no report.
+`write_fixture_material` writes values in the same layout. The root directory is adapter configuration and remains absent from port values, refusal messages and reports.
 
-## Writing your own
+## Implementing an adapter
 
-An adapter of your own needs no change to this product. Implement the contract
-you answer, return a declaration that is true, run the suite, and fix what it
-finds. If a contradiction the suite reports is not a contradiction in your
-environment, that is worth raising: the suite is meant to refuse claims the
-port disproves and to leave everything else alone.
+Implement the relevant methods, declare the capabilities and assurance you can support, and run the conformance suite. Correct reported contradictions. If a finding conflicts with the port contract, report it with the declaration and behavior needed to reproduce it.

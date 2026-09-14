@@ -825,7 +825,7 @@ ARTEFACT_INTAKE_POSITION = "whole artefact"
 # the only bounds, they are declared here and nowhere else, and every round
 # reports them beside what actually crossed. A row is one line of the artefact as
 # it was read, so a sample is cut on a line boundary and then on the character
-# bound; the whole text of an artefact never crosses.
+# bound. A small artefact may fit entirely within those limits.
 INTAKE_SAMPLE_ROWS = 20
 INTAKE_SAMPLE_CHARACTERS = 2000
 # The closed handling-classification order this boundary reads, from least to
@@ -1398,9 +1398,9 @@ class KoineSession:
         The call carries the admitted artefacts by identity, digest and
         classification, the sections still open, any answers a named human
         confirmed in bulk, and a bounded sample of the text of each artefact the
-        authorization's field scope lets cross. It never carries an artefact
-        whole, and it carries no artefact text at all unless an authorization
-        names the level to cross at.
+        authorization's field scope lets cross. A small artefact may fit entirely
+        within those limits. The call carries no artefact text unless an
+        authorization names the level to cross at.
         """
         return self._intake_call_and_egress(use_case, readings, answers, authorization)[0]
 

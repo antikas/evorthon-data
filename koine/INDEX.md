@@ -1,9 +1,11 @@
 # Koine data co-worker
 <!-- evorthon-implements: EVD-README-032 -->
 
-Koine Markdown, templates, generators and reviewers are validated projections of the runtime engagement and verification contracts named by the [architecture record](../docs/architecture/solution-architecture.md). They make the co-worker's records readable without becoming a second lifecycle, verification, or model-egress authority. The fast test lane runs the production projection validators to reject template-field drift, unstructured success criteria, missing generator/reviewer pairs, missing runtime adapters and skills that no longer resolve to their canonical generator.
+The coworker pack contains delivery prompts, reviewers and record templates. They follow the runtime engagement and verification contracts described in the [architecture reference](../docs/architecture/solution-architecture.md). The runtime defines lifecycle, verification and model-access behavior.
 
-The use-case intake route is artefact-first. It reads the schemas, extracts, transformations, reports, schedules and catalogue exports a team already has, records each fact with the artefact it came from and how it was obtained, asks only what no artefact answers, and proposes no parser for any artefact shape.
+Validation checks template fields, structured success criteria, generator/reviewer pairs, runtime adapters and generator references.
+
+The use-case intake route is artefact-first. It reads schemas, extracts, transformations, reports, schedules and catalogue exports already available to the team. It records each fact with its artefact and extraction method, asks only questions that artefacts cannot answer, and proposes no parser for an artefact shape.
 
 - [Method](method/INDEX.md)
 - [Templates](templates/)

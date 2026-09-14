@@ -66,7 +66,7 @@ READINESS_LOOP_STEPS = (
     "recompute readiness per segment",
     "ask the residual questions",
     "repeat",
-    "buildable now",
+    "buildable work",
     "gaps",
     "open questions",
 )
@@ -214,7 +214,7 @@ def test_intake_generator_prompt_states_every_required_intake_rule():
 def test_intake_reviewer_prompt_lists_its_checks_and_stays_advisory():
     text = (KOINE / "prompts/reviewers/intake-use-case-reviewer.md").read_text(encoding="utf-8").lower()
 
-    assert "your findings are advice, never a gate" in text
+    assert "only the human may stop a round, refuse a fact or hold a use case back" in text
     assert "no parser" in text
     for check in ("provenance", "coverage", "gaps", "conditions", "mode", "synthetic"):
         assert check in text, check
@@ -229,7 +229,8 @@ def test_intake_method_files_carry_the_artefact_classes_and_the_readiness_loop()
     assert "no parser" in artefact_first
     for step in READINESS_LOOP_STEPS:
         assert step in readiness, step
-    assert "never blocks a use case as a whole" in readiness
+    assert "a ready segment proceeds when another segment lacks facts" in readiness
+    assert "fact provenance informs the human decision and does not refuse work" in readiness
 
 
 def test_greenfield_discovery_is_a_first_class_adoption_route():

@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 # evorthon-implements: EVD-README-033
 name = "evorthon-data"
-version = "1.0.0"
+version = "1.0.1"
 description = "End-to-end data-platform delivery coworker for modernising an existing estate or building a new one"
 readme = "README.md"
 requires-python = ">=3.11"

@@ -4,9 +4,9 @@ One command runs this whole proof:
 
     python scripts/run_tests.py --lane fast tests/product/test_proof_renewable_asset.py
 
-What it proves. The shipped greenfield example under
-``examples/greenfield/renewable-asset-observability`` is no longer prose only.
-The frozen material of that engagement sits under
+The greenfield example is in
+``examples/greenfield/renewable-asset-observability``.
+Its frozen material is in
 ``tests/fixtures/proofs/renewable-asset-observability``: the declared input,
 reference and enrichment constraints, the two approved golden views, the
 declared requirements of the interface, invariant, operational and
@@ -28,11 +28,10 @@ carried through the whole route: the comparison reports the failing view, the
 packet is disclosed with the class the product deterministically reports, the
 scripted adviser answers, a named human disposes of the advice and the
 corrected candidate is rerun green. The other four are answered by the
-verification stage and go no further, because a diagnosis answers for an output
-a comparison reported as failing and a contract-family failure that is not a
-row difference names no such output. That boundary is the honest frontier of
-this route rather than a defect, and it is asserted here as the route's own
-refusal.
+verification stage. A diagnosis operates on an output reported as failing by
+comparison, and a contract-family failure that is not a row difference names
+no such output. The proof checks that the diagnosis stage records the failed
+family and clause and reports that it has no failing output to diagnose.
 
 The use case runs as two versions on one record. The first covers one published
 view and is accepted; the second covers every segment and is accepted beside

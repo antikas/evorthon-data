@@ -4,9 +4,9 @@ One command runs this whole proof:
 
     python scripts/run_tests.py --lane fast tests/product/test_proof_customer_service.py
 
-What it proves. The shipped modernisation example under
-``examples/modernisation/customer-service-reporting`` is no longer prose only.
-The frozen material of that engagement sits under
+The modernisation example is in
+``examples/modernisation/customer-service-reporting``.
+Its frozen material is in
 ``tests/fixtures/proofs/customer-service-reporting``: the declared inputs, the
 reference and lookup datasets, the two approved daily publications, the
 declared lineage, and the outputs of a candidate that carries one deliberate
@@ -20,9 +20,8 @@ resolution rate rounded at a place the declared scale does not carry. For each
 one the proof asserts the fault class the product deterministically reports,
 the disclosure decision the policy made, and the diagnostic strength the packet
 supports. The aggregate-only divergence decides no class: it reports unknown
-and its packet is withheld, and that traversal is the honest frontier rather
-than a defect, so the fault stays open and the acceptance is recorded as not
-reached.
+and its packet is withheld. The fault stays open and acceptance is recorded
+as not reached.
 
 The use case runs as two versions on one record. The first cuts one segment on
 wholly synthetic evidence and is accepted with the synthetic label on its
@@ -35,11 +34,10 @@ provenance a case declares is the engagement's own declaration about the class
 of its evidence, and never a claim that any of this material came from a live
 system.
 
-The proof changes no product module and adds nothing to the route. The stages,
-the fakes, the scripted transport and the seeded generator are the product's
-own. The segment generation stage is drafted from the shape the
+The proof uses the product's stages, fakes, scripted transport and seeded
+generator. The segment generation stage is drafted from the shape the
 declaration-draft proof owns and emitted onto the estate the generation proof
-owns, because this proof adds nothing to either; every identity inside both is
+owns. Every identity inside both is
 this example's, so the records that stage writes describe the daily service
 report and no other product.
 
@@ -1083,7 +1081,7 @@ def test_every_injected_defect_reports_the_class_and_strength_the_product_decide
     The aggregate-only divergence decides no class of its own: the daily total
     moves while every row stays inside its declared tolerance, so the class is
     unknown, the packet is withheld and nothing the packet observed is
-    reported. That is the honest frontier this product declares.
+    reported. The fault remains open.
     """
     declared_class, decision, strength = EXPECTED_FAULTS[defect]
 

@@ -1,4 +1,4 @@
-# Capability discovery — renewable asset observability
+# Renewable asset observability - capability discovery
 
 ## Approved greenfield needs
 
@@ -8,7 +8,7 @@
 - **Uncertainty:** consumer timing threshold is confirmed by Elena Brooks before the delivery contract is approved.
 - **Verification case intent:** contract conformance against approved golden scenarios, without a historic comparison route.
 - **Check families:** conformance; invariant.
-- **Lineage/checkpoint expectations:** consumer view — Dev Malik owns the synthetic evidence checkpoint.
+- **Lineage/checkpoint expectations:** consumer view @ Dev Malik owns the synthetic evidence checkpoint.
 - **Acceptance rules:** approved golden scenarios and invariants pass before Elena Brooks accepts the consumer view.
 
 ## Paired review
@@ -16,4 +16,4 @@
 - **Paired review:** completed before design.
 - **Reviewer:** greenfield-capability reviewer.
 - **Finding:** alert timing lacked a named evidence owner.
-- **Disposition:** resolved — Dev Malik owns synthetic timing evidence in `EVD-GRN-004`.
+- **Disposition:** resolved: Dev Malik owns synthetic timing evidence in `EVD-GRN-004`.
