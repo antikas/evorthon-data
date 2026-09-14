@@ -1,4 +1,4 @@
-# Evorthon Data
+# Evorthon Data Harness
 
 Use the canonical Koine co-worker and its paired reviewers with the supplied synthetic examples.
 

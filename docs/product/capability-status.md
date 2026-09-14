@@ -1,7 +1,7 @@
 # Capabilities and evidence
 <!-- evorthon-implements: EVD-README-001 -->
 
-A technical assessment needs to distinguish the product's own capabilities from the work an adopting team must supply. Evorthon Data includes the coworker pack, engagement and use-case records, readiness calculation, synthetic data generation, verification engine, acceptance records and environment-adapter kit.
+A technical assessment needs to distinguish the product's own capabilities from the work an adopting team must supply. Evorthon Data Harness includes the coworker pack, engagement and use-case records, readiness calculation, synthetic data generation, verification engine, acceptance records and environment-adapter kit.
 
 Its delivery adapters connect to the separately released tracker, generator and build runner. The adopting team supplies platform access, model authorization, protected data handling, evidence storage and any certification.
 

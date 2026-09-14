@@ -25,7 +25,7 @@ def test_diagnose_reports_a_version_or_an_absence_for_every_delivery_distributio
 
     payload = json.loads(capsys.readouterr().out)
     assert exit_code == 0
-    assert payload["product"] == "evorthon-data"
+    assert payload["product"] == "evorthon-data-harness"
     capabilities = payload["capabilities"]
     assert set(capabilities) == set(dependencies.DELIVERY_DISTRIBUTIONS)
     assert set(PATCHED_VERSIONS) | {ABSENT_DISTRIBUTION} == set(dependencies.DELIVERY_DISTRIBUTIONS)

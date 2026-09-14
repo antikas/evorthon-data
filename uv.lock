@@ -212,8 +212,8 @@ wheels = [
 ]
 
 [[package]]
-name = "evorthon-data"
-version = "1.0.1"
+name = "evorthon-data-harness"
+version = "1.0.2"
 source = { editable = "." }
 
 [package.optional-dependencies]

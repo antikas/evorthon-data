@@ -1,9 +1,9 @@
-# Adopting Evorthon Data
+# Adopting Evorthon Data Harness
 <!-- evorthon-implements: EVD-README-032 -->
 
 Start with a report, dataset or consumer view whose success you can describe and check. Gather the material that explains it and involve the people who can decide what should change.
 
-Evorthon Data provides a specialist AI coworker, delivery records and Python tools for recording and verifying the work. Adapters connect it to separately released delivery tools. The adopting team supplies platform access, model authorization and the people who accept the result.
+Evorthon Data Harness provides a specialist AI coworker, delivery records and Python tools for recording and verifying the work. Adapters connect it to separately released delivery tools. The adopting team supplies platform access, model authorization and the people who accept the result.
 
 ## Work through an example
 
@@ -26,7 +26,7 @@ Missing data can be filled with labelled synthetic datasets. Readiness is calcul
 
 The [Koine coworker pack](koine/INDEX.md) provides prompts and templates for the delivery conversation. A generation prompt drafts a record; a separate reviewer challenges it. People resolve the findings and approve the decisions.
 
-Pinax holds work state and dependencies, while Ergasterion generates outputs from suitable contracts. Eligible, approved work can run through build and review cycles in AutoBuild. The [dependency contracts](docs/dependency-contracts.md) describe how Evorthon Data connects to those separately released tools.
+Pinax holds work state and dependencies, while Ergasterion generates outputs from suitable contracts. Eligible, approved work can run through build and review cycles in AutoBuild. The [dependency contracts](docs/dependency-contracts.md) describe how Evorthon Data Harness connects to those separately released tools.
 
 Use Python 3.11 or later in a virtual environment. From the root of a repository checkout, install the package and its delivery tools:
 
@@ -37,9 +37,9 @@ python -m pip install ".[delivery]"
 Inspect the available commands and delivery dependencies:
 
 ```text
-evorthon-data diagnose
-evorthon-data use-case --help
-evorthon-data verification --help
+evorthon-data-harness diagnose
+evorthon-data-harness use-case --help
+evorthon-data-harness verification --help
 ```
 
 ## Model access

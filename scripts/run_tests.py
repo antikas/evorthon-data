@@ -414,7 +414,7 @@ def main() -> int:
     final_name = verdict_file_name(args.lane, scoped, args.inject_assertion)
     lane = "seen-red" if args.inject_assertion else args.lane
     verdict = {
-        "schema": "evorthon.lane-verdict.v3", "repo": "evorthon-data", "lane": lane,
+        "schema": "evorthon.lane-verdict.v3", "repo": "evorthon-data-harness", "lane": lane,
         "commit": commit, "run_id": run_id,
         "command": [sys.executable, "scripts/run_tests.py", "--lane", args.lane] + (["--inject-assertion"] if args.inject_assertion else []) + selection,
         "duration_s": duration, "exit_code": code, "counts": pytest_result["counts"], "structured_execution": detail,

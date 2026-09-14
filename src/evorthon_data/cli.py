@@ -56,7 +56,7 @@ from .presentation.use_case import (
     written,
 )
 
-PRODUCT = "evorthon-data"
+PRODUCT = "evorthon-data-harness"
 DIAGNOSE = "diagnose"
 USE_CASE = "use-case"
 VERIFICATION = "verification"
@@ -107,7 +107,7 @@ def run_route(parsed) -> int:
 
 def build_parser() -> argparse.ArgumentParser:
     """Build the whole command surface, one parser per route."""
-    parser = CommandParser(prog=PRODUCT, description="Evorthon Data command routes")
+    parser = CommandParser(prog=PRODUCT, description="Evorthon Data Harness command routes")
     commands = parser.add_subparsers(dest="command", required=True)
     commands.add_parser(DIAGNOSE, help="report the installed delivery capabilities")
     routes = commands.add_parser(USE_CASE, help="open, record, read and accept a use case")

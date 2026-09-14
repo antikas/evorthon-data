@@ -196,7 +196,7 @@ class FakeInstallation:
         if "-c" in command:
             return json.dumps(self.origin)
         if command[-1] == "diagnose":
-            return json.dumps({"product": "evorthon-data", "capabilities": self.capabilities})
+            return json.dumps({"product": "evorthon-data-harness", "capabilities": self.capabilities})
         return ""
 
     def record_for(self, name: str) -> dict:

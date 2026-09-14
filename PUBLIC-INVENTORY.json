@@ -9,16 +9,16 @@
       "sha256": "d60f352d0db1404c70afb4bb8b2ca3fd1c610572aa40720e8a0b7baa7885418c"
     },
     {
-      "path": ".github/agents/evorthon-data-builder.agent.md",
-      "sha256": "161473fd83cf1c407bd402b5eaada30dd9d7cf684c29a8e75f2f1aeeefa68a85"
+      "path": ".github/agents/evorthon-data-harness-builder.agent.md",
+      "sha256": "721ac71cd4b2bf44403faa5e3047d3b960a337f5a7df8c8973b5635ce8c65046"
     },
     {
-      "path": ".github/agents/evorthon-data-reviewer.agent.md",
-      "sha256": "97ca123c375a0f0946fbddff44694c8bd523639b6a46283a4cae4858d0b68ff2"
+      "path": ".github/agents/evorthon-data-harness-reviewer.agent.md",
+      "sha256": "c880df1a337adca2263c8fdbe8e479de083909662a138eafe73f1def5cfa88ee"
     },
     {
       "path": ".github/copilot-instructions.md",
-      "sha256": "8a0d2a3af530cf4fa4bd5cfa956b5408b10ca72e8096e6f6fc464d391657079d"
+      "sha256": "a298748c00a19b028003d3e09bbc0577ec1bd615329df8c025e1e1c028b4f4b4"
     },
     {
       "path": ".github/prompts/autobuild-approved-item.prompt.md",
@@ -146,7 +146,7 @@
     },
     {
       "path": ".github/workflows/release.yml",
-      "sha256": "5f63eb968d2d70cc944306401e986f3a416934ca3cff577a3c67ff8f7346d710"
+      "sha256": "16624f9dc1a3135d713dd5c615a744f8ae627a38b361fb9519da9482b4e6ff69"
     },
     {
       "path": ".gitignore",
@@ -154,11 +154,11 @@
     },
     {
       "path": "ADOPTION-GUIDE.md",
-      "sha256": "ae8b800fbd125aaa983952353bd2e92f3c2afdb906e5156e3bee515eb148e113"
+      "sha256": "12775e17f68fa95e122b1c9ca6dcf5deaaca74f394345c66031a1dd5470bbbde"
     },
     {
       "path": "AGENTS.md",
-      "sha256": "4259efcb9b4c13143a24545247b2f8518f9746272e6148c3d80521ab95582b86"
+      "sha256": "9b26dcbe730562aa95f225391b7696b773902d6a6050082872911505e36e2524"
     },
     {
       "path": "LICENSE",
@@ -174,7 +174,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "df125cd2d9afbc887f963c21687e226ee545a171eb35a83b011864e938f824bd"
+      "sha256": "8097591a4b5ef789e58b946aeaf62b1f9e630f643b07fe035fb796013a68412f"
     },
     {
       "path": "SKILL-CATALOGUE.md",
@@ -238,7 +238,7 @@
     },
     {
       "path": "docs/architecture/solution-architecture.md",
-      "sha256": "e24708e0945d300a06c7699eb8b2756953e495d84e61977cf81ba492a40feb28"
+      "sha256": "b3e58b658af16b6b43927c6cd84f1482ddc2753d37578bae5505d06a0b4a0699"
     },
     {
       "path": "docs/architecture/solution-architecture.svg",
@@ -246,7 +246,7 @@
     },
     {
       "path": "docs/dependency-contracts.md",
-      "sha256": "dae6374ce721c294707eac02787654f59b121b92608b3a3f4388daf9c99784bc"
+      "sha256": "eb1685f98d5ee5eeca5f938b111b77400016c3e01d37cdf32e7a245921e0b7ab"
     },
     {
       "path": "docs/product/INDEX.md",
@@ -254,7 +254,7 @@
     },
     {
       "path": "docs/product/capability-status.md",
-      "sha256": "a68da734da2a04250f665c59f768551b7d9abd9231a90fef953d0e0ff5fec611"
+      "sha256": "f76f782fff5358aae4e629fb08b13e5f3e6b35968d466d78982b4b4118398309"
     },
     {
       "path": "docs/product/incident-containment.md",
@@ -266,15 +266,15 @@
     },
     {
       "path": "docs/verification/README.md",
-      "sha256": "ad561c4a032daaaddd48fb522fb01ab1fa4e80f050d894fefc7a8fb6a9f5a1dc"
+      "sha256": "5d9043d31e76b0f47e3514a4b95c698cadcf7f73c5150cd7059a8e8d267a130d"
     },
     {
       "path": "docs/verification/environment-adapters.md",
-      "sha256": "fd7ab9eec7498dd80e111692cf068b8c9f9c1d770483761a6dfcda23a177cf79"
+      "sha256": "08b6c51ce70ec14d75ee2db08c161dfb357f9e30d5dd64f97666e7523e36908a"
     },
     {
       "path": "docs/verification/schemas/verification-domain.schema.json",
-      "sha256": "0f7abaee69db1a604be521d06090ab48047848efa472e9a28fc9d9ecb811ceff"
+      "sha256": "f8fd46ec6bc7239bab077e2ffb094a304694ed3616c524d8c90f89c19ac48441"
     },
     {
       "path": "docs/verification/schemas/verification-serialization.json",
@@ -370,7 +370,7 @@
     },
     {
       "path": "koine/method/overview.md",
-      "sha256": "719680f98718f88239bba04cb1a61a9cbbb916ee35eb5812005b8d9ec250d944"
+      "sha256": "087e7d4721b2c72da5be692987d068c1aae1ff061245d158aecdd63d7cb3c86a"
     },
     {
       "path": "koine/prompts/generators/advise-on-fault.md",
@@ -514,11 +514,11 @@
     },
     {
       "path": "pyproject.toml",
-      "sha256": "34ef69189b6da61820318bc1bc2bb3ae741bbee3f5c895ca0ac013cf214e6363"
+      "sha256": "522437b400d33e89b9b7d408592c123d4529d15a24eb5574b0bd147ac2f9509a"
     },
     {
       "path": "scripts/check_public_candidate.py",
-      "sha256": "03daf4597f4ae8d9c75b96c29712eae58902a0567cf67c9c360d61142ea52f64"
+      "sha256": "4001e3766ebf97f034ec751b0c6ba15b71b7a8e692c155da33c7383a14e2246f"
     },
     {
       "path": "scripts/check_readme_claim_registry.py",
@@ -530,15 +530,15 @@
     },
     {
       "path": "scripts/render_architecture.py",
-      "sha256": "a90451928ba7c563c575543a370f23b6cba0f69f62aaef968257c4262628c716"
+      "sha256": "15d805ec08c12a8f357e9c65c958a4c4847177455b4f19b1e1ba882fdc579baf"
     },
     {
       "path": "scripts/run_tests.py",
-      "sha256": "e32deea8d0bedc1c7cbd11751b1cf118a55a15b9bc9c4f39a4c8163c7aac3870"
+      "sha256": "b7426dfe5dce5fafca0b66bc9bb7e1f1f24ddf44c4bfdd0970b63d44692048f2"
     },
     {
       "path": "src/evorthon_data/__init__.py",
-      "sha256": "d9d062dd18a75f0061b9d1a9d55b81f2eda85ddec577c3ed361c662784b68b17"
+      "sha256": "3fb563e919ab12e5f519a4d4ca1bb0923e6dd888ee62d226a714adf15d444244"
     },
     {
       "path": "src/evorthon_data/boundary_patterns.py",
@@ -546,7 +546,7 @@
     },
     {
       "path": "src/evorthon_data/cli.py",
-      "sha256": "52752a7e92a41275fb6a30f71f498b0b5b616f2732b056e50653166969602b86"
+      "sha256": "31e914188fa8786771ec24c8a9e6d88efb7b5d115f6cc192a874644fbd85a4f4"
     },
     {
       "path": "src/evorthon_data/composition.py",
@@ -726,7 +726,7 @@
     },
     {
       "path": "src/evorthon_data/verification/enforcement/schema.py",
-      "sha256": "2aab9b393edd82dac2d86b51eb5ccb2824675587949cef1316ff298f0fbb2b7d"
+      "sha256": "fec07d1e8e6b596b100b77ffe1f1878a5e0dc7ccf1209f3990a1da598ed2b3e2"
     },
     {
       "path": "src/evorthon_data/verification/enforcement/serialization.py",
@@ -1154,7 +1154,7 @@
     },
     {
       "path": "tests/product/test_boundary_patterns.py",
-      "sha256": "0ec712205a26000ff41843861887abbf1cab8e5dd45cc92ab1bdec065a83ee8b"
+      "sha256": "02a832a36f23989051a34dffe03cf1f07e4673fb7ad3613d8fd66c9c6870ebba"
     },
     {
       "path": "tests/product/test_cli_remediation.py",
@@ -1178,11 +1178,11 @@
     },
     {
       "path": "tests/product/test_deep_harness.py",
-      "sha256": "ef76d1a8a8ccce060f47e3794bd74fcb4bdf7dc788f1810db4af1a7a33bed7c2"
+      "sha256": "4066beb77b0278eff390fc83a6069350596937da5239828686bbd4fd8a1d4c50"
     },
     {
       "path": "tests/product/test_dependencies_diagnose.py",
-      "sha256": "00254a492fdf5b8b8c9b7195a6cdc163fc35702f2f45480038716076ea9a48fe"
+      "sha256": "2445492327ca9905d762dab26a51f838065c0163fe744135f879e40b435b4f4d"
     },
     {
       "path": "tests/product/test_engagement_lifecycle.py",
@@ -1230,7 +1230,7 @@
     },
     {
       "path": "tests/product/test_readme_claim_registry.py",
-      "sha256": "9067bacd0d7238678b9a11268d149e92f5663a06e5cea3dc0173b00e530b0dea"
+      "sha256": "fb12caf6845ffcecea365d6fc33373f86d4fd8cd6d28e423cee758cf4578219e"
     },
     {
       "path": "tests/product/test_synthetic_generator.py",
@@ -1318,12 +1318,12 @@
     },
     {
       "path": "uv.lock",
-      "sha256": "3377315a5f772bef75aeea5e38ea27389259098684744ca68d09c98c6314ebb1"
+      "sha256": "35e25947de804deb45304334c3f231c3a0566711206c29fbf25d2316ad5ab2e3"
     }
   ],
   "inventory_self_exclusion": "The inventory is listed but excluded from its own file digest and tree digest.",
   "provisional": false,
   "schema": "evorthon.public-inventory.v2",
   "source_commit": "unknown",
-  "tree_digest": "9e2d88454f897c8e8ba8874a3bfb99cea45dfa66bc07f2be39bb0a36cbf64f4b"
+  "tree_digest": "7991321f3ef7fdd21156ece56d3476310afc7fc39b5b82f495baff32c97ce3ab"
 }

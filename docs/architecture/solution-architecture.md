@@ -1,4 +1,4 @@
-# Evorthon Data architecture
+# Evorthon Data Harness architecture
 
 Direction: `down`.
 

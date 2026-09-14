@@ -413,7 +413,7 @@ def test_the_drawing_namespace_is_allowed_only_where_the_scan_reads_shipped_text
 
 def test_a_secure_public_address_is_allowed_only_where_the_scan_reads_shipped_text(tmp_path):
     """The other half of the scan's first allowance: documentation links out."""
-    published = "https" + MARK + "//example.org/evorthon-data"
+    published = "https" + MARK + "//example.org/evorthon-data-harness"
 
     assert not scan_refuses(published, tmp_path)
     assert aggregate_refuses(published)

@@ -289,7 +289,7 @@ def test_shipped_diagnose_command_reports_dependency_capabilities(monkeypatch, c
     expected = {"pinax-tracker": {"installed": True, "version": "0.1.3"}}
     monkeypatch.setattr(cli, "installed_capabilities", lambda: expected)
     assert cli.main(["diagnose"]) == 0
-    assert json.loads(capsys.readouterr().out) == {"capabilities": expected, "product": "evorthon-data"}
+    assert json.loads(capsys.readouterr().out) == {"capabilities": expected, "product": "evorthon-data-harness"}
 
 
 def candidate_licence_text() -> str:

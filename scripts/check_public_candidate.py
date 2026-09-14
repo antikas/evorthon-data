@@ -95,7 +95,7 @@ def main() -> int:
         run([str(python), "-m", "pytest", "-q", "-p", "no:cacheprovider"], cwd=ROOT, env=env)
         wheel_dir = pathlib.Path(temporary) / "wheel"; wheel_dir.mkdir()
         run([uv, "build", "--native-tls", "--wheel", "--out-dir", str(wheel_dir)], cwd=ROOT, env=env)
-        wheel = next(wheel_dir.glob("evorthon_data-*.whl"))
+        wheel = next(wheel_dir.glob("evorthon_data_harness-*.whl"))
         with zipfile.ZipFile(wheel) as archive:
             metadata = next(name for name in archive.namelist() if name.endswith("METADATA"))
             licence = next(name for name in archive.namelist() if name.endswith("LICENSE"))
@@ -105,7 +105,7 @@ def main() -> int:
         run([uv, "venv", "--native-tls", "--seed", "--python", "3.11", str(install)], cwd=ROOT, env=env)
         install_python = install / ("Scripts/python.exe" if os.name == "nt" else "bin/python")
         run([uv, "pip", "install", "--native-tls", "--python", str(install_python), "--no-deps", str(wheel)], cwd=ROOT, env=env)
-        command_path = shutil.which("evorthon-data", path=str(install_python.parent))
+        command_path = shutil.which("evorthon-data-harness", path=str(install_python.parent))
         if not command_path:
             raise SystemExit("installed public entry point is not discoverable")
         run([command_path, "diagnose"], cwd=ROOT, env={**env, "PATH": str(install_python.parent) + os.pathsep + os.environ.get("PATH", "")})
